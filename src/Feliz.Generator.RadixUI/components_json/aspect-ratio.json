@@ -1,0 +1,43 @@
+{
+    "Name": "Aspect Ratio",
+    "Description": "Displays content within a desired ratio.",
+    "ImportCommand": "npm install @radix-ui/react-aspect-ratio",
+    "SubComponents": [
+        {
+            "Name": "Root",
+            "Description": "Contains the content you want to constrain to a given ratio.",
+            "Props": [
+                {
+                    "Name": "asChild",
+                    "Required": false,
+                    "Description": "Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.",
+                    "DataType": "bool"
+                },
+                {
+                    "Name": "ratio",
+                    "Required": false,
+                    "Description": "The desired ratio",
+                    "DataType": "number"
+                }
+            ]
+        },
+        {
+            "Name": "Root",
+            "Description": "Contains the content you want to constrain to a given ratio.",
+            "Props": [
+                {
+                    "Name": "asChild",
+                    "Required": false,
+                    "Description": "Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.",
+                    "DataType": "bool"
+                },
+                {
+                    "Name": "ratio",
+                    "Required": false,
+                    "Description": "The desired ratio",
+                    "DataType": "number"
+                }
+            ]
+        }
+    ]
+}

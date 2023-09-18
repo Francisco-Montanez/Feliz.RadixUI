@@ -27,12 +27,21 @@ let traverseElementsBetween (start: IWebElement) endElem (driver: WebDriver) =
         current <- js.ExecuteScript("return arguments[0].nextElementSibling;", current) :?> IWebElement
     List.rev elems
 
-let getApiReferenceElements driver =
-    let startElem = safeFindElement (By.XPath("//h2[@id='api-reference']")) driver |> Option.get
-    let endElem =
-        safeFindElement (By.XPath("//h2[@id='examples']")) driver |> Option.get
+let getExpectedSubcomponents (driver: IWebDriver) =
+    driver.FindElements(By.CssSelector("aside li[data-level='3'] a"))
+    |> Seq.map (fun elem -> elem.Text)
+    |> Seq.toList
 
-    traverseElementsBetween startElem endElem driver
+let getApiReferenceElements driver =
+    let expectedSubcomponents = getExpectedSubcomponents driver
+    let startElem = safeFindElement (By.XPath("//h2[@id='api-reference']")) driver |> Option.get
+    let js = driver :> IJavaScriptExecutor
+    let mutable elems = []
+    let mutable current = js.ExecuteScript("return arguments[0].nextElementSibling;", startElem) :?> IWebElement
+    while (current <> null) &&  (current.TagName.ToLower() <> "h2" || List.contains current.Text expectedSubcomponents) do
+        elems <- current :: elems
+        current <- js.ExecuteScript("return arguments[0].nextElementSibling;", current) :?> IWebElement
+    List.rev elems
 
 let groupElements (elements: IWebElement list) =
     let rec loop acc currentGroup (elements: IWebElement list) =
@@ -52,7 +61,7 @@ let waitForElement condition (driver: IWebDriver) timeoutSeconds =
     wait.Until(condition)
 
 let elementIsVisible (by: By) (driver: IWebDriver) =
-    let wait = WebDriverWait(driver, TimeSpan.FromSeconds(15.0))
+    let wait = WebDriverWait(driver, TimeSpan.FromSeconds(30.0))
     wait.Until(fun drv ->
         let element = drv.FindElement(by)
         element.Displayed)
@@ -87,6 +96,16 @@ let getSubComponentParts driver =
     |> getApiReferenceElements
     |> groupElements
 
+let elementToBeClickable (element: IWebElement) =
+    fun (driver: IWebDriver) ->
+        let elementDisplayed =
+            try
+                element.Displayed
+            with
+            | :? NoSuchElementException -> false
+        let elementEnabled = element.Enabled
+        elementDisplayed && elementEnabled
+
 let processSubComponentPropTable driver (parts: SubComponentParts) =
     parts.Props
     |> List.head
@@ -103,13 +122,14 @@ let processSubComponentPropTable driver (parts: SubComponentParts) =
 
             let propDescriptionButton = propNameSection.FindElement(By.TagName("button"))
             propDescriptionButton.Click()
-            waitForElement (elementIsVisible(By.CssSelector("div > div.radix-themes.rt-PopperContent.rt-PopoverContent.radix-themes-custom-fonts.rt-r-size-2"))) driver 15 |> ignore
+
+            waitForElement (elementIsVisible(By.CssSelector("div > div.radix-themes.rt-PopperContent.rt-PopoverContent.radix-themes-custom-fonts.rt-r-size-2"))) driver 30 |> ignore
 
             let propNameDescription = driver.FindElement(By.CssSelector("div > div.radix-themes.rt-PopperContent.rt-PopoverContent.radix-themes-custom-fonts.rt-r-size-2")).Text
 
             let propTypeDescriptionButton = propNameSection.FindElement(By.TagName("button"))
             propTypeDescriptionButton.Click()
-            waitForElement (invisibilityOfElementLocated(By.CssSelector("div > div.radix-themes.rt-PopperContent.rt-PopoverContent.radix-themes-custom-fonts.rt-r-size-2"))) driver 15 |> ignore
+            waitForElement (invisibilityOfElementLocated(By.CssSelector("div > div.radix-themes.rt-PopperContent.rt-PopoverContent.radix-themes-custom-fonts.rt-r-size-2"))) driver 30 |> ignore
 
             let propType = propTypeSection.FindElement(By.TagName("code")).Text
 
@@ -119,14 +139,14 @@ let processSubComponentPropTable driver (parts: SubComponentParts) =
                     let descriptionbutton = propTypeSection.FindElement(By.TagName("button"))
                     descriptionbutton.Click()
 
-                    waitForElement (elementIsVisible(By.CssSelector("div > div.radix-themes.rt-PopperContent.rt-PopoverContent > code"))) driver 15 |> ignore
+                    waitForElement (elementIsVisible(By.CssSelector("div > div.radix-themes.rt-PopperContent.rt-PopoverContent > code"))) driver 30 |> ignore
 
                     let value = driver.FindElement(By.CssSelector("div > div.radix-themes.rt-PopperContent.rt-PopoverContent > code")).Text
 
                     let descriptionbutton = propNameSection.FindElement(By.TagName("button"))
                     descriptionbutton.Click()
 
-                    waitForElement (invisibilityOfElementLocated(By.CssSelector("div > div.radix-themes.rt-PopperContent.rt-PopoverContent > code"))) driver 15 |> ignore
+                    waitForElement (invisibilityOfElementLocated(By.CssSelector("div > div.radix-themes.rt-PopperContent.rt-PopoverContent > code"))) driver 30 |> ignore
 
                     value
                 | "boolean" -> "bool"
