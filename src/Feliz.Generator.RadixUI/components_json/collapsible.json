@@ -1,0 +1,91 @@
+{
+    "Name": "Collapsible",
+    "Description": "An interactive component which expands/collapses a panel.",
+    "ImportCommand": "npm install @radix-ui/react-collapsible",
+    "SubComponents": [
+        {
+            "Name": "Root",
+            "Description": "Contains all the parts of a collapsible.",
+            "Props": [
+                {
+                    "Name": "asChild",
+                    "Required": false,
+                    "Description": "Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.",
+                    "DataType": "bool"
+                },
+                {
+                    "Name": "defaultOpen",
+                    "Required": false,
+                    "Description": "The open state of the collapsible when it is initially rendered. Use when you do not need to control its open state.",
+                    "DataType": "bool"
+                },
+                {
+                    "Name": "open",
+                    "Required": false,
+                    "Description": "The controlled open state of the collapsible. Must be used in conjunction with onOpenChange.",
+                    "DataType": "bool"
+                },
+                {
+                    "Name": "onOpenChange",
+                    "Required": false,
+                    "Description": "Event handler called when the open state of the collapsible changes.",
+                    "DataType": "(open: boolean) => void"
+                },
+                {
+                    "Name": "disabled",
+                    "Required": false,
+                    "Description": "Event handler called when the open state of the collapsible changes.",
+                    "DataType": "bool"
+                }
+            ]
+        },
+        {
+            "Name": "Trigger",
+            "Description": "The button that toggles the collapsible.",
+            "Props": [
+                {
+                    "Name": "asChild",
+                    "Required": false,
+                    "Description": "Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.",
+                    "DataType": "bool"
+                }
+            ]
+        },
+        {
+            "Name": "Content",
+            "Description": "The component that contains the collapsible content.",
+            "Props": [
+                {
+                    "Name": "asChild",
+                    "Required": false,
+                    "Description": "Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.",
+                    "DataType": "bool"
+                },
+                {
+                    "Name": "forceMount",
+                    "Required": false,
+                    "Description": "Used to force mounting when more control is needed. Useful when controlling animation with React animation libraries.",
+                    "DataType": "bool"
+                }
+            ]
+        },
+        {
+            "Name": "Content",
+            "Description": "The component that contains the collapsible content.",
+            "Props": [
+                {
+                    "Name": "asChild",
+                    "Required": false,
+                    "Description": "Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.",
+                    "DataType": "bool"
+                },
+                {
+                    "Name": "forceMount",
+                    "Required": false,
+                    "Description": "Used to force mounting when more control is needed. Useful when controlling animation with React animation libraries.",
+                    "DataType": "bool"
+                }
+            ]
+        }
+    ]
+}
