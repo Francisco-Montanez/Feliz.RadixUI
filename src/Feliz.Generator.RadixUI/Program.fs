@@ -13,7 +13,6 @@ type SubComponent = { Name: string; Description: string; Props: Prop list }
 
 type RadixComponent = { Name: string; Description: string; ImportCommand: string; SubComponents: SubComponent list }
 
-
 let safeFindElement by (element: ISearchContext) =
     try Some (element.FindElement(by))
     with | :? NoSuchElementException -> None
@@ -34,6 +33,7 @@ let getExpectedSubcomponents (driver: IWebDriver) =
 
 let getApiReferenceElements driver =
     let expectedSubcomponents = getExpectedSubcomponents driver
+    printfn "%A" expectedSubcomponents
     let startElem = safeFindElement (By.XPath("//h2[@id='api-reference']")) driver |> Option.get
     let js = driver :> IJavaScriptExecutor
     let mutable elems = []
@@ -121,14 +121,17 @@ let processSubComponentPropTable driver (parts: SubComponentParts) =
             let propName = propNameSection.FindElement(By.TagName("code")).Text
 
             let propDescriptionButton = propNameSection.FindElement(By.TagName("button"))
-            propDescriptionButton.Click()
+            if propDescriptionButton.Displayed && propDescriptionButton.Enabled then
+                propDescriptionButton.Click()
 
             waitForElement (elementIsVisible(By.CssSelector("div > div.radix-themes.rt-PopperContent.rt-PopoverContent.radix-themes-custom-fonts.rt-r-size-2"))) driver 30 |> ignore
 
             let propNameDescription = driver.FindElement(By.CssSelector("div > div.radix-themes.rt-PopperContent.rt-PopoverContent.radix-themes-custom-fonts.rt-r-size-2")).Text
 
             let propTypeDescriptionButton = propNameSection.FindElement(By.TagName("button"))
-            propTypeDescriptionButton.Click()
+            if propTypeDescriptionButton.Displayed && propTypeDescriptionButton.Enabled then
+                propTypeDescriptionButton.Click()
+
             waitForElement (invisibilityOfElementLocated(By.CssSelector("div > div.radix-themes.rt-PopperContent.rt-PopoverContent.radix-themes-custom-fonts.rt-r-size-2"))) driver 30 |> ignore
 
             let propType = propTypeSection.FindElement(By.TagName("code")).Text
@@ -137,14 +140,16 @@ let processSubComponentPropTable driver (parts: SubComponentParts) =
                 match propType with
                 | "function" | "enum" ->
                     let descriptionbutton = propTypeSection.FindElement(By.TagName("button"))
-                    descriptionbutton.Click()
+                    if descriptionbutton.Displayed && descriptionbutton.Enabled then
+                        descriptionbutton.Click()
 
                     waitForElement (elementIsVisible(By.CssSelector("div > div.radix-themes.rt-PopperContent.rt-PopoverContent > code"))) driver 30 |> ignore
 
                     let value = driver.FindElement(By.CssSelector("div > div.radix-themes.rt-PopperContent.rt-PopoverContent > code")).Text
 
                     let descriptionbutton = propNameSection.FindElement(By.TagName("button"))
-                    descriptionbutton.Click()
+                    if descriptionbutton.Displayed && descriptionbutton.Enabled then
+                        descriptionbutton.Click()
 
                     waitForElement (invisibilityOfElementLocated(By.CssSelector("div > div.radix-themes.rt-PopperContent.rt-PopoverContent > code"))) driver 30 |> ignore
 
@@ -160,15 +165,6 @@ let processSubComponentPropTable driver (parts: SubComponentParts) =
             }
         )
 
-let mkSubComponent driver (parts: SubComponentParts) =
-    printfn "processing subcomponent: %s" parts.Name
-
-    {
-        Name = parts.Name
-        Description = parts.Description
-        Props = processSubComponentPropTable driver parts
-    }
-
 let mkRadixComponent mainComponentName mainComponentDescription importCommand subComponents =
     {
         Name = mainComponentName
@@ -180,10 +176,25 @@ let mkRadixComponent mainComponentName mainComponentDescription importCommand su
 let getRadixComponent (driver: WebDriver) url =
     driver.Url <- url
 
+    let processedSubComponents = System.Collections.Generic.HashSet<string>()
+
+    let mkSubComponent driver (parts: SubComponentParts) =
+        if processedSubComponents.Contains(parts.Name) then
+            printfn "Skipping already processed subcomponent: %s" parts.Name
+            None
+        else
+            printfn "Processing subcomponent: %s" parts.Name
+            processedSubComponents.Add(parts.Name) |> ignore
+            Some {
+                Name = parts.Name
+                Description = parts.Description
+                Props = processSubComponentPropTable driver parts
+            }
+
     let mainComponentName = getMainComponentName driver
     let mainComponentDescription = getMainComponentDescription driver
     let importCommand = getImportCommand driver
-    let subComponents = getSubComponentParts driver |> List.map (mkSubComponent driver)
+    let subComponents = getSubComponentParts driver |> List.choose (mkSubComponent driver)
     mkRadixComponent mainComponentName mainComponentDescription importCommand subComponents
 
 let getValidComponentUrls () = async {
@@ -227,7 +238,6 @@ let getValidComponentUrls () = async {
         |> Seq.filter (fun url -> not (invalidUrls |> Seq.contains url))
         |> Seq.toList
 }
-
 
 [<EntryPoint>]
 let main _ =
