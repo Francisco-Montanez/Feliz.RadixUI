@@ -50,24 +50,6 @@
                     "DataType": "number"
                 }
             ]
-        },
-        {
-            "Name": "Fallback",
-            "Description": "An element that renders when the image hasn't loaded. This means whilst it's loading, or if there was an error. If you notice a flash during loading, you can provide a delayMs prop to delay its rendering so it only renders for those with slower connections. For more control, use the onLoadingStatusChange handler on Avatar.Image.",
-            "Props": [
-                {
-                    "Name": "asChild",
-                    "Required": false,
-                    "Description": "Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.",
-                    "DataType": "bool"
-                },
-                {
-                    "Name": "delayMs",
-                    "Required": false,
-                    "Description": "Useful for delaying rendering so it only appears for those with slower connections.",
-                    "DataType": "number"
-                }
-            ]
         }
     ]
 }

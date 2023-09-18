@@ -146,24 +146,6 @@
                     "DataType": "bool"
                 }
             ]
-        },
-        {
-            "Name": "Content",
-            "Description": "Contains the collapsible content for an item.",
-            "Props": [
-                {
-                    "Name": "asChild",
-                    "Required": false,
-                    "Description": "Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.",
-                    "DataType": "bool"
-                },
-                {
-                    "Name": "forceMount",
-                    "Required": false,
-                    "Description": "Used to force mounting when more control is needed. Useful when controlling animation with React animation libraries.",
-                    "DataType": "bool"
-                }
-            ]
         }
     ]
 }

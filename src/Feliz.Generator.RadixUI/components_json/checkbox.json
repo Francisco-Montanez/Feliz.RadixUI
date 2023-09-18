@@ -74,24 +74,6 @@
                     "DataType": "bool"
                 }
             ]
-        },
-        {
-            "Name": "Indicator",
-            "Description": "Renders when the checkbox is in a checked or indeterminate state. You can style this element directly, or you can use it as a wrapper to put an icon into, or both.",
-            "Props": [
-                {
-                    "Name": "asChild",
-                    "Required": false,
-                    "Description": "Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.",
-                    "DataType": "bool"
-                },
-                {
-                    "Name": "forceMount",
-                    "Required": false,
-                    "Description": "Used to force mounting when more control is needed. Useful when controlling animation with React animation libraries.",
-                    "DataType": "bool"
-                }
-            ]
         }
     ]
 }
