@@ -1,1 +1,541 @@
-{"Name":"Dropdown Menu","Description":"Displays a menu to the user—such as a set of actions or functions—triggered by a button.","ImportCommand":"npm install @radix-ui/react-dropdown-menu","SubComponents":[{"Name":"Root","Description":"Contains all the parts of a dropdown menu.","Props":[{"Name":"defaultOpen","Required":false,"Description":"The open state of the dropdown menu when it is initially rendered. Use when you do not need to control its open state.","DataType":"bool"},{"Name":"open","Required":false,"Description":"The controlled open state of the dropdown menu. Must be used in conjunction with onOpenChange.","DataType":"bool"},{"Name":"onOpenChange","Required":false,"Description":"Event handler called when the open state of the dropdown menu changes.","DataType":"(open: boolean) => void"},{"Name":"modal","Required":false,"Description":"Event handler called when the open state of the dropdown menu changes.","DataType":"bool"},{"Name":"dir","Required":false,"Description":"The reading direction of submenus when applicable. If omitted, inherits globally from DirectionProvider or assumes LTR (left-to-right) reading mode.","DataType":"\"ltr\" | \"rtl\""}]},{"Name":"Trigger","Description":"The button that toggles the dropdown menu. By default, the DropdownMenu.Content will position itself against the trigger.","Props":[{"Name":"asChild","Required":false,"Description":"The reading direction of submenus when applicable. If omitted, inherits globally from DirectionProvider or assumes LTR (left-to-right) reading mode.","DataType":"bool"}]},{"Name":"Portal","Description":"When used, portals the content part into the body.","Props":[{"Name":"forceMount","Required":false,"Description":"Used to force mounting when more control is needed. Useful when controlling animation with React animation libraries. If used on this part, it will be inherited by DropdownMenu.Content and DropdownMenu.SubContent respectively.","DataType":"bool"},{"Name":"container","Required":false,"Description":"Specify a container element to portal the content into.","DataType":"HTMLElement"}]},{"Name":"Content","Description":"The component that pops out when the dropdown menu is open.","Props":[{"Name":"asChild","Required":false,"Description":"Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.","DataType":"bool"},{"Name":"loop","Required":false,"Description":"When true, keyboard navigation will loop from last item to first, and vice versa.","DataType":"bool"},{"Name":"onCloseAutoFocus","Required":false,"Description":"Event handler called when focus moves to the trigger after closing. It can be prevented by calling event.preventDefault.","DataType":"(event: Event) => void"},{"Name":"onEscapeKeyDown","Required":false,"Description":"Event handler called when focus moves to the trigger after closing. It can be prevented by calling event.preventDefault.","DataType":"(event: KeyboardEvent) => void"},{"Name":"onPointerDownOutside","Required":false,"Description":"Event handler called when the escape key is down. It can be prevented by calling event.preventDefault","DataType":"(event: PointerDownOutsideEvent) => void"},{"Name":"onFocusOutside","Required":false,"Description":"Event handler called when a pointer event occurs outside the bounds of the component. It can be prevented by calling event.preventDefault.","DataType":"(event: FocusOutsideEvent) => void"},{"Name":"onInteractOutside","Required":false,"Description":"Event handler called when focus moves outside the bounds of the component. It can be prevented by calling event.preventDefault.","DataType":"(event: PointerDownOutsideEvent | FocusOutsideEvent) => void"},{"Name":"forceMount","Required":false,"Description":"Event handler called when an interaction (pointer or focus event) happens outside the bounds of the component. It can be prevented by calling event.preventDefault.","DataType":"bool"},{"Name":"side","Required":false,"Description":"The preferred side of the trigger to render against when open. Will be reversed when collisions occur and avoidCollisions is enabled.","DataType":"\"top\" | \"right\" | \"bottom\" | \"left\""},{"Name":"sideOffset","Required":false,"Description":"The preferred side of the trigger to render against when open. Will be reversed when collisions occur and avoidCollisions is enabled.","DataType":"number"},{"Name":"align","Required":false,"Description":"The preferred alignment against the trigger. May change when collisions occur.","DataType":"\"start\" | \"center\" | \"end\""},{"Name":"alignOffset","Required":false,"Description":"The preferred alignment against the trigger. May change when collisions occur.","DataType":"number"},{"Name":"avoidCollisions","Required":false,"Description":"When true, overrides the side andalign preferences to prevent collisions with boundary edges.","DataType":"bool"},{"Name":"collisionBoundary","Required":false,"Description":"The element used as the collision boundary. By default this is the viewport, though you can provide additional element(s) to be included in this check.","DataType":"Boundary"},{"Name":"collisionPadding","Required":false,"Description":"The distance in pixels from the boundary edges where collision detection should occur. Accepts a number (same for all sides), or a partial padding object, for example: { top: 20, left: 20 }.","DataType":"number | Padding"},{"Name":"arrowPadding","Required":false,"Description":"The padding between the arrow and the edges of the content. If your content has border-radius, this will prevent it from overflowing the corners.","DataType":"number"},{"Name":"sticky","Required":false,"Description":"The sticky behavior on the align axis. \"partial\" will keep the content in the boundary as long as the trigger is at least partially in the boundary whilst \"always\" will keep the content in the boundary regardless.","DataType":"\"partial\" | \"always\""},{"Name":"hideWhenDetached","Required":false,"Description":"The sticky behavior on the align axis. \"partial\" will keep the content in the boundary as long as the trigger is at least partially in the boundary whilst \"always\" will keep the content in the boundary regardless.","DataType":"bool"}]},{"Name":"Arrow","Description":"An optional arrow element to render alongside the dropdown menu. This can be used to help visually link the trigger with the DropdownMenu.Content. Must be rendered inside DropdownMenu.Content.","Props":[{"Name":"asChild","Required":false,"Description":"Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.","DataType":"bool"},{"Name":"width","Required":false,"Description":"The width of the arrow in pixels.","DataType":"number"},{"Name":"height","Required":false,"Description":"The height of the arrow in pixels.","DataType":"number"}]},{"Name":"Item","Description":"The component that contains the dropdown menu items.","Props":[{"Name":"asChild","Required":false,"Description":"Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.","DataType":"bool"},{"Name":"disabled","Required":false,"Description":"When true, prevents the user from interacting with the item.","DataType":"bool"},{"Name":"onSelect","Required":false,"Description":"Event handler called when the user selects an item (via mouse or keyboard). Calling event.preventDefault in this handler will prevent the dropdown menu from closing when selecting that item.","DataType":"(event: Event) => void"},{"Name":"textValue","Required":false,"Description":"Event handler called when the user selects an item (via mouse or keyboard). Calling event.preventDefault in this handler will prevent the dropdown menu from closing when selecting that item.","DataType":"string"}]},{"Name":"Group","Description":"Used to group multiple DropdownMenu.Items.","Props":[{"Name":"asChild","Required":false,"Description":"Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.","DataType":"bool"}]},{"Name":"Label","Description":"Used to render a label. It won't be focusable using arrow keys.","Props":[{"Name":"asChild","Required":false,"Description":"Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.","DataType":"bool"}]},{"Name":"CheckboxItem","Description":"An item that can be controlled and rendered like a checkbox.","Props":[{"Name":"asChild","Required":false,"Description":"Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.","DataType":"bool"},{"Name":"checked","Required":false,"Description":"The controlled checked state of the item. Must be used in conjunction with onCheckedChange.","DataType":"boolean | 'indeterminate'"},{"Name":"onCheckedChange","Required":false,"Description":"Event handler called when the checked state changes.","DataType":"(checked: boolean) => void"},{"Name":"disabled","Required":false,"Description":"Event handler called when the checked state changes.","DataType":"bool"},{"Name":"onSelect","Required":false,"Description":"Event handler called when the user selects an item (via mouse or keyboard). Calling event.preventDefault in this handler will prevent the dropdown menu from closing when selecting that item.","DataType":"(event: Event) => void"},{"Name":"textValue","Required":false,"Description":"Event handler called when the user selects an item (via mouse or keyboard). Calling event.preventDefault in this handler will prevent the dropdown menu from closing when selecting that item.","DataType":"string"}]},{"Name":"RadioGroup","Description":"Used to group multiple DropdownMenu.RadioItems.","Props":[{"Name":"asChild","Required":false,"Description":"Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.","DataType":"bool"},{"Name":"value","Required":false,"Description":"The value of the selected item in the group.","DataType":"string"},{"Name":"onValueChange","Required":false,"Description":"Event handler called when the value changes.","DataType":"(value: string) => void"}]},{"Name":"RadioItem","Description":"An item that can be controlled and rendered like a radio.","Props":[{"Name":"asChild","Required":false,"Description":"Event handler called when the value changes.","DataType":"bool"},{"Name":"value","Required":true,"Description":"The unique value of the item.","DataType":"string"},{"Name":"disabled","Required":false,"Description":"When true, prevents the user from interacting with the item.","DataType":"bool"},{"Name":"onSelect","Required":false,"Description":"Event handler called when the user selects an item (via mouse or keyboard). Calling event.preventDefault in this handler will prevent the dropdown menu from closing when selecting that item.","DataType":"(event: Event) => void"},{"Name":"textValue","Required":false,"Description":"Event handler called when the user selects an item (via mouse or keyboard). Calling event.preventDefault in this handler will prevent the dropdown menu from closing when selecting that item.","DataType":"string"}]},{"Name":"ItemIndicator","Description":"Renders when the parent DropdownMenu.CheckboxItem or DropdownMenu.RadioItem is checked. You can style this element directly, or you can use it as a wrapper to put an icon into, or both.","Props":[{"Name":"asChild","Required":false,"Description":"Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.","DataType":"bool"},{"Name":"forceMount","Required":false,"Description":"Used to force mounting when more control is needed. Useful when controlling animation with React animation libraries.","DataType":"bool"}]},{"Name":"Separator","Description":"Used to visually separate items in the dropdown menu.","Props":[{"Name":"asChild","Required":false,"Description":"Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.","DataType":"bool"}]},{"Name":"Sub","Description":"Contains all the parts of a submenu.","Props":[{"Name":"defaultOpen","Required":false,"Description":"The open state of the submenu when it is initially rendered. Use when you do not need to control its open state.","DataType":"bool"},{"Name":"open","Required":false,"Description":"The controlled open state of the submenu. Must be used in conjunction with onOpenChange.","DataType":"bool"},{"Name":"onOpenChange","Required":false,"Description":"Event handler called when the open state of the submenu changes.","DataType":"(open: boolean) => void"}]},{"Name":"SubTrigger","Description":"An item that opens a submenu. Must be rendered inside DropdownMenu.Sub.","Props":[{"Name":"asChild","Required":false,"Description":"Event handler called when the open state of the submenu changes.","DataType":"bool"},{"Name":"disabled","Required":false,"Description":"When true, prevents the user from interacting with the item.","DataType":"bool"},{"Name":"textValue","Required":false,"Description":"Optional text used for typeahead purposes. By default the typeahead behavior will use the .textContent of the item. Use this when the content is complex, or you have non-textual content inside.","DataType":"string"}]},{"Name":"SubContent","Description":"The component that pops out when a submenu is open. Must be rendered inside DropdownMenu.Sub.","Props":[{"Name":"asChild","Required":false,"Description":"Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.","DataType":"bool"},{"Name":"loop","Required":false,"Description":"When true, keyboard navigation will loop from last item to first, and vice versa.","DataType":"bool"},{"Name":"onEscapeKeyDown","Required":false,"Description":"Event handler called when the escape key is down. It can be prevented by calling event.preventDefault","DataType":"(event: KeyboardEvent) => void"},{"Name":"onPointerDownOutside","Required":false,"Description":"Event handler called when the escape key is down. It can be prevented by calling event.preventDefault","DataType":"(event: PointerDownOutsideEvent) => void"},{"Name":"onFocusOutside","Required":false,"Description":"Event handler called when a pointer event occurs outside the bounds of the component. It can be prevented by calling event.preventDefault.","DataType":"(event: FocusOutsideEvent) => void"},{"Name":"onInteractOutside","Required":false,"Description":"Event handler called when focus moves outside the bounds of the component. It can be prevented by calling event.preventDefault.","DataType":"(event: PointerDownOutsideEvent | FocusOutsideEvent) => void"},{"Name":"forceMount","Required":false,"Description":"Event handler called when an interaction (pointer or focus event) happens outside the bounds of the component. It can be prevented by calling event.preventDefault.","DataType":"bool"},{"Name":"sideOffset","Required":false,"Description":"The distance in pixels from the trigger.","DataType":"number"},{"Name":"alignOffset","Required":false,"Description":"An offset in pixels from the \"start\" or \"end\" alignment options.","DataType":"number"},{"Name":"avoidCollisions","Required":false,"Description":"When true, overrides the side andalign preferences to prevent collisions with boundary edges.","DataType":"bool"},{"Name":"collisionBoundary","Required":false,"Description":"The element used as the collision boundary. By default this is the viewport, though you can provide additional element(s) to be included in this check.","DataType":"Boundary"},{"Name":"collisionPadding","Required":false,"Description":"The distance in pixels from the boundary edges where collision detection should occur. Accepts a number (same for all sides), or a partial padding object, for example: { top: 20, left: 20 }.","DataType":"number | Padding"},{"Name":"arrowPadding","Required":false,"Description":"The padding between the arrow and the edges of the content. If your content has border-radius, this will prevent it from overflowing the corners.","DataType":"number"},{"Name":"sticky","Required":false,"Description":"The sticky behavior on the align axis. \"partial\" will keep the content in the boundary as long as the trigger is at least partially in the boundary whilst \"always\" will keep the content in the boundary regardless.","DataType":"\"partial\" | \"always\""},{"Name":"hideWhenDetached","Required":false,"Description":"The sticky behavior on the align axis. \"partial\" will keep the content in the boundary as long as the trigger is at least partially in the boundary whilst \"always\" will keep the content in the boundary regardless.","DataType":"bool"}]}]}
+{
+    "Name": "Dropdown Menu",
+    "Description": "Displays a menu to the user—such as a set of actions or functions—triggered by a button.",
+    "ImportCommand": "npm install @radix-ui/react-dropdown-menu",
+    "SubComponents": [
+        {
+            "Name": "Root",
+            "Description": "Contains all the parts of a dropdown menu.",
+            "Props": [
+                {
+                    "Name": "defaultOpen",
+                    "Required": false,
+                    "Description": "The open state of the dropdown menu when it is initially rendered. Use when you do not need to control its open state.",
+                    "DataType": "bool"
+                },
+                {
+                    "Name": "open",
+                    "Required": false,
+                    "Description": "The controlled open state of the dropdown menu. Must be used in conjunction with onOpenChange.",
+                    "DataType": "bool"
+                },
+                {
+                    "Name": "onOpenChange",
+                    "Required": false,
+                    "Description": "Event handler called when the open state of the dropdown menu changes.",
+                    "DataType": "(open: boolean) => void"
+                },
+                {
+                    "Name": "modal",
+                    "Required": false,
+                    "Description": "Event handler called when the open state of the dropdown menu changes.",
+                    "DataType": "bool"
+                },
+                {
+                    "Name": "dir",
+                    "Required": false,
+                    "Description": "The reading direction of submenus when applicable. If omitted, inherits globally from DirectionProvider or assumes LTR (left-to-right) reading mode.",
+                    "DataType": "\"ltr\" | \"rtl\""
+                }
+            ]
+        },
+        {
+            "Name": "Trigger",
+            "Description": "The button that toggles the dropdown menu. By default, the DropdownMenu.Content will position itself against the trigger.",
+            "Props": [
+                {
+                    "Name": "asChild",
+                    "Required": false,
+                    "Description": "The reading direction of submenus when applicable. If omitted, inherits globally from DirectionProvider or assumes LTR (left-to-right) reading mode.",
+                    "DataType": "bool"
+                }
+            ]
+        },
+        {
+            "Name": "Portal",
+            "Description": "When used, portals the content part into the body.",
+            "Props": [
+                {
+                    "Name": "forceMount",
+                    "Required": false,
+                    "Description": "Used to force mounting when more control is needed. Useful when controlling animation with React animation libraries. If used on this part, it will be inherited by DropdownMenu.Content and DropdownMenu.SubContent respectively.",
+                    "DataType": "bool"
+                },
+                {
+                    "Name": "container",
+                    "Required": false,
+                    "Description": "Specify a container element to portal the content into.",
+                    "DataType": "HTMLElement"
+                }
+            ]
+        },
+        {
+            "Name": "Content",
+            "Description": "The component that pops out when the dropdown menu is open.",
+            "Props": [
+                {
+                    "Name": "asChild",
+                    "Required": false,
+                    "Description": "Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.",
+                    "DataType": "bool"
+                },
+                {
+                    "Name": "loop",
+                    "Required": false,
+                    "Description": "When true, keyboard navigation will loop from last item to first, and vice versa.",
+                    "DataType": "bool"
+                },
+                {
+                    "Name": "onCloseAutoFocus",
+                    "Required": false,
+                    "Description": "Event handler called when focus moves to the trigger after closing. It can be prevented by calling event.preventDefault.",
+                    "DataType": "(event: Event) => void"
+                },
+                {
+                    "Name": "onEscapeKeyDown",
+                    "Required": false,
+                    "Description": "Event handler called when focus moves to the trigger after closing. It can be prevented by calling event.preventDefault.",
+                    "DataType": "(event: KeyboardEvent) => void"
+                },
+                {
+                    "Name": "onPointerDownOutside",
+                    "Required": false,
+                    "Description": "Event handler called when the escape key is down. It can be prevented by calling event.preventDefault",
+                    "DataType": "(event: PointerDownOutsideEvent) => void"
+                },
+                {
+                    "Name": "onFocusOutside",
+                    "Required": false,
+                    "Description": "Event handler called when a pointer event occurs outside the bounds of the component. It can be prevented by calling event.preventDefault.",
+                    "DataType": "(event: FocusOutsideEvent) => void"
+                },
+                {
+                    "Name": "onInteractOutside",
+                    "Required": false,
+                    "Description": "Event handler called when focus moves outside the bounds of the component. It can be prevented by calling event.preventDefault.",
+                    "DataType": "(event: PointerDownOutsideEvent | FocusOutsideEvent) => void"
+                },
+                {
+                    "Name": "forceMount",
+                    "Required": false,
+                    "Description": "Event handler called when an interaction (pointer or focus event) happens outside the bounds of the component. It can be prevented by calling event.preventDefault.",
+                    "DataType": "bool"
+                },
+                {
+                    "Name": "side",
+                    "Required": false,
+                    "Description": "The preferred side of the trigger to render against when open. Will be reversed when collisions occur and avoidCollisions is enabled.",
+                    "DataType": "\"top\" | \"right\" | \"bottom\" | \"left\""
+                },
+                {
+                    "Name": "sideOffset",
+                    "Required": false,
+                    "Description": "The preferred side of the trigger to render against when open. Will be reversed when collisions occur and avoidCollisions is enabled.",
+                    "DataType": "number"
+                },
+                {
+                    "Name": "align",
+                    "Required": false,
+                    "Description": "The preferred alignment against the trigger. May change when collisions occur.",
+                    "DataType": "\"start\" | \"center\" | \"end\""
+                },
+                {
+                    "Name": "alignOffset",
+                    "Required": false,
+                    "Description": "The preferred alignment against the trigger. May change when collisions occur.",
+                    "DataType": "number"
+                },
+                {
+                    "Name": "avoidCollisions",
+                    "Required": false,
+                    "Description": "When true, overrides the side andalign preferences to prevent collisions with boundary edges.",
+                    "DataType": "bool"
+                },
+                {
+                    "Name": "collisionBoundary",
+                    "Required": false,
+                    "Description": "The element used as the collision boundary. By default this is the viewport, though you can provide additional element(s) to be included in this check.",
+                    "DataType": "Boundary"
+                },
+                {
+                    "Name": "collisionPadding",
+                    "Required": false,
+                    "Description": "The distance in pixels from the boundary edges where collision detection should occur. Accepts a number (same for all sides), or a partial padding object, for example: { top: 20, left: 20 }.",
+                    "DataType": "number | Padding"
+                },
+                {
+                    "Name": "arrowPadding",
+                    "Required": false,
+                    "Description": "The padding between the arrow and the edges of the content. If your content has border-radius, this will prevent it from overflowing the corners.",
+                    "DataType": "number"
+                },
+                {
+                    "Name": "sticky",
+                    "Required": false,
+                    "Description": "The sticky behavior on the align axis. \"partial\" will keep the content in the boundary as long as the trigger is at least partially in the boundary whilst \"always\" will keep the content in the boundary regardless.",
+                    "DataType": "\"partial\" | \"always\""
+                },
+                {
+                    "Name": "hideWhenDetached",
+                    "Required": false,
+                    "Description": "The sticky behavior on the align axis. \"partial\" will keep the content in the boundary as long as the trigger is at least partially in the boundary whilst \"always\" will keep the content in the boundary regardless.",
+                    "DataType": "bool"
+                }
+            ]
+        },
+        {
+            "Name": "Arrow",
+            "Description": "An optional arrow element to render alongside the dropdown menu. This can be used to help visually link the trigger with the DropdownMenu.Content. Must be rendered inside DropdownMenu.Content.",
+            "Props": [
+                {
+                    "Name": "asChild",
+                    "Required": false,
+                    "Description": "Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.",
+                    "DataType": "bool"
+                },
+                {
+                    "Name": "width",
+                    "Required": false,
+                    "Description": "The width of the arrow in pixels.",
+                    "DataType": "number"
+                },
+                {
+                    "Name": "height",
+                    "Required": false,
+                    "Description": "The height of the arrow in pixels.",
+                    "DataType": "number"
+                }
+            ]
+        },
+        {
+            "Name": "Item",
+            "Description": "The component that contains the dropdown menu items.",
+            "Props": [
+                {
+                    "Name": "asChild",
+                    "Required": false,
+                    "Description": "Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.",
+                    "DataType": "bool"
+                },
+                {
+                    "Name": "disabled",
+                    "Required": false,
+                    "Description": "When true, prevents the user from interacting with the item.",
+                    "DataType": "bool"
+                },
+                {
+                    "Name": "onSelect",
+                    "Required": false,
+                    "Description": "Event handler called when the user selects an item (via mouse or keyboard). Calling event.preventDefault in this handler will prevent the dropdown menu from closing when selecting that item.",
+                    "DataType": "(event: Event) => void"
+                },
+                {
+                    "Name": "textValue",
+                    "Required": false,
+                    "Description": "Event handler called when the user selects an item (via mouse or keyboard). Calling event.preventDefault in this handler will prevent the dropdown menu from closing when selecting that item.",
+                    "DataType": "string"
+                }
+            ]
+        },
+        {
+            "Name": "Group",
+            "Description": "Used to group multiple DropdownMenu.Items.",
+            "Props": [
+                {
+                    "Name": "asChild",
+                    "Required": false,
+                    "Description": "Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.",
+                    "DataType": "bool"
+                }
+            ]
+        },
+        {
+            "Name": "Label",
+            "Description": "Used to render a label. It won't be focusable using arrow keys.",
+            "Props": [
+                {
+                    "Name": "asChild",
+                    "Required": false,
+                    "Description": "Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.",
+                    "DataType": "bool"
+                }
+            ]
+        },
+        {
+            "Name": "CheckboxItem",
+            "Description": "An item that can be controlled and rendered like a checkbox.",
+            "Props": [
+                {
+                    "Name": "asChild",
+                    "Required": false,
+                    "Description": "Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.",
+                    "DataType": "bool"
+                },
+                {
+                    "Name": "checked",
+                    "Required": false,
+                    "Description": "The controlled checked state of the item. Must be used in conjunction with onCheckedChange.",
+                    "DataType": "boolean | 'indeterminate'"
+                },
+                {
+                    "Name": "onCheckedChange",
+                    "Required": false,
+                    "Description": "Event handler called when the checked state changes.",
+                    "DataType": "(checked: boolean) => void"
+                },
+                {
+                    "Name": "disabled",
+                    "Required": false,
+                    "Description": "Event handler called when the checked state changes.",
+                    "DataType": "bool"
+                },
+                {
+                    "Name": "onSelect",
+                    "Required": false,
+                    "Description": "Event handler called when the user selects an item (via mouse or keyboard). Calling event.preventDefault in this handler will prevent the dropdown menu from closing when selecting that item.",
+                    "DataType": "(event: Event) => void"
+                },
+                {
+                    "Name": "textValue",
+                    "Required": false,
+                    "Description": "Event handler called when the user selects an item (via mouse or keyboard). Calling event.preventDefault in this handler will prevent the dropdown menu from closing when selecting that item.",
+                    "DataType": "string"
+                }
+            ]
+        },
+        {
+            "Name": "RadioGroup",
+            "Description": "Used to group multiple DropdownMenu.RadioItems.",
+            "Props": [
+                {
+                    "Name": "asChild",
+                    "Required": false,
+                    "Description": "Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.",
+                    "DataType": "bool"
+                },
+                {
+                    "Name": "value",
+                    "Required": false,
+                    "Description": "The value of the selected item in the group.",
+                    "DataType": "string"
+                },
+                {
+                    "Name": "onValueChange",
+                    "Required": false,
+                    "Description": "Event handler called when the value changes.",
+                    "DataType": "(value: string) => void"
+                }
+            ]
+        },
+        {
+            "Name": "RadioItem",
+            "Description": "An item that can be controlled and rendered like a radio.",
+            "Props": [
+                {
+                    "Name": "asChild",
+                    "Required": false,
+                    "Description": "Event handler called when the value changes.",
+                    "DataType": "bool"
+                },
+                {
+                    "Name": "value",
+                    "Required": true,
+                    "Description": "The unique value of the item.",
+                    "DataType": "string"
+                },
+                {
+                    "Name": "disabled",
+                    "Required": false,
+                    "Description": "When true, prevents the user from interacting with the item.",
+                    "DataType": "bool"
+                },
+                {
+                    "Name": "onSelect",
+                    "Required": false,
+                    "Description": "Event handler called when the user selects an item (via mouse or keyboard). Calling event.preventDefault in this handler will prevent the dropdown menu from closing when selecting that item.",
+                    "DataType": "(event: Event) => void"
+                },
+                {
+                    "Name": "textValue",
+                    "Required": false,
+                    "Description": "Event handler called when the user selects an item (via mouse or keyboard). Calling event.preventDefault in this handler will prevent the dropdown menu from closing when selecting that item.",
+                    "DataType": "string"
+                }
+            ]
+        },
+        {
+            "Name": "ItemIndicator",
+            "Description": "Renders when the parent DropdownMenu.CheckboxItem or DropdownMenu.RadioItem is checked. You can style this element directly, or you can use it as a wrapper to put an icon into, or both.",
+            "Props": [
+                {
+                    "Name": "asChild",
+                    "Required": false,
+                    "Description": "Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.",
+                    "DataType": "bool"
+                },
+                {
+                    "Name": "forceMount",
+                    "Required": false,
+                    "Description": "Used to force mounting when more control is needed. Useful when controlling animation with React animation libraries.",
+                    "DataType": "bool"
+                }
+            ]
+        },
+        {
+            "Name": "Separator",
+            "Description": "Used to visually separate items in the dropdown menu.",
+            "Props": [
+                {
+                    "Name": "asChild",
+                    "Required": false,
+                    "Description": "Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.",
+                    "DataType": "bool"
+                }
+            ]
+        },
+        {
+            "Name": "Sub",
+            "Description": "Contains all the parts of a submenu.",
+            "Props": [
+                {
+                    "Name": "defaultOpen",
+                    "Required": false,
+                    "Description": "The open state of the submenu when it is initially rendered. Use when you do not need to control its open state.",
+                    "DataType": "bool"
+                },
+                {
+                    "Name": "open",
+                    "Required": false,
+                    "Description": "The controlled open state of the submenu. Must be used in conjunction with onOpenChange.",
+                    "DataType": "bool"
+                },
+                {
+                    "Name": "onOpenChange",
+                    "Required": false,
+                    "Description": "Event handler called when the open state of the submenu changes.",
+                    "DataType": "(open: boolean) => void"
+                }
+            ]
+        },
+        {
+            "Name": "SubTrigger",
+            "Description": "An item that opens a submenu. Must be rendered inside DropdownMenu.Sub.",
+            "Props": [
+                {
+                    "Name": "asChild",
+                    "Required": false,
+                    "Description": "Event handler called when the open state of the submenu changes.",
+                    "DataType": "bool"
+                },
+                {
+                    "Name": "disabled",
+                    "Required": false,
+                    "Description": "When true, prevents the user from interacting with the item.",
+                    "DataType": "bool"
+                },
+                {
+                    "Name": "textValue",
+                    "Required": false,
+                    "Description": "Optional text used for typeahead purposes. By default the typeahead behavior will use the .textContent of the item. Use this when the content is complex, or you have non-textual content inside.",
+                    "DataType": "string"
+                }
+            ]
+        },
+        {
+            "Name": "SubContent",
+            "Description": "The component that pops out when a submenu is open. Must be rendered inside DropdownMenu.Sub.",
+            "Props": [
+                {
+                    "Name": "asChild",
+                    "Required": false,
+                    "Description": "Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.",
+                    "DataType": "bool"
+                },
+                {
+                    "Name": "loop",
+                    "Required": false,
+                    "Description": "When true, keyboard navigation will loop from last item to first, and vice versa.",
+                    "DataType": "bool"
+                },
+                {
+                    "Name": "onEscapeKeyDown",
+                    "Required": false,
+                    "Description": "Event handler called when the escape key is down. It can be prevented by calling event.preventDefault",
+                    "DataType": "(event: KeyboardEvent) => void"
+                },
+                {
+                    "Name": "onPointerDownOutside",
+                    "Required": false,
+                    "Description": "Event handler called when the escape key is down. It can be prevented by calling event.preventDefault",
+                    "DataType": "(event: PointerDownOutsideEvent) => void"
+                },
+                {
+                    "Name": "onFocusOutside",
+                    "Required": false,
+                    "Description": "Event handler called when a pointer event occurs outside the bounds of the component. It can be prevented by calling event.preventDefault.",
+                    "DataType": "(event: FocusOutsideEvent) => void"
+                },
+                {
+                    "Name": "onInteractOutside",
+                    "Required": false,
+                    "Description": "Event handler called when focus moves outside the bounds of the component. It can be prevented by calling event.preventDefault.",
+                    "DataType": "(event: PointerDownOutsideEvent | FocusOutsideEvent) => void"
+                },
+                {
+                    "Name": "forceMount",
+                    "Required": false,
+                    "Description": "Event handler called when an interaction (pointer or focus event) happens outside the bounds of the component. It can be prevented by calling event.preventDefault.",
+                    "DataType": "bool"
+                },
+                {
+                    "Name": "sideOffset",
+                    "Required": false,
+                    "Description": "The distance in pixels from the trigger.",
+                    "DataType": "number"
+                },
+                {
+                    "Name": "alignOffset",
+                    "Required": false,
+                    "Description": "An offset in pixels from the \"start\" or \"end\" alignment options.",
+                    "DataType": "number"
+                },
+                {
+                    "Name": "avoidCollisions",
+                    "Required": false,
+                    "Description": "When true, overrides the side andalign preferences to prevent collisions with boundary edges.",
+                    "DataType": "bool"
+                },
+                {
+                    "Name": "collisionBoundary",
+                    "Required": false,
+                    "Description": "The element used as the collision boundary. By default this is the viewport, though you can provide additional element(s) to be included in this check.",
+                    "DataType": "Boundary"
+                },
+                {
+                    "Name": "collisionPadding",
+                    "Required": false,
+                    "Description": "The distance in pixels from the boundary edges where collision detection should occur. Accepts a number (same for all sides), or a partial padding object, for example: { top: 20, left: 20 }.",
+                    "DataType": "number | Padding"
+                },
+                {
+                    "Name": "arrowPadding",
+                    "Required": false,
+                    "Description": "The padding between the arrow and the edges of the content. If your content has border-radius, this will prevent it from overflowing the corners.",
+                    "DataType": "number"
+                },
+                {
+                    "Name": "sticky",
+                    "Required": false,
+                    "Description": "The sticky behavior on the align axis. \"partial\" will keep the content in the boundary as long as the trigger is at least partially in the boundary whilst \"always\" will keep the content in the boundary regardless.",
+                    "DataType": "\"partial\" | \"always\""
+                },
+                {
+                    "Name": "hideWhenDetached",
+                    "Required": false,
+                    "Description": "The sticky behavior on the align axis. \"partial\" will keep the content in the boundary as long as the trigger is at least partially in the boundary whilst \"always\" will keep the content in the boundary regardless.",
+                    "DataType": "bool"
+                }
+            ]
+        }
+    ]
+}
