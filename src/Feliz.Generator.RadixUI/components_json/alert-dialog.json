@@ -158,18 +158,6 @@
                     "DataType": "bool"
                 }
             ]
-        },
-        {
-            "Name": "Description",
-            "Description": "An accessible description to be announced when the dialog is opened. Alternatively, you can provide aria-describedby to AlertDialog.Content and exclude this component.",
-            "Props": [
-                {
-                    "Name": "asChild",
-                    "Required": false,
-                    "Description": "Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.",
-                    "DataType": "bool"
-                }
-            ]
         }
     ]
 }

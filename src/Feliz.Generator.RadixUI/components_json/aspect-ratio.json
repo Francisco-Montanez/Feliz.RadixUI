@@ -20,24 +20,6 @@
                     "DataType": "number"
                 }
             ]
-        },
-        {
-            "Name": "Root",
-            "Description": "Contains the content you want to constrain to a given ratio.",
-            "Props": [
-                {
-                    "Name": "asChild",
-                    "Required": false,
-                    "Description": "Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.",
-                    "DataType": "bool"
-                },
-                {
-                    "Name": "ratio",
-                    "Required": false,
-                    "Description": "The desired ratio",
-                    "DataType": "number"
-                }
-            ]
         }
     ]
 }
