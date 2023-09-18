@@ -1,1 +1,43 @@
-{"Name":"Toggle","Description":"A two-state button that can be either on or off.","ImportCommand":"npm install @radix-ui/react-toggle","SubComponents":[{"Name":"Root","Description":"The toggle.","Props":[{"Name":"asChild","Required":false,"Description":"Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.","DataType":"bool"},{"Name":"defaultPressed","Required":false,"Description":"The pressed state of the toggle when it is initially rendered. Use when you do not need to control its pressed state.","DataType":"bool"},{"Name":"pressed","Required":false,"Description":"The controlled pressed state of the toggle. Must be used in conjunction with onPressedChange.","DataType":"bool"},{"Name":"onPressedChange","Required":false,"Description":"Event handler called when the pressed state of the toggle changes.","DataType":"(pressed: boolean) => void"},{"Name":"disabled","Required":false,"Description":"Event handler called when the pressed state of the toggle changes.","DataType":"bool"}]}]}
+{
+    "Name": "Toggle",
+    "Description": "A two-state button that can be either on or off.",
+    "ImportCommand": "npm install @radix-ui/react-toggle",
+    "SubComponents": [
+        {
+            "Name": "Root",
+            "Description": "The toggle.",
+            "Props": [
+                {
+                    "Name": "asChild",
+                    "Required": false,
+                    "Description": "Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.",
+                    "DataType": "bool"
+                },
+                {
+                    "Name": "defaultPressed",
+                    "Required": false,
+                    "Description": "The pressed state of the toggle when it is initially rendered. Use when you do not need to control its pressed state.",
+                    "DataType": "bool"
+                },
+                {
+                    "Name": "pressed",
+                    "Required": false,
+                    "Description": "The controlled pressed state of the toggle. Must be used in conjunction with onPressedChange.",
+                    "DataType": "bool"
+                },
+                {
+                    "Name": "onPressedChange",
+                    "Required": false,
+                    "Description": "Event handler called when the pressed state of the toggle changes.",
+                    "DataType": "(pressed: boolean) => void"
+                },
+                {
+                    "Name": "disabled",
+                    "Required": false,
+                    "Description": "Event handler called when the pressed state of the toggle changes.",
+                    "DataType": "bool"
+                }
+            ]
+        }
+    ]
+}

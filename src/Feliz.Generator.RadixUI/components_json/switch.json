@@ -1,1 +1,73 @@
-{"Name":"Switch","Description":"A control that allows the user to toggle between checked and not checked.","ImportCommand":"npm install @radix-ui/react-switch","SubComponents":[{"Name":"Root","Description":"Contains all the parts of a switch. An input will also render when used within a form to ensure events propagate correctly.","Props":[{"Name":"asChild","Required":false,"Description":"Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.","DataType":"bool"},{"Name":"defaultChecked","Required":false,"Description":"The state of the switch when it is initially rendered. Use when you do not need to control its state.","DataType":"bool"},{"Name":"checked","Required":false,"Description":"The controlled state of the switch. Must be used in conjunction with onCheckedChange.","DataType":"bool"},{"Name":"onCheckedChange","Required":false,"Description":"Event handler called when the state of the switch changes.","DataType":"(checked: boolean) => void"},{"Name":"disabled","Required":false,"Description":"Event handler called when the state of the switch changes.","DataType":"bool"},{"Name":"required","Required":false,"Description":"When true, indicates that the user must check the switch before the owning form can be submitted.","DataType":"bool"},{"Name":"name","Required":false,"Description":"The name of the switch. Submitted with its owning form as part of a name/value pair.","DataType":"string"},{"Name":"value","Required":false,"Description":"The value given as data when submitted with a name.","DataType":"string"}]},{"Name":"Thumb","Description":"The thumb that is used to visually indicate whether the switch is on or off.","Props":[{"Name":"asChild","Required":false,"Description":"Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.","DataType":"bool"}]}]}
+{
+    "Name": "Switch",
+    "Description": "A control that allows the user to toggle between checked and not checked.",
+    "ImportCommand": "npm install @radix-ui/react-switch",
+    "SubComponents": [
+        {
+            "Name": "Root",
+            "Description": "Contains all the parts of a switch. An input will also render when used within a form to ensure events propagate correctly.",
+            "Props": [
+                {
+                    "Name": "asChild",
+                    "Required": false,
+                    "Description": "Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.",
+                    "DataType": "bool"
+                },
+                {
+                    "Name": "defaultChecked",
+                    "Required": false,
+                    "Description": "The state of the switch when it is initially rendered. Use when you do not need to control its state.",
+                    "DataType": "bool"
+                },
+                {
+                    "Name": "checked",
+                    "Required": false,
+                    "Description": "The controlled state of the switch. Must be used in conjunction with onCheckedChange.",
+                    "DataType": "bool"
+                },
+                {
+                    "Name": "onCheckedChange",
+                    "Required": false,
+                    "Description": "Event handler called when the state of the switch changes.",
+                    "DataType": "(checked: boolean) => void"
+                },
+                {
+                    "Name": "disabled",
+                    "Required": false,
+                    "Description": "Event handler called when the state of the switch changes.",
+                    "DataType": "bool"
+                },
+                {
+                    "Name": "required",
+                    "Required": false,
+                    "Description": "When true, indicates that the user must check the switch before the owning form can be submitted.",
+                    "DataType": "bool"
+                },
+                {
+                    "Name": "name",
+                    "Required": false,
+                    "Description": "The name of the switch. Submitted with its owning form as part of a name/value pair.",
+                    "DataType": "string"
+                },
+                {
+                    "Name": "value",
+                    "Required": false,
+                    "Description": "The value given as data when submitted with a name.",
+                    "DataType": "string"
+                }
+            ]
+        },
+        {
+            "Name": "Thumb",
+            "Description": "The thumb that is used to visually indicate whether the switch is on or off.",
+            "Props": [
+                {
+                    "Name": "asChild",
+                    "Required": false,
+                    "Description": "Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.",
+                    "DataType": "bool"
+                }
+            ]
+        }
+    ]
+}
