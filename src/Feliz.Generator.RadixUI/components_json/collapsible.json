@@ -1,7 +1,7 @@
 {
     "Name": "Collapsible",
     "Description": "An interactive component which expands/collapses a panel.",
-    "ImportCommand": "npm install @radix-ui/react-collapsible",
+    "ImportCommand": "@radix-ui/react-collapsible",
     "SubComponents": [
         {
             "Name": "Root",

@@ -1,7 +1,7 @@
 {
     "Name": "Slider",
     "Description": "An input where the user selects a value from within a given range.",
-    "ImportCommand": "npm install @radix-ui/react-slider",
+    "ImportCommand": "@radix-ui/react-slider",
     "SubComponents": [
         {
             "Name": "Root",

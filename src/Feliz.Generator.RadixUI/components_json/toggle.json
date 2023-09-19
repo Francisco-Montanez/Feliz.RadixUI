@@ -1,7 +1,7 @@
 {
     "Name": "Toggle",
     "Description": "A two-state button that can be either on or off.",
-    "ImportCommand": "npm install @radix-ui/react-toggle",
+    "ImportCommand": "@radix-ui/react-toggle",
     "SubComponents": [
         {
             "Name": "Root",

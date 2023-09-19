@@ -1,7 +1,7 @@
 {
     "Name": "Hover Card",
     "Description": "For sighted users to preview content available behind a link.",
-    "ImportCommand": "npm install @radix-ui/react-hover-card",
+    "ImportCommand": "@radix-ui/react-hover-card",
     "SubComponents": [
         {
             "Name": "Root",

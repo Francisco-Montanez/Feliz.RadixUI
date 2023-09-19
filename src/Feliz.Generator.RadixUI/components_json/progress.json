@@ -1,7 +1,7 @@
 {
     "Name": "Progress",
     "Description": "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
-    "ImportCommand": "npm install @radix-ui/react-progress",
+    "ImportCommand": "@radix-ui/react-progress",
     "SubComponents": [
         {
             "Name": "Root",

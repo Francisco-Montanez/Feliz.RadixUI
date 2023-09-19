@@ -1,7 +1,7 @@
 {
     "Name": "Select",
     "Description": "Displays a list of options for the user to pick from—triggered by a button.",
-    "ImportCommand": "npm install @radix-ui/react-select",
+    "ImportCommand": "@radix-ui/react-select",
     "SubComponents": [
         {
             "Name": "Root",

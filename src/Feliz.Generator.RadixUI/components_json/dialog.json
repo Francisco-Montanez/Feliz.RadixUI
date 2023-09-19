@@ -1,7 +1,7 @@
 {
     "Name": "Dialog",
     "Description": "A window overlaid on either the primary window or another dialog window, rendering the content underneath inert.",
-    "ImportCommand": "npm install @radix-ui/react-dialog",
+    "ImportCommand": "@radix-ui/react-dialog",
     "SubComponents": [
         {
             "Name": "Root",

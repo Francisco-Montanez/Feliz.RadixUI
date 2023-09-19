@@ -1,7 +1,7 @@
 {
     "Name": "Navigation Menu",
     "Description": "A collection of links for navigating websites.",
-    "ImportCommand": "npm install @radix-ui/react-navigation-menu",
+    "ImportCommand": "@radix-ui/react-navigation-menu",
     "SubComponents": [
         {
             "Name": "Root",

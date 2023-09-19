@@ -1,7 +1,7 @@
 {
     "Name": "Toast",
     "Description": "A succinct message that is displayed temporarily.",
-    "ImportCommand": "npm install @radix-ui/react-toast",
+    "ImportCommand": "@radix-ui/react-toast",
     "SubComponents": [
         {
             "Name": "Provider",

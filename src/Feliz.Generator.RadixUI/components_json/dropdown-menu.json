@@ -1,7 +1,7 @@
 {
     "Name": "Dropdown Menu",
     "Description": "Displays a menu to the user—such as a set of actions or functions—triggered by a button.",
-    "ImportCommand": "npm install @radix-ui/react-dropdown-menu",
+    "ImportCommand": "@radix-ui/react-dropdown-menu",
     "SubComponents": [
         {
             "Name": "Root",

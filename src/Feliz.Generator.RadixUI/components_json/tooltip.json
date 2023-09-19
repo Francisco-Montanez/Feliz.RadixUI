@@ -1,7 +1,7 @@
 {
     "Name": "Tooltip",
     "Description": "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
-    "ImportCommand": "npm install @radix-ui/react-tooltip",
+    "ImportCommand": "@radix-ui/react-tooltip",
     "SubComponents": [
         {
             "Name": "Provider",

@@ -1,7 +1,7 @@
 {
     "Name": "Accordion",
     "Description": "A vertically stacked set of interactive headings that each reveal an associated section of content.",
-    "ImportCommand": "npm install @radix-ui/react-accordion",
+    "ImportCommand": "@radix-ui/react-accordion",
     "SubComponents": [
         {
             "Name": "Root",

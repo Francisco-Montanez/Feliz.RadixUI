@@ -1,7 +1,7 @@
 {
     "Name": "Switch",
     "Description": "A control that allows the user to toggle between checked and not checked.",
-    "ImportCommand": "npm install @radix-ui/react-switch",
+    "ImportCommand": "@radix-ui/react-switch",
     "SubComponents": [
         {
             "Name": "Root",

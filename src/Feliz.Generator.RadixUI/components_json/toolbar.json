@@ -1,7 +1,7 @@
 {
     "Name": "Toolbar",
     "Description": "A container for grouping a set of controls, such as buttons, toggle groups or dropdown menus.",
-    "ImportCommand": "npm install @radix-ui/react-toolbar",
+    "ImportCommand": "@radix-ui/react-toolbar",
     "SubComponents": [
         {
             "Name": "Root",
