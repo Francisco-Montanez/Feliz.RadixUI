@@ -1,7 +1,7 @@
 {
     "Name": "Form",
     "Description": "Collect information from your users using validation rules.",
-    "ImportCommand": "npm install @radix-ui/react-form",
+    "ImportCommand": "@radix-ui/react-form",
     "SubComponents": [
         {
             "Name": "Root",

@@ -1,7 +1,7 @@
 {
     "Name": "Separator",
     "Description": "Visually or semantically separates content.",
-    "ImportCommand": "npm install @radix-ui/react-separator",
+    "ImportCommand": "@radix-ui/react-separator",
     "SubComponents": [
         {
             "Name": "Root",

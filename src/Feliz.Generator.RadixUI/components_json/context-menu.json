@@ -1,7 +1,7 @@
 {
     "Name": "Context Menu",
     "Description": "Displays a menu located at the pointer, triggered by a right-click or a long-press.",
-    "ImportCommand": "npm install @radix-ui/react-context-menu",
+    "ImportCommand": "@radix-ui/react-context-menu",
     "SubComponents": [
         {
             "Name": "Root",

@@ -1,7 +1,7 @@
 {
     "Name": "Scroll Area",
     "Description": "Augments native scroll functionality for custom, cross-browser styling.",
-    "ImportCommand": "npm install @radix-ui/react-scroll-area",
+    "ImportCommand": "@radix-ui/react-scroll-area",
     "SubComponents": [
         {
             "Name": "Root",

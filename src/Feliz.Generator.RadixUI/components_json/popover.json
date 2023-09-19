@@ -1,7 +1,7 @@
 {
     "Name": "Popover",
     "Description": "Displays rich content in a portal, triggered by a button.",
-    "ImportCommand": "npm install @radix-ui/react-popover",
+    "ImportCommand": "@radix-ui/react-popover",
     "SubComponents": [
         {
             "Name": "Root",

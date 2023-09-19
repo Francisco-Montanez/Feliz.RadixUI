@@ -1,7 +1,7 @@
 {
     "Name": "Aspect Ratio",
     "Description": "Displays content within a desired ratio.",
-    "ImportCommand": "npm install @radix-ui/react-aspect-ratio",
+    "ImportCommand": "@radix-ui/react-aspect-ratio",
     "SubComponents": [
         {
             "Name": "Root",

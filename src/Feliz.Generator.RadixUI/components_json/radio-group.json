@@ -1,7 +1,7 @@
 {
     "Name": "Radio Group",
     "Description": "A set of checkable buttons—known as radio buttons—where no more than one of the buttons can be checked at a time.",
-    "ImportCommand": "npm install @radix-ui/react-radio-group",
+    "ImportCommand": "@radix-ui/react-radio-group",
     "SubComponents": [
         {
             "Name": "Root",

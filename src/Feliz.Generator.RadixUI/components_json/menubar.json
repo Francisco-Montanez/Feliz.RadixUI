@@ -1,7 +1,7 @@
 {
     "Name": "Menu Bar",
     "Description": "A visually persistent menu common in desktop applications that provides quick access to a consistent set of commands.",
-    "ImportCommand": "npm install @radix-ui/react-menubar",
+    "ImportCommand": "@radix-ui/react-menubar",
     "SubComponents": [
         {
             "Name": "Root",

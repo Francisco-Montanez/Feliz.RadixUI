@@ -1,7 +1,7 @@
 {
     "Name": "Avatar",
     "Description": "An image element with a fallback for representing the user.",
-    "ImportCommand": "npm install @radix-ui/react-avatar",
+    "ImportCommand": "@radix-ui/react-avatar",
     "SubComponents": [
         {
             "Name": "Root",

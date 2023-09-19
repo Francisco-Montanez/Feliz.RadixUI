@@ -1,7 +1,7 @@
 {
     "Name": "Label",
     "Description": "Renders an accessible label associated with controls.",
-    "ImportCommand": "npm install @radix-ui/react-label",
+    "ImportCommand": "@radix-ui/react-label",
     "SubComponents": [
         {
             "Name": "Root",

@@ -1,7 +1,7 @@
 {
     "Name": "Alert Dialog",
     "Description": "A modal dialog that interrupts the user with important content and expects a response.",
-    "ImportCommand": "npm install @radix-ui/react-alert-dialog",
+    "ImportCommand": "@radix-ui/react-alert-dialog",
     "SubComponents": [
         {
             "Name": "Root",
