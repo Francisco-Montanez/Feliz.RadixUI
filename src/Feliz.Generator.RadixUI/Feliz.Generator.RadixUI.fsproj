@@ -6,11 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="Utils.fs" />
-    <Compile Include="HtmlCache.fs" />
-    <Compile Include="Domain.fs" />
-    <Compile Include="ApiParser.fs" />
-    <Compile Include="Render.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 
