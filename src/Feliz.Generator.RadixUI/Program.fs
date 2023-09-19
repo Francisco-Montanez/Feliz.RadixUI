@@ -17,15 +17,6 @@ let safeFindElement by (element: ISearchContext) =
     try Some (element.FindElement(by))
     with | :? NoSuchElementException -> None
 
-let traverseElementsBetween (start: IWebElement) endElem (driver: WebDriver) =
-    let js = driver :> IJavaScriptExecutor
-    let mutable elems = []
-    let mutable current = js.ExecuteScript("return arguments[0].nextElementSibling;", start) :?> IWebElement
-    while not (current = endElem) do
-        elems <- current :: elems
-        current <- js.ExecuteScript("return arguments[0].nextElementSibling;", current) :?> IWebElement
-    List.rev elems
-
 let getExpectedSubcomponents (driver: IWebDriver) =
     driver.FindElements(By.CssSelector("aside li[data-level='3'] a"))
     |> Seq.map (fun elem -> elem.Text)
@@ -91,20 +82,7 @@ let getImportCommand (driver: IWebDriver) =
     |> Option.map (fun e -> e.Text)
     |> Option.defaultValue ""
 
-let getSubComponentParts driver =
-    driver
-    |> getApiReferenceElements
-    |> groupElements
-
-let elementToBeClickable (element: IWebElement) =
-    fun (driver: IWebDriver) ->
-        let elementDisplayed =
-            try
-                element.Displayed
-            with
-            | :? NoSuchElementException -> false
-        let elementEnabled = element.Enabled
-        elementDisplayed && elementEnabled
+let getSubComponentParts = getApiReferenceElements >> groupElements
 
 let processSubComponentPropTable driver (parts: SubComponentParts) =
     parts.Props
@@ -165,18 +143,10 @@ let processSubComponentPropTable driver (parts: SubComponentParts) =
             }
         )
 
-let mkRadixComponent mainComponentName mainComponentDescription importCommand subComponents =
-    {
-        Name = mainComponentName
-        Description = mainComponentDescription
-        ImportCommand = importCommand
-        SubComponents = subComponents
-    }
-
 let getRadixComponent (driver: WebDriver) url =
     driver.Url <- url
 
-    let processedSubComponents = System.Collections.Generic.HashSet<string>()
+    let processedSubComponents = Collections.Generic.HashSet<string>()
 
     let mkSubComponent driver (parts: SubComponentParts) =
         if processedSubComponents.Contains(parts.Name) then
@@ -191,11 +161,12 @@ let getRadixComponent (driver: WebDriver) url =
                 Props = processSubComponentPropTable driver parts
             }
 
-    let mainComponentName = getMainComponentName driver
-    let mainComponentDescription = getMainComponentDescription driver
-    let importCommand = getImportCommand driver
-    let subComponents = getSubComponentParts driver |> List.choose (mkSubComponent driver)
-    mkRadixComponent mainComponentName mainComponentDescription importCommand subComponents
+    {
+        Name = getMainComponentName driver
+        Description = getMainComponentDescription driver
+        ImportCommand = getImportCommand driver |> fun s -> s.Replace("npm install ", "")
+        SubComponents = getSubComponentParts driver |> List.choose (mkSubComponent driver)
+    }
 
 let getValidComponentUrls () = async {
     let url = "https://www.radix-ui.com/primitives/docs/components/accordion"
@@ -239,10 +210,8 @@ let getValidComponentUrls () = async {
         |> Seq.toList
 }
 
-[<EntryPoint>]
-let main _ =
+let refresh () =
     async {
-
         let! validUrls =  getValidComponentUrls ()
 
         let options = ChromeOptions()
@@ -253,6 +222,7 @@ let main _ =
         let radixComponents =
             validUrls
             |> List.map (fun (url: string) ->
+
                 printfn "%A" url
                 let n = url.Split('/').[6]
                 printfn "Processing %s" n
@@ -262,6 +232,14 @@ let main _ =
             )
 
         driver.Quit()
+    }
+
+
+[<EntryPoint>]
+let main args =
+    async {
+        if args[0] = "--refresh" then
+            return! refresh()
 
         return 0
     }
