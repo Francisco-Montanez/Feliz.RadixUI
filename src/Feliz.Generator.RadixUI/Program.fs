@@ -1,4 +1,4 @@
-﻿
+
 open OpenQA.Selenium
 open OpenQA.Selenium.Chrome
 open OpenQA.Selenium.Support.UI
@@ -254,13 +254,59 @@ module RadixComponentData =
         |> Array.toList
 
 
+module Render =
+    open Utils
+
+    let renderComponent radixComponent =
+        [
+            $"/// {radixComponent.Description}"
+            $"type {radixComponent.Name |> removeSpaces |> lowerFirst} ="
+            for subComponent in radixComponent.SubComponents do
+                $"/// {subComponent.Description}" |> indent4
+                $"static member inline {subComponent.Name |> lowerFirst} (props: IReactProperty seq) = createElement (import \"{subComponent.Name}\" \"{radixComponent.ImportCommand}\")" |> indent4
+            ""
+            ""
+        ]
+        |> String.concat newline
+
+    let renderComponentProps radixComponent =
+        [
+            for subComponent in radixComponent.SubComponents do
+                $"/// {subComponent.Description}"
+                $"type {subComponent.Name |> removeSpaces |> lowerFirst} ="
+                for prop in subComponent.Props do
+                    $"/// {prop.Description}" |> indent4
+                    $"static member inline {prop.Name} (value: {prop.DataType}) = Feliz.Interop.mkAttr \"{prop.Name}\" value" |> indent4
+                ""
+                ""
+        ]
+        |> String.concat newline
+
+    let renderComponentPage radixComponent =
+        System.IO.File.WriteAllText($"../Feliz.RadixUI/{radixComponent.Name |> removeSpaces}.fs",
+            [
+                $"namespace Feliz.RadixUI.{radixComponent.Name |> removeSpaces}"
+                ""
+                "open Feliz"
+                "open Fable.Core"
+                "open Fable.Core.JsInterop"
+                ""
+                ""
+                renderComponent radixComponent
+                renderComponentProps radixComponent
+            ] |> String.concat newline)
+
 [<EntryPoint>]
 let main args =
     async {
-        if args[0] = "--refresh" then
-            return! RadixComponentData.refresh()
+        // if args[0] = "--refresh" then
+        //     return! RadixComponentData.refresh()
 
         let components = RadixComponentData.loadComponentsFromJson "components_json"
+
+        components
+        |> List.map Render.renderComponentPage
+        |> ignore
 
         return 0
     }
