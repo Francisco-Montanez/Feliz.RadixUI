@@ -292,10 +292,10 @@ module Render =
     let renderComponent radixComponent =
         [
             $"/// {radixComponent.Description}"
-            $"type {radixComponent.Name |> removeSpaces |> lowerFirst} ="
+            $"type {radixComponent.Name |> removeSpaces |> lowerFirst |> appendApostropheToReservedKeywords} ="
             for subComponent in radixComponent.SubComponents do
                 $"/// {subComponent.Description}" |> indent4
-                $"static member inline {subComponent.Name |> lowerFirst} (props: IReactProperty seq) = createElement (import \"{subComponent.Name}\" \"{radixComponent.ImportCommand}\")" |> indent4
+                $"static member inline {subComponent.Name |> lowerFirst |> appendApostropheToReservedKeywords} (props: IReactProperty seq) = createElement (import \"{subComponent.Name}\" \"{radixComponent.ImportCommand}\") props" |> indent4
             ""
             ""
         ]
@@ -305,10 +305,10 @@ module Render =
         [
             for subComponent in radixComponent.SubComponents do
                 $"/// {subComponent.Description}"
-                $"type {subComponent.Name |> removeSpaces |> lowerFirst} ="
+                $"type {subComponent.Name |> removeSpaces |> lowerFirst |> appendApostropheToReservedKeywords} ="
                 for prop in subComponent.Props do
                     $"/// {prop.Description}" |> indent4
-                    $"static member inline {prop.Name} (value: {prop.DataType}) = Feliz.Interop.mkAttr \"{prop.Name}\" value" |> indent4
+                    $"static member inline {prop.Name |> appendApostropheToReservedKeywords} (value: {prop.DataType}) = Feliz.Interop.mkAttr \"{prop.Name}\" value" |> indent4
                 ""
                 ""
         ]
@@ -322,11 +322,13 @@ module Render =
                 "open Feliz"
                 "open Fable.Core"
                 "open Fable.Core.JsInterop"
+                "open Feliz.RadixUI"
                 ""
                 ""
                 renderComponent radixComponent
                 renderComponentProps radixComponent
             ] |> String.concat newline)
+
 
 [<EntryPoint>]
 let main args =
