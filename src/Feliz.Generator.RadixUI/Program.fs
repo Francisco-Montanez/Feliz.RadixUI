@@ -1,3 +1,4 @@
+﻿module Feliz.RadixUI
 
 open OpenQA.Selenium
 open OpenQA.Selenium.Chrome
@@ -5,13 +6,43 @@ open OpenQA.Selenium.Support.UI
 open System
 open AngleSharp
 
-type SubComponentParts = { Name: string; Description: string; Props: IWebElement list }
+type SubComponentParts = { Name: string; Description: string; PropsTables: IWebElement list }
 
 type Prop = { Name: string; Required: bool; Description: string; DataType: string }
 
 type SubComponent = { Name: string; Description: string; Props: Prop list }
 
 type RadixComponent = { Name: string; Description: string; ImportCommand: string; SubComponents: SubComponent list }
+
+
+module Utils =
+    open System.Text.RegularExpressions
+
+    let prefix (prefix: string) s = prefix + s
+    let indent spacesPerLevel numLevels = prefix (String.replicate (numLevels * spacesPerLevel) " ")
+    let indent4 = indent 2 2
+    let indent8 = indent 2 4
+    let newline = "\n"
+    let lowerFirst s = if s = "" then s else s.Substring(0, 1).ToLower() + s.Substring 1
+    let replace (oldValue: string) (newValue: string) (s: string) = s.Replace(oldValue, newValue)
+    let capitalizeFirst (input: string) =
+        if System.String.IsNullOrEmpty(input) then input
+        else input.[0..0].ToUpper() + input.[1..]
+    let normalizeWhiteSpace (rawText : string) = Regex.Replace(rawText, @"\s+", " ")
+    let removeSpaces = replace " " ""
+    let replaceNewlinesWithSpaces = replace newline " "
+    let removeDash = replace "-" ""
+
+    let appendApostropheToReservedKeywords (name: string) =
+        let reserved = // F# reserved keywords
+            [
+                "checked"; "static"; "fixed"; "inline"; "default"; "component";
+                "inherit"; "open"; "type"; "true"; "false"; "in"; "end"; "global";
+                "list"; "as"; "base"; "begin"; "class"; "bool"; "int"; "member"; "lazy"
+            ]
+            |> Set.ofList
+
+        if reserved.Contains name then sprintf "%s'" name else name
 
 
 module SeleniumHelpers =
@@ -65,12 +96,12 @@ module RadixComponentScraping =
             | [] -> List.rev (currentGroup :: acc)
             | h3 :: p :: div :: rest when h3.TagName = "h3" && p.TagName = "p" && div.GetAttribute("class") = "rt-Box rt-r-my-4" ->
                 let currentGroup: SubComponentParts =
-                    { Name = h3.Text; Description = p.Text; Props = [div] }
+                    { Name = h3.Text; Description = p.Text; PropsTables = [div] }
                 loop (currentGroup :: acc) currentGroup rest
 
             | _ :: rest -> loop acc currentGroup rest
 
-        loop [] { Name = ""; Description = ""; Props = [] } elements
+        loop [] { Name = ""; Description = ""; PropsTables = [] } elements
 
     let getMainComponentName (driver: IWebDriver) =
         SeleniumHelpers.safeFindElement (By.XPath("//h1")) driver
@@ -92,7 +123,7 @@ module RadixComponentScraping =
     let getSubComponentParts = getApiReferenceElements >> groupElements
 
     let processSubComponentPropTable driver (parts: SubComponentParts) =
-        parts.Props
+        parts.PropsTables
         |> List.head
         |> fun e ->
             let rows =  e.FindElements(By.CssSelector("tr.rt-TableRow")) |> Seq.toList
@@ -145,7 +176,7 @@ module RadixComponentScraping =
                 {
                     Name = propName.Replace("*", "")
                     Required = propName.EndsWith("*")
-                    Description = propNameDescription.Replace("\n", " ")
+                    Description = propNameDescription.Replace(Utils.newline, " ")
                     DataType = propTypes
                 }
             )
@@ -178,47 +209,48 @@ module RadixComponentScraping =
 
 module RadixComponentData =
 
-    let private getValidComponentUrls () = async {
-        let url = "https://www.radix-ui.com/primitives/docs/components/accordion"
-        let className = "DocsNav_DocsNavItem__VrHf6"
-        let baseUri = new Uri(url)
-        let config = Configuration.Default.WithDefaultLoader()
-        let! document = Async.AwaitTask (BrowsingContext.New(config).OpenAsync(url))
-        let elements = document.QuerySelectorAll($"a.{className}")
+    let private getValidComponentUrls () = 
+        async {
+            let url = "https://www.radix-ui.com/primitives/docs/components/accordion"
+            let className = "DocsNav_DocsNavItem__VrHf6"
+            let baseUri = new Uri(url)
+            let config = Configuration.Default.WithDefaultLoader()
+            let! document = Async.AwaitTask (BrowsingContext.New(config).OpenAsync(url))
+            let elements = document.QuerySelectorAll($"a.{className}")
 
-        let invalidUrls =
-            [
-                "https://www.radix-ui.com/primitives/docs/utilities/accessible-icon"
-                "https://www.radix-ui.com/primitives/docs/utilities/direction-provider"
-                "https://www.radix-ui.com/primitives/docs/utilities/portal"
-                "https://www.radix-ui.com/primitives/docs/utilities/slot"
-                "https://www.radix-ui.com/primitives/docs/utilities/visually-hidden"
-                "https://www.radix-ui.com/primitives/docs/overview/introduction"
-                "https://www.radix-ui.com/primitives/docs/overview/getting-started"
-                "https://www.radix-ui.com/primitives/docs/overview/accessibility"
-                "https://www.radix-ui.com/primitives/docs/overview/releases"
-                "https://www.radix-ui.com/primitives/docs/guides/styling"
-                "https://www.radix-ui.com/primitives/docs/guides/animation"
-                "https://www.radix-ui.com/primitives/docs/guides/composition"
-                "https://www.radix-ui.com/primitives/docs/guides/server-side-rendering"
-            ]
+            let invalidUrls =
+                [
+                    "https://www.radix-ui.com/primitives/docs/utilities/accessible-icon"
+                    "https://www.radix-ui.com/primitives/docs/utilities/direction-provider"
+                    "https://www.radix-ui.com/primitives/docs/utilities/portal"
+                    "https://www.radix-ui.com/primitives/docs/utilities/slot"
+                    "https://www.radix-ui.com/primitives/docs/utilities/visually-hidden"
+                    "https://www.radix-ui.com/primitives/docs/overview/introduction"
+                    "https://www.radix-ui.com/primitives/docs/overview/getting-started"
+                    "https://www.radix-ui.com/primitives/docs/overview/accessibility"
+                    "https://www.radix-ui.com/primitives/docs/overview/releases"
+                    "https://www.radix-ui.com/primitives/docs/guides/styling"
+                    "https://www.radix-ui.com/primitives/docs/guides/animation"
+                    "https://www.radix-ui.com/primitives/docs/guides/composition"
+                    "https://www.radix-ui.com/primitives/docs/guides/server-side-rendering"
+                ]
 
-        return
-            elements
-            |> Seq.choose (fun element ->
-                match element.GetAttribute("href") with
-                | null ->
-                    printfn "Element does not have a href attribute."
-                    None
-                | href when element.QuerySelector("span[data-accent-color='yellow']") <> null ->
-                    printfn "Skipping deprecated component."
-                    None
-                | href ->
-                    let absoluteUri = new Uri(baseUri, href)
-                    Some absoluteUri.AbsoluteUri)
-            |> Seq.filter (fun url -> not (invalidUrls |> Seq.contains url))
-            |> Seq.toList
-    }
+            return
+                elements
+                |> Seq.choose (fun element ->
+                    match element.GetAttribute("href") with
+                    | null ->
+                        printfn "Element does not have a href attribute."
+                        None
+                    | href when element.QuerySelector("span[data-accent-color='yellow']") <> null ->
+                        printfn "Skipping deprecated component."
+                        None
+                    | href ->
+                        let absoluteUri = new Uri(baseUri, href)
+                        Some absoluteUri.AbsoluteUri)
+                |> Seq.filter (fun url -> not (invalidUrls |> Seq.contains url))
+                |> Seq.toList
+        }
 
     let refresh () =
         async {
