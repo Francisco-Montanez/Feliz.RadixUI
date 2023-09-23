@@ -1,0 +1,77 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Utilities.fs" />
+    <Compile Include="Radix.fs" />
+    <Compile Include="Accordion.fs" />
+    <Compile Include="AlertDialog.fs" />
+    <Compile Include="AspectRatio.fs" />
+    <Compile Include="Avatar.fs" />
+    <Compile Include="Checkbox.fs" />
+    <Compile Include="Collapsible.fs" />
+    <Compile Include="ContextMenu.fs" />
+    <Compile Include="Dialog.fs" />
+    <Compile Include="DropdownMenu.fs" />
+    <Compile Include="Form.fs" />
+    <Compile Include="HoverCard.fs" />
+    <Compile Include="Label.fs" />
+    <Compile Include="MenuBar.fs" />
+    <Compile Include="NavigationMenu.fs" />
+    <Compile Include="Popover.fs" />
+    <Compile Include="Progress.fs" />
+    <Compile Include="RadioGroup.fs" />
+    <Compile Include="ScrollArea.fs" />
+    <Compile Include="Select.fs" />
+    <Compile Include="Separator.fs" />
+    <Compile Include="Slider.fs" />
+    <Compile Include="Switch.fs" />
+    <Compile Include="Tabs.fs" />
+    <Compile Include="Toast.fs" />
+    <Compile Include="Toggle.fs" />
+    <Compile Include="ToggleGroup.fs" />
+    <Compile Include="Toolbar.fs" />
+    <Compile Include="Tooltip.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Fable.Core" Version="4.0.0" />
+    <PackageReference Include="Feliz" Version="2.6.0" />
+    <PackageReference Include="AngleSharp" Version="1.0.4" />
+    <PackageReference Include="Selenium.WebDriver" Version="4.11.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <NpmPackageVersion Include="@radix-ui/react-accordion" Version="1.0.4" />
+    <NpmPackageVersion Include="@radix-ui/react-alert-dialog" Version="1.0.4" />
+    <NpmPackageVersion Include="@radix-ui/react-aspect-ratio" Version="1.0.4" />
+    <NpmPackageVersion Include="@radix-ui/react-avatar" Version="1.0.4" />
+    <NpmPackageVersion Include="@radix-ui/react-checkbox" Version="1.0.4" />
+    <NpmPackageVersion Include="@radix-ui/react-collapsible" Version="1.0.4" />
+    <NpmPackageVersion Include="@radix-ui/react-context-menu" Version="1.0.4" />
+    <NpmPackageVersion Include="@radix-ui/react-dialog" Version="1.0.4" />
+    <NpmPackageVersion Include="@radix-ui/react-dropdown-menu" Version="1.0.4" />
+    <NpmPackageVersion Include="@radix-ui/react-form" Version="1.0.4" />
+    <NpmPackageVersion Include="@radix-ui/react-hover-card" Version="1.0.4" />
+    <NpmPackageVersion Include="@radix-ui/react-label" Version="1.0.4" />
+    <NpmPackageVersion Include="@radix-ui/react-menu-bar" Version="1.0.4" />
+    <NpmPackageVersion Include="@radix-ui/react-navigation-menu" Version="1.0.4" />
+    <NpmPackageVersion Include="@radix-ui/react-popover" Version="1.0.4" />
+    <NpmPackageVersion Include="@radix-ui/react-progress" Version="1.0.4" />
+    <NpmPackageVersion Include="@radix-ui/react-radio-group" Version="1.0.4" />
+    <NpmPackageVersion Include="@radix-ui/react-scroll-area" Version="1.0.4" />
+    <NpmPackageVersion Include="@radix-ui/react-select" Version="1.0.4" />
+    <NpmPackageVersion Include="@radix-ui/react-separator" Version="1.0.4" />
+    <NpmPackageVersion Include="@radix-ui/react-slider" Version="1.0.4" />
+    <NpmPackageVersion Include="@radix-ui/react-switch" Version="1.0.4" />
+    <NpmPackageVersion Include="@radix-ui/react-tabs" Version="1.0.4" />
+    <NpmPackageVersion Include="@radix-ui/react-toast" Version="1.0.4" />
+    <NpmPackageVersion Include="@radix-ui/react-toggle" Version="1.0.4" />
+    <NpmPackageVersion Include="@radix-ui/react-toggle-group" Version="1.0.4" />
+    <NpmPackageVersion Include="@radix-ui/react-toolbar" Version="1.0.4" />
+    <NpmPackageVersion Include="@radix-ui/react-tooltip" Version="1.0.4" />
+  </ItemGroup>
+</Project>
