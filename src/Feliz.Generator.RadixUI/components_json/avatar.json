@@ -2,54 +2,62 @@
     "Name": "Avatar",
     "Description": "An image element with a fallback for representing the user.",
     "ImportCommand": "@radix-ui/react-avatar",
-    "SubComponents": [
+    "SubComponentData": [
         {
             "Name": "Root",
             "Description": "Contains all the parts of an avatar.",
-            "Props": [
+            "PropData": [
                 {
                     "Name": "asChild",
                     "Required": false,
                     "Description": "Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.",
-                    "DataType": "bool"
+                    "PropType": "boolean",
+                    "PropTypeValue": "boolean"
                 }
-            ]
+            ],
+            "EnumData": []
         },
         {
             "Name": "Image",
             "Description": "The image to render. By default it will only render when it has loaded. You can use the onLoadingStatusChange handler if you need more control.",
-            "Props": [
+            "PropData": [
                 {
                     "Name": "asChild",
                     "Required": false,
                     "Description": "Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.",
-                    "DataType": "bool"
+                    "PropType": "boolean",
+                    "PropTypeValue": "boolean"
                 },
                 {
                     "Name": "onLoadingStatusChange",
                     "Required": false,
                     "Description": "A callback providing information about the loading status of the image. This is useful in case you want to control more precisely what to render as the image is loading.",
-                    "DataType": "(status: \"idle\" | \"loading\" | \"loaded\" | \"error\") => void"
+                    "PropType": "function",
+                    "PropTypeValue": "(status: \"idle\" | \"loading\" | \"loaded\" | \"error\") => void"
                 }
-            ]
+            ],
+            "EnumData": []
         },
         {
             "Name": "Fallback",
             "Description": "An element that renders when the image hasn't loaded. This means whilst it's loading, or if there was an error. If you notice a flash during loading, you can provide a delayMs prop to delay its rendering so it only renders for those with slower connections. For more control, use the onLoadingStatusChange handler on Avatar.Image.",
-            "Props": [
+            "PropData": [
                 {
                     "Name": "asChild",
                     "Required": false,
                     "Description": "A callback providing information about the loading status of the image. This is useful in case you want to control more precisely what to render as the image is loading.",
-                    "DataType": "bool"
+                    "PropType": "boolean",
+                    "PropTypeValue": "boolean"
                 },
                 {
                     "Name": "delayMs",
                     "Required": false,
                     "Description": "Useful for delaying rendering so it only appears for those with slower connections.",
-                    "DataType": "number"
+                    "PropType": "number",
+                    "PropTypeValue": "number"
                 }
-            ]
+            ],
+            "EnumData": []
         }
     ]
 }

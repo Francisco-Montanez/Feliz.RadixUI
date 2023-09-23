@@ -2,132 +2,154 @@
     "Name": "Slider",
     "Description": "An input where the user selects a value from within a given range.",
     "ImportCommand": "@radix-ui/react-slider",
-    "SubComponents": [
+    "SubComponentData": [
         {
             "Name": "Root",
             "Description": "Contains all the parts of a slider. It will render an input for each thumb when used within a form to ensure events propagate correctly.",
-            "Props": [
+            "PropData": [
                 {
                     "Name": "asChild",
                     "Required": false,
                     "Description": "Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.",
-                    "DataType": "bool"
+                    "PropType": "boolean",
+                    "PropTypeValue": "boolean"
                 },
                 {
                     "Name": "defaultValue",
                     "Required": false,
                     "Description": "The value of the slider when initially rendered. Use when you do not need to control the state of the slider.",
-                    "DataType": "number[]"
+                    "PropType": "number[]",
+                    "PropTypeValue": "number[]"
                 },
                 {
                     "Name": "value",
                     "Required": false,
                     "Description": "The controlled value of the slider. Must be used in conjunction with onValueChange.",
-                    "DataType": "number[]"
+                    "PropType": "number[]",
+                    "PropTypeValue": "number[]"
                 },
                 {
                     "Name": "onValueChange",
                     "Required": false,
                     "Description": "Event handler called when the value changes.",
-                    "DataType": "onValueChange?(value: number[]): void"
+                    "PropType": "function",
+                    "PropTypeValue": "onValueChange?(value: number[]): void"
                 },
                 {
                     "Name": "onValueCommit",
                     "Required": false,
                     "Description": "Event handler called when the value changes.",
-                    "DataType": "onValueCommit?(value: number[]): void"
+                    "PropType": "function",
+                    "PropTypeValue": "onValueCommit?(value: number[]): void"
                 },
                 {
                     "Name": "name",
                     "Required": false,
                     "Description": "Event handler called when the value changes at the end of an interaction. Useful when you only need to capture a final value e.g. to update a backend service.",
-                    "DataType": "string"
+                    "PropType": "string",
+                    "PropTypeValue": "string"
                 },
                 {
                     "Name": "disabled",
                     "Required": false,
                     "Description": "When true, prevents the user from interacting with the slider.",
-                    "DataType": "bool"
-                },
-                {
-                    "Name": "orientation",
-                    "Required": false,
-                    "Description": "The orientation of the slider.",
-                    "DataType": "\"horizontal\" | \"vertical\""
-                },
-                {
-                    "Name": "dir",
-                    "Required": false,
-                    "Description": "The orientation of the slider.",
-                    "DataType": "\"ltr\" | \"rtl\""
+                    "PropType": "boolean",
+                    "PropTypeValue": "boolean"
                 },
                 {
                     "Name": "inverted",
                     "Required": false,
                     "Description": "The reading direction of the slider. If omitted, inherits globally from DirectionProvider or assumes LTR (left-to-right) reading mode.",
-                    "DataType": "bool"
+                    "PropType": "boolean",
+                    "PropTypeValue": "boolean"
                 },
                 {
                     "Name": "min",
                     "Required": false,
                     "Description": "The minimum value for the range.",
-                    "DataType": "number"
+                    "PropType": "number",
+                    "PropTypeValue": "number"
                 },
                 {
                     "Name": "max",
                     "Required": false,
                     "Description": "The maximum value for the range.",
-                    "DataType": "number"
+                    "PropType": "number",
+                    "PropTypeValue": "number"
                 },
                 {
                     "Name": "step",
                     "Required": false,
                     "Description": "The stepping interval.",
-                    "DataType": "number"
+                    "PropType": "number",
+                    "PropTypeValue": "number"
                 },
                 {
                     "Name": "minStepsBetweenThumbs",
                     "Required": false,
                     "Description": "The minimum permitted steps between multiple thumbs.",
-                    "DataType": "number"
+                    "PropType": "number",
+                    "PropTypeValue": "number"
+                }
+            ],
+            "EnumData": [
+                {
+                    "Name": "orientation",
+                    "Required": false,
+                    "Description": "The orientation of the slider.",
+                    "PropType": "enum",
+                    "PropTypeValue": "\"horizontal\" | \"vertical\""
+                },
+                {
+                    "Name": "dir",
+                    "Required": false,
+                    "Description": "The orientation of the slider.",
+                    "PropType": "enum",
+                    "PropTypeValue": "\"ltr\" | \"rtl\""
                 }
             ]
         },
         {
             "Name": "Track",
             "Description": "The track that contains the Slider.Range.",
-            "Props": [
+            "PropData": [
                 {
                     "Name": "asChild",
                     "Required": false,
                     "Description": "Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.",
-                    "DataType": "bool"
+                    "PropType": "boolean",
+                    "PropTypeValue": "boolean"
                 }
-            ]
+            ],
+            "EnumData": []
         },
         {
             "Name": "Range",
             "Description": "The range part. Must live inside Slider.Track.",
-            "Props": [
+            "PropData": [
                 {
                     "Name": "asChild",
                     "Required": false,
                     "Description": "Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.",
-                    "DataType": "bool"
+                    "PropType": "boolean",
+                    "PropTypeValue": "boolean"
                 }
-            ]
+            ],
+            "EnumData": []
         },
         {
             "Name": "Thumb",
             "Description": "A draggable thumb. You can render multiple thumbs.",
-            "Props": [
+            "PropData": [
                 {
                     "Name": "asChild",
                     "Required": false,
                     "Description": "Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.",
-                    "DataType": "bool"
+                    "PropType": "boolean",
+                    "PropTypeValue": "boolean"
                 }
-            ]
+            ],
+            "EnumData": []
         }
     ]
 }
