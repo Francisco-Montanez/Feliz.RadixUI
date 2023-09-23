@@ -2,28 +2,33 @@
     "Name": "Separator",
     "Description": "Visually or semantically separates content.",
     "ImportCommand": "@radix-ui/react-separator",
-    "SubComponents": [
+    "SubComponentData": [
         {
             "Name": "Root",
             "Description": "The separator.",
-            "Props": [
+            "PropData": [
                 {
                     "Name": "asChild",
                     "Required": false,
                     "Description": "Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.",
-                    "DataType": "bool"
-                },
-                {
-                    "Name": "orientation",
-                    "Required": false,
-                    "Description": "The orientation of the separator.",
-                    "DataType": "\"horizontal\" | \"vertical\""
+                    "PropType": "boolean",
+                    "PropTypeValue": "boolean"
                 },
                 {
                     "Name": "decorative",
                     "Required": false,
                     "Description": "The orientation of the separator.",
-                    "DataType": "bool"
+                    "PropType": "boolean",
+                    "PropTypeValue": "boolean"
+                }
+            ],
+            "EnumData": [
+                {
+                    "Name": "orientation",
+                    "Required": false,
+                    "Description": "The orientation of the separator.",
+                    "PropType": "enum",
+                    "PropTypeValue": "\"horizontal\" | \"vertical\""
                 }
             ]
         }
