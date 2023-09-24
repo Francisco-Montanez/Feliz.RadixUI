@@ -202,19 +202,19 @@
                     "Required": false,
                     "Description": "The element used as the collision boundary. By default this is the viewport, though you can provide additional element(s) to be included in this check. Only available when position is set to popper.",
                     "PropType": "Boundary",
-                    "PropTypeValue": "Boundary"
+                    "PropTypeValue": "Element | null | Array<Element | null>"
                 },
                 {
                     "Name": "collisionPadding",
                     "Required": false,
-                    "Description": "The distance in pixels from the boundary edges where collision detection should occur. Accepts a number (same for all sides), or a partial padding object, for example: { top: 20, left: 20 }. Only available when position is set to popper.",
+                    "Description": "The element used as the collision boundary. By default this is the viewport, though you can provide additional element(s) to be included in this check. Only available when position is set to popper.",
                     "PropType": "number | Padding",
-                    "PropTypeValue": "number | Padding"
+                    "PropTypeValue": "number | Partial<Record<Side, number>>"
                 },
                 {
                     "Name": "arrowPadding",
                     "Required": false,
-                    "Description": "The padding between the arrow and the edges of the content. If your content has border-radius, this will prevent it from overflowing the corners. Only available when position is set to popper.",
+                    "Description": "The distance in pixels from the boundary edges where collision detection should occur. Accepts a number (same for all sides), or a partial padding object, for example: { top: 20, left: 20 }. Only available when position is set to popper.",
                     "PropType": "number",
                     "PropTypeValue": "number"
                 },
