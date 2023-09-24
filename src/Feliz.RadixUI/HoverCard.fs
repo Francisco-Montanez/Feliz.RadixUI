@@ -10,15 +10,15 @@ open Browser.Types
 /// For sighted users to preview content available behind a link.
 type [<Erase>] hoverCard =
     /// Contains all the parts of a hover card.
-    static member inline root (props: IReactProperty seq) = createElement (import "Hover Card" "@radix-ui/react-hover-card") props
+    static member inline root (props: IReactProperty seq) = createElement (import "HoverCard" "@radix-ui/react-hover-card") props
     /// The link that opens the hover card when hovered.
-    static member inline trigger (props: IReactProperty seq) = createElement (import "Hover CardTrigger" "@radix-ui/react-hover-card") props
+    static member inline trigger (props: IReactProperty seq) = createElement (import "HoverCardTrigger" "@radix-ui/react-hover-card") props
     /// When used, portals the content part into the body.
-    static member inline portal (props: IReactProperty seq) = createElement (import "Hover CardPortal" "@radix-ui/react-hover-card") props
+    static member inline portal (props: IReactProperty seq) = createElement (import "HoverCardPortal" "@radix-ui/react-hover-card") props
     /// The component that pops out when the hover card is open.
-    static member inline content (props: IReactProperty seq) = createElement (import "Hover CardContent" "@radix-ui/react-hover-card") props
+    static member inline content (props: IReactProperty seq) = createElement (import "HoverCardContent" "@radix-ui/react-hover-card") props
     /// An optional arrow element to render alongside the hover card. This can be used to help visually link the trigger with the HoverCard.Content. Must be rendered inside HoverCard.Content.
-    static member inline arrow (props: IReactProperty seq) = createElement (import "Hover CardArrow" "@radix-ui/react-hover-card") props
+    static member inline arrow (props: IReactProperty seq) = createElement (import "HoverCardArrow" "@radix-ui/react-hover-card") props
 
 
 /// Contains all the parts of a hover card.

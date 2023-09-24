@@ -464,7 +464,7 @@ module Render =
             for subComponent in radixComponent.SubComponents do
                 let importName = if subComponent.Name = "Root" then radixComponent.Name else radixComponent.Name+subComponent.Name
                 $"/// {subComponent.Description}" |> indent4
-                $"static member inline {subComponent.Name |> lowerFirst |> appendApostropheToReservedKeywords} (props: IReactProperty seq) = createElement (import \"{importName}\" \"{radixComponent.NpmPackage}\") props" |> indent4
+                $"static member inline {subComponent.Name |> lowerFirst |> appendApostropheToReservedKeywords} (props: IReactProperty seq) = createElement (import \"{importName |> removeSpaces}\" \"{radixComponent.NpmPackage}\") props" |> indent4
             ""
             ""
         ]

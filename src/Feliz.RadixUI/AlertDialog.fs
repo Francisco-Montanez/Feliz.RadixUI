@@ -10,23 +10,23 @@ open Browser.Types
 /// A modal dialog that interrupts the user with important content and expects a response.
 type [<Erase>] alertDialog =
     /// Contains all the parts of an alert dialog.
-    static member inline root (props: IReactProperty seq) = createElement (import "Alert Dialog" "@radix-ui/react-alert-dialog") props
+    static member inline root (props: IReactProperty seq) = createElement (import "AlertDialog" "@radix-ui/react-alert-dialog") props
     /// A button that opens the dialog.
-    static member inline trigger (props: IReactProperty seq) = createElement (import "Alert DialogTrigger" "@radix-ui/react-alert-dialog") props
+    static member inline trigger (props: IReactProperty seq) = createElement (import "AlertDialogTrigger" "@radix-ui/react-alert-dialog") props
     /// When used, portals your overlay and content parts into the body.
-    static member inline portal (props: IReactProperty seq) = createElement (import "Alert DialogPortal" "@radix-ui/react-alert-dialog") props
+    static member inline portal (props: IReactProperty seq) = createElement (import "AlertDialogPortal" "@radix-ui/react-alert-dialog") props
     /// A layer that covers the inert portion of the view when the dialog is open.
-    static member inline overlay (props: IReactProperty seq) = createElement (import "Alert DialogOverlay" "@radix-ui/react-alert-dialog") props
+    static member inline overlay (props: IReactProperty seq) = createElement (import "AlertDialogOverlay" "@radix-ui/react-alert-dialog") props
     /// Contains content to be rendered when the dialog is open.
-    static member inline content (props: IReactProperty seq) = createElement (import "Alert DialogContent" "@radix-ui/react-alert-dialog") props
+    static member inline content (props: IReactProperty seq) = createElement (import "AlertDialogContent" "@radix-ui/react-alert-dialog") props
     /// A button that closes the dialog. This button should be distinguished visually from AlertDialog.Action buttons.
-    static member inline cancel (props: IReactProperty seq) = createElement (import "Alert DialogCancel" "@radix-ui/react-alert-dialog") props
+    static member inline cancel (props: IReactProperty seq) = createElement (import "AlertDialogCancel" "@radix-ui/react-alert-dialog") props
     /// A button that closes the dialog. These buttons should be distinguished visually from the AlertDialog.Cancel button.
-    static member inline action (props: IReactProperty seq) = createElement (import "Alert DialogAction" "@radix-ui/react-alert-dialog") props
+    static member inline action (props: IReactProperty seq) = createElement (import "AlertDialogAction" "@radix-ui/react-alert-dialog") props
     /// An accessible name to be announced when the dialog is opened. Alternatively, you can provide aria-label or aria-labelledby to AlertDialog.Content and exclude this component.
-    static member inline title (props: IReactProperty seq) = createElement (import "Alert DialogTitle" "@radix-ui/react-alert-dialog") props
+    static member inline title (props: IReactProperty seq) = createElement (import "AlertDialogTitle" "@radix-ui/react-alert-dialog") props
     /// An accessible description to be announced when the dialog is opened. Alternatively, you can provide aria-describedby to AlertDialog.Content and exclude this component.
-    static member inline description (props: IReactProperty seq) = createElement (import "Alert DialogDescription" "@radix-ui/react-alert-dialog") props
+    static member inline description (props: IReactProperty seq) = createElement (import "AlertDialogDescription" "@radix-ui/react-alert-dialog") props
 
 
 /// Contains all the parts of an alert dialog.
