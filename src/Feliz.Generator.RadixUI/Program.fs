@@ -460,7 +460,7 @@ module Render =
     let renderComponent radixComponent =
         [
             $"/// {radixComponent.Description}"
-            $"type {radixComponent.Name |> removeSpaces |> lowerFirst |> appendApostropheToReservedKeywords} ="
+            $"type [<Erase>] {radixComponent.Name |> removeSpaces |> lowerFirst |> appendApostropheToReservedKeywords} ="
             for subComponent in radixComponent.SubComponents do
                 $"/// {subComponent.Description}" |> indent4
                 $"static member inline {subComponent.Name |> lowerFirst |> appendApostropheToReservedKeywords} (props: IReactProperty seq) = createElement (import \"{subComponent.Name}\" \"{radixComponent.NpmPackage}\") props" |> indent4
@@ -473,7 +473,7 @@ module Render =
         [
             for subComponent in radixComponent.SubComponents do
                 $"/// {subComponent.Description}"
-                $"type {subComponent.Name |> removeSpaces |> lowerFirst |> appendApostropheToReservedKeywords} ="
+                $"type [<Erase>] {subComponent.Name |> removeSpaces |> lowerFirst |> appendApostropheToReservedKeywords} ="
                 for prop in subComponent.Props do
                     for overload in prop.ParamOverloads do
                         $"/// {prop.Description}" |> indent4
@@ -484,9 +484,8 @@ module Render =
                     $"module {subComponent.Name |> removeSpaces |> lowerFirst |> appendApostropheToReservedKeywords} ="
                     ""
                     for enum in subComponent.Enums do
-                        $"type {enum.Name |> removeSpaces |> lowerFirst |> appendApostropheToReservedKeywords} =" |> indent4
+                        $"type [<Erase>] {enum.Name |> removeSpaces |> lowerFirst |> appendApostropheToReservedKeywords} =" |> indent4
                         for case in enum.Cases do
-                            "///" |> indent4 |> indent4
                             $"static member inline {case.Name |> fun s -> s.Trim('\"') |> removeSpaces |> lowerFirst |> appendApostropheToReservedKeywords} = Feliz.Interop.mkAttr \"{enum.Name}\" \"{(case.Value.Trim('\"'))}\"" |> indent4 |> indent4
                         ""
                 ""
