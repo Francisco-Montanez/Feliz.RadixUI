@@ -1,4 +1,4 @@
-﻿module Feliz.RadixUI
+module Feliz.RadixUI
 
 open OpenQA.Selenium
 open OpenQA.Selenium.Chrome
@@ -26,21 +26,13 @@ type RadixComponent = { Name: string; Description: string; NpmPackage: string; S
 
 
 module Utils =
-    open System.Text.RegularExpressions
-
     let prefix (prefix: string) s = prefix + s
     let indent spacesPerLevel numLevels = prefix (String.replicate (numLevels * spacesPerLevel) " ")
     let indent4 = indent 2 2
     let newline = "\n"
     let lowerFirst s = if s = "" then s else s.Substring(0, 1).ToLower() + s.Substring 1
     let replace (oldValue: string) (newValue: string) (s: string) = s.Replace(oldValue, newValue)
-    let capitalizeFirst (input: string) =
-        if String.IsNullOrEmpty(input) then input
-        else input.[0..0].ToUpper() + input.[1..]
-    let normalizeWhiteSpace (rawText : string) = Regex.Replace(rawText, @"\s+", " ")
     let removeSpaces = replace " " ""
-    let replaceNewlinesWithSpaces = replace newline " "
-    let removeDash = replace "-" ""
 
     let appendApostropheToReservedKeywords (name: string) =
         let reserved = // F# reserved keywords
