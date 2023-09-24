@@ -36,7 +36,15 @@
                     "PropTypeValue": "(status: \"idle\" | \"loading\" | \"loaded\" | \"error\") => void"
                 }
             ],
-            "EnumData": []
+            "EnumData": [
+                {
+                    "Name": "onLoadingStatusChange",
+                    "Required": false,
+                    "Description": "A callback providing information about the loading status of the image. This is useful in case you want to control more precisely what to render as the image is loading.",
+                    "PropType": "function",
+                    "PropTypeValue": "(status: \"idle\" | \"loading\" | \"loaded\" | \"error\") => void"
+                }
+            ]
         },
         {
             "Name": "Fallback",
