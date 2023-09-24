@@ -275,7 +275,7 @@ module RadixComponentScraping =
 
                 let propTypeValue =
                     match propType with
-                    | "function" | "enum" ->
+                    | "function" | "enum" | "Padding" | "Boundary" | "number | Padding" ->
                         let descriptionbutton = propTypeSection.FindElement(By.TagName("button"))
                         if descriptionbutton.Displayed && descriptionbutton.Enabled then
                             descriptionbutton.Click()
