@@ -40,7 +40,7 @@ type [<Erase>] root =
     /// The open state of the tooltip when it is initially rendered. Use when you do not need to control its open state.
     static member inline defaultOpen (value: bool) = Feliz.Interop.mkAttr "defaultOpen" value
     /// The controlled open state of the tooltip. Must be used in conjunction with onOpenChange.
-    static member inline open' (value: bool) = Feliz.Interop.mkAttr "open'" value
+    static member inline open' (value: bool) = Feliz.Interop.mkAttr "open" value
     /// Event handler called when the open state of the tooltip changes.
     static member inline onOpenChange (value: (bool -> unit)) = Feliz.Interop.mkAttr "onOpenChange" value
     /// Event handler called when the open state of the tooltip changes.
@@ -74,7 +74,7 @@ type [<Erase>] content =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
     /// By default, screenreaders will announce the content inside the component. If this is not descriptive enough, or you have content that cannot be announced, use aria-label as a more descriptive label.
-    static member inline ariaLabel (value: string) = Feliz.Interop.mkAttr "ariaLabel" value
+    static member inline ariaLabel (value: string) = Feliz.Interop.mkAttr "aria-label" value
     /// Event handler called when the escape key is down. It can be prevented by calling event.preventDefault.
     static member inline onEscapeKeyDown (value: (Browser.Types.KeyboardEvent -> unit)) = Feliz.Interop.mkAttr "onEscapeKeyDown" value
     /// Event handler called when the escape key is down. It can be prevented by calling event.preventDefault.

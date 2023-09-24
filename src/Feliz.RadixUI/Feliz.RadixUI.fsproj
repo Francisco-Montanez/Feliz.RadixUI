@@ -59,7 +59,7 @@
       <NpmPackage Name="@radix-ui/react-form" Version="gte 1 lt 2" ResolutionStrategy="max"  />
       <NpmPackage Name="@radix-ui/react-hover-card" Version="gte 1 lt 2" ResolutionStrategy="max"  />
       <NpmPackage Name="@radix-ui/react-label" Version="gte 1 lt 2" ResolutionStrategy="max"  />
-      <NpmPackage Name="@radix-ui/react-menu-bar" Version="gte 1 lt 2" ResolutionStrategy="max"  />
+      <NpmPackage Name="@radix-ui/react-menubar" Version="gte 1 lt 2" ResolutionStrategy="max"  />
       <NpmPackage Name="@radix-ui/react-navigation-menu" Version="gte 1 lt 2" ResolutionStrategy="max"  />
       <NpmPackage Name="@radix-ui/react-popover" Version="gte 1 lt 2" ResolutionStrategy="max"  />
       <NpmPackage Name="@radix-ui/react-progress" Version="gte 1 lt 2" ResolutionStrategy="max"  />

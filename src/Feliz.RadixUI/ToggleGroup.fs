@@ -42,8 +42,8 @@ type [<Erase>] root =
 module root =
 
     type [<Erase>] type' =
-        static member inline single = Feliz.Interop.mkAttr "type'" "single"
-        static member inline multiple = Feliz.Interop.mkAttr "type'" "multiple"
+        static member inline single = Feliz.Interop.mkAttr "type" "single"
+        static member inline multiple = Feliz.Interop.mkAttr "type" "multiple"
 
     type [<Erase>] orientation =
         static member inline horizontal = Feliz.Interop.mkAttr "orientation" "horizontal"

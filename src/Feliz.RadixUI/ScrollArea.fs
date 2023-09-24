@@ -32,10 +32,10 @@ type [<Erase>] root =
 module root =
 
     type [<Erase>] type' =
-        static member inline auto = Feliz.Interop.mkAttr "type'" "auto"
-        static member inline always = Feliz.Interop.mkAttr "type'" "always"
-        static member inline scroll = Feliz.Interop.mkAttr "type'" "scroll"
-        static member inline hover = Feliz.Interop.mkAttr "type'" "hover"
+        static member inline auto = Feliz.Interop.mkAttr "type" "auto"
+        static member inline always = Feliz.Interop.mkAttr "type" "always"
+        static member inline scroll = Feliz.Interop.mkAttr "type" "scroll"
+        static member inline hover = Feliz.Interop.mkAttr "type" "hover"
 
     type [<Erase>] dir =
         static member inline ltr = Feliz.Interop.mkAttr "dir" "ltr"
