@@ -194,19 +194,12 @@ module SeleniumHelpers =
 module RadixComponentScraping =
     open SeleniumHelpers
 
-    let getExpectedSubcomponents (driver: IWebDriver) =
-        driver.FindElements(By.CssSelector("aside li[data-level='3'] a"))
-        |> Seq.map (fun elem -> elem.Text)
-        |> Seq.toList
-
     let getApiReferenceElements driver =
-        let expectedSubcomponents = getExpectedSubcomponents driver
-        printfn "%A" expectedSubcomponents
         let startElem = safeFindElement (By.XPath("//h2[@id='api-reference']")) driver |> Option.get
         let js = driver :> IJavaScriptExecutor
         let mutable elems = []
         let mutable current = js.ExecuteScript("return arguments[0].nextElementSibling;", startElem) :?> IWebElement
-        while (current <> null) &&  (current.TagName.ToLower() <> "h2" || List.contains current.Text expectedSubcomponents) do
+        while (current <> null) &&  (current.TagName.ToLower() <> "h2") do
             elems <- current :: elems
             current <- js.ExecuteScript("return arguments[0].nextElementSibling;", current) :?> IWebElement
         List.rev elems
