@@ -1,8 +1,8 @@
 namespace Feliz.RadixUI
 
 
-type SwipeEvent = interface end
+type SwipeEvent = Browser.Types.UIEvent
 
-type PointerDownOutsideEvent = interface end
+type PointerDownOutsideEvent = Browser.Types.PointerEvent
 
-type FocusOutsideEvent = interface end
+type FocusOutsideEvent = Browser.Types.FocusEvent
