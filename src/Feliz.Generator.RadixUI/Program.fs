@@ -425,15 +425,15 @@ module Render =
                     |> Array.map (fun str -> str.Trim())
                     |> Array.toList
                 let name = if enumStr.Contains("(status:") then "status" else e.Name
-                {   Name = name |> kebabCaseToCamelCase |> appendApostropheToReservedKeywords
-                    Cases = cases |> List.map (fun c -> { Name = c |> kebabCaseToCamelCase |> appendApostropheToReservedKeywords; Value = c })
+                {   Name = name
+                    Cases = cases |> List.map (fun c -> { Name = c; Value = c })
                 }
             )
 
     let mkProps (propData: PropData list) = 
         propData
         |> List.map (fun p ->
-            {   Name = p.Name |> kebabCaseToCamelCase |> appendApostropheToReservedKeywords
+            {   Name = p.Name
                 Required = p.Required
                 Description = p.Description
                 ParamOverloads = Parser.getParamOverloads p.PropTypeValue
@@ -478,7 +478,7 @@ module Render =
                 for prop in subComponent.Props do
                     for overload in prop.ParamOverloads do
                         $"/// {prop.Description}" |> indent4
-                        $"static member inline {prop.Name |> appendApostropheToReservedKeywords} (value: {overload}) = Feliz.Interop.mkAttr \"{prop.Name}\" value" |> indent4
+                        $"static member inline {prop.Name |> kebabCaseToCamelCase |> appendApostropheToReservedKeywords} (value: {overload}) = Feliz.Interop.mkAttr \"{prop.Name}\" value" |> indent4
                 ""
                 ""
                 if subComponent.Enums.IsEmpty |> not then
@@ -487,7 +487,7 @@ module Render =
                     for enum in subComponent.Enums do
                         $"type [<Erase>] {enum.Name |> removeSpaces |> lowerFirst |> appendApostropheToReservedKeywords} =" |> indent4
                         for case in enum.Cases do
-                            $"static member inline {case.Name |> fun s -> s.Trim('\"') |> removeSpaces |> lowerFirst |> appendApostropheToReservedKeywords} = Feliz.Interop.mkAttr \"{enum.Name}\" \"{(case.Value.Trim('\"'))}\"" |> indent4 |> indent4
+                            $"static member inline {case.Name |> fun s -> s.Trim('\"') |> kebabCaseToCamelCase |> removeSpaces |> lowerFirst |> appendApostropheToReservedKeywords} = Feliz.Interop.mkAttr \"{enum.Name}\" \"{(case.Value.Trim('\"'))}\"" |> indent4 |> indent4
                         ""
                 ""
                 ""
