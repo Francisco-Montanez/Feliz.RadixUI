@@ -5,6 +5,7 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <Description>Feliz-style Fable bindings for Radix UI.</Description>
     <Authors>Francisco Montanez</Authors>
+    <Version>0.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
@@ -43,6 +44,10 @@
   <ItemGroup>
     <PackageReference Include="Fable.Core" Version="4.0.0" />
     <PackageReference Include="Feliz" Version="2.6.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+      <Content Include="*.fsproj; **\*.fs; **\*.fsi" PackagePath="fable\" />
   </ItemGroup>
 
   <PropertyGroup>
