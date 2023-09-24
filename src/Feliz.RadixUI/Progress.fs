@@ -8,7 +8,7 @@ open Browser.Types
 
 
 /// Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.
-type progress =
+type [<Erase>] progress =
     /// Contains all of the progress parts.
     static member inline root (props: IReactProperty seq) = createElement (import "Root" "@radix-ui/react-progress") props
     /// Used to show the progress visually. It also makes progress accessible to assistive technologies.
@@ -16,7 +16,7 @@ type progress =
 
 
 /// Contains all of the progress parts.
-type root =
+type [<Erase>] root =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
     /// The progress value.
@@ -30,7 +30,7 @@ type root =
 
 
 /// Used to show the progress visually. It also makes progress accessible to assistive technologies.
-type indicator =
+type [<Erase>] indicator =
     /// A function to get the accessible label text representing the current value in a human-readable format. If not provided, the value label will be read as the numeric value as a percentage of the max value.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
 

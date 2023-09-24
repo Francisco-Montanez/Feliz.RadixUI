@@ -8,7 +8,7 @@ open Browser.Types
 
 
 /// Collect information from your users using validation rules.
-type form =
+type [<Erase>] form =
     /// Contains all the parts of a form.
     static member inline root (props: IReactProperty seq) = createElement (import "Root" "@radix-ui/react-form") props
     /// The wrapper for a field. It handles id/name and label accessibility automatically.
@@ -24,7 +24,7 @@ type form =
 
 
 /// Contains all the parts of a form.
-type root =
+type [<Erase>] root =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
     /// Event handler called when the form is submitted or reset and the server errors need to be cleared.
@@ -34,7 +34,7 @@ type root =
 
 
 /// The wrapper for a field. It handles id/name and label accessibility automatically.
-type field =
+type [<Erase>] field =
     /// Event handler called when the form is submitted or reset and the server errors need to be cleared.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
     /// The name of the field that will be passed down to the control and used to match with validation messages.
@@ -46,7 +46,7 @@ type field =
 
 
 /// A label element which is automatically wired when nested inside a Field part.
-type label =
+type [<Erase>] label =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
 
@@ -54,7 +54,7 @@ type label =
 
 
 /// A control element (by default an input) which is automatically wired when nested inside a Field part.
-type control =
+type [<Erase>] control =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
 
@@ -62,7 +62,7 @@ type control =
 
 
 /// Use this render-prop component to access a given field’s validity state in render (see ValidityState on MDN). A field's validity is available automatically when nested inside a Field part, otherwise you must pass a name prop to associate it.
-type validityState =
+type [<Erase>] validityState =
     /// A render function that receives the validity state of the field.
     static member inline children (value: (ValidityState -> ReactElement)) = Feliz.Interop.mkAttr "children" value
     /// A render function that receives the validity state of the field.
@@ -72,7 +72,7 @@ type validityState =
 
 
 /// The submit button.
-type submit =
+type [<Erase>] submit =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
 

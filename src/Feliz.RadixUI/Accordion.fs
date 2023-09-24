@@ -8,7 +8,7 @@ open Browser.Types
 
 
 /// A vertically stacked set of interactive headings that each reveal an associated section of content.
-type accordion =
+type [<Erase>] accordion =
     /// Contains all the parts of an accordion.
     static member inline root (props: IReactProperty seq) = createElement (import "Root" "@radix-ui/react-accordion") props
     /// Contains all the parts of a collapsible section.
@@ -22,7 +22,7 @@ type accordion =
 
 
 /// Contains all the parts of an accordion.
-type root =
+type [<Erase>] root =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
     /// Determines whether one or multiple items can be opened at the same time.
@@ -45,28 +45,22 @@ type root =
 
 module root =
 
-    type type' =
-        ///
-        static member inline single = Feliz.Interop.mkAttr "type" "single"
-        ///
-        static member inline multiple = Feliz.Interop.mkAttr "type" "multiple"
+    type [<Erase>] type' =
+        static member inline single = Feliz.Interop.mkAttr "type'" "single"
+        static member inline multiple = Feliz.Interop.mkAttr "type'" "multiple"
 
-    type dir =
-        ///
+    type [<Erase>] dir =
         static member inline ltr = Feliz.Interop.mkAttr "dir" "ltr"
-        ///
         static member inline rtl = Feliz.Interop.mkAttr "dir" "rtl"
 
-    type orientation =
-        ///
+    type [<Erase>] orientation =
         static member inline horizontal = Feliz.Interop.mkAttr "orientation" "horizontal"
-        ///
         static member inline vertical = Feliz.Interop.mkAttr "orientation" "vertical"
 
 
 
 /// Contains all the parts of a collapsible section.
-type item =
+type [<Erase>] item =
     /// The orientation of the accordion.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
     /// When true, prevents the user from interacting with the item.
@@ -78,7 +72,7 @@ type item =
 
 
 /// Wraps an Accordion.Trigger. Use the asChild prop to update it to the appropriate heading level for your page.
-type header =
+type [<Erase>] header =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
 
@@ -86,7 +80,7 @@ type header =
 
 
 /// Toggles the collapsed state of its associated item. It should be nested inside of an Accordion.Header.
-type trigger =
+type [<Erase>] trigger =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
 
@@ -94,7 +88,7 @@ type trigger =
 
 
 /// Contains the collapsible content for an item.
-type content =
+type [<Erase>] content =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
     /// Used to force mounting when more control is needed. Useful when controlling animation with React animation libraries.

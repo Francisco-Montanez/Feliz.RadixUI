@@ -8,13 +8,13 @@ open Browser.Types
 
 
 /// Renders an accessible label associated with controls.
-type label =
+type [<Erase>] label =
     /// Contains the content for the label.
     static member inline root (props: IReactProperty seq) = createElement (import "Root" "@radix-ui/react-label") props
 
 
 /// Contains the content for the label.
-type root =
+type [<Erase>] root =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
     /// The id of the element the label is associated with.

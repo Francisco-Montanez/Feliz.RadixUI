@@ -1,4 +1,4 @@
-module Feliz.RadixUI
+﻿module Feliz.RadixUI
 
 open OpenQA.Selenium
 open OpenQA.Selenium.Chrome

@@ -8,7 +8,7 @@ open Browser.Types
 
 
 /// Displays a list of options for the user to pick from—triggered by a button.
-type select =
+type [<Erase>] select =
     /// Contains all the parts of a select.
     static member inline root (props: IReactProperty seq) = createElement (import "Root" "@radix-ui/react-select") props
     /// The button that toggles the select. The Select.Content will position itself by aligning over the trigger.
@@ -44,7 +44,7 @@ type select =
 
 
 /// Contains all the parts of a select.
-type root =
+type [<Erase>] root =
     /// The value of the select when initially rendered. Use when you do not need to control the state of the select.
     static member inline defaultValue (value: string) = Feliz.Interop.mkAttr "defaultValue" value
     /// The controlled value of the select. Should be used in conjunction with onValueChange.
@@ -67,16 +67,14 @@ type root =
 
 module root =
 
-    type dir =
-        ///
+    type [<Erase>] dir =
         static member inline ltr = Feliz.Interop.mkAttr "dir" "ltr"
-        ///
         static member inline rtl = Feliz.Interop.mkAttr "dir" "rtl"
 
 
 
 /// The button that toggles the select. The Select.Content will position itself by aligning over the trigger.
-type trigger =
+type [<Erase>] trigger =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
 
@@ -84,7 +82,7 @@ type trigger =
 
 
 /// The part that reflects the selected value. By default the selected item's text will be rendered. if you require more control, you can instead control the select and pass your own children. It should not be styled to ensure correct positioning. An optional placeholder prop is also available for when the select has no value.
-type value =
+type [<Erase>] value =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
     /// The content that will be rendered inside the Select.Value when no value or defaultValue is set.
@@ -94,7 +92,7 @@ type value =
 
 
 /// A small icon often displayed next to the value as a visual affordance for the fact it can be open. By default renders ▼ but you can use your own icon via asChild or use children.
-type icon =
+type [<Erase>] icon =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
 
@@ -102,7 +100,7 @@ type icon =
 
 
 /// When used, portals the content part into the body.
-type portal =
+type [<Erase>] portal =
     /// Specify a container element to portal the content into.
     static member inline container (value: HTMLElement) = Feliz.Interop.mkAttr "container" value
 
@@ -110,7 +108,7 @@ type portal =
 
 
 /// The component that pops out when the select is open.
-type content =
+type [<Erase>] content =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
     /// Event handler called when focus moves to the trigger after closing. It can be prevented by calling event.preventDefault.
@@ -126,12 +124,14 @@ type content =
     /// When true, overrides the side andalign preferences to prevent collisions with boundary edges. Only available when position is set to popper.
     static member inline avoidCollisions (value: bool) = Feliz.Interop.mkAttr "avoidCollisions" value
     /// The element used as the collision boundary. By default this is the viewport, though you can provide additional element(s) to be included in this check. Only available when position is set to popper.
-    static member inline collisionBoundary (value: Boundary) = Feliz.Interop.mkAttr "collisionBoundary" value
-    /// The distance in pixels from the boundary edges where collision detection should occur. Accepts a number (same for all sides), or a partial padding object, for example: { top: 20, left: 20 }. Only available when position is set to popper.
+    static member inline collisionBoundary (value: ReactElement) = Feliz.Interop.mkAttr "collisionBoundary" value
+    /// The element used as the collision boundary. By default this is the viewport, though you can provide additional element(s) to be included in this check. Only available when position is set to popper.
+    static member inline collisionBoundary (value: ReactElement[]) = Feliz.Interop.mkAttr "collisionBoundary" value
+    /// The element used as the collision boundary. By default this is the viewport, though you can provide additional element(s) to be included in this check. Only available when position is set to popper.
     static member inline collisionPadding (value: int) = Feliz.Interop.mkAttr "collisionPadding" value
+    /// The element used as the collision boundary. By default this is the viewport, though you can provide additional element(s) to be included in this check. Only available when position is set to popper.
+    static member inline collisionPadding (value: 'T) = Feliz.Interop.mkAttr "collisionPadding" value
     /// The distance in pixels from the boundary edges where collision detection should occur. Accepts a number (same for all sides), or a partial padding object, for example: { top: 20, left: 20 }. Only available when position is set to popper.
-    static member inline collisionPadding (value: Padding) = Feliz.Interop.mkAttr "collisionPadding" value
-    /// The padding between the arrow and the edges of the content. If your content has border-radius, this will prevent it from overflowing the corners. Only available when position is set to popper.
     static member inline arrowPadding (value: int) = Feliz.Interop.mkAttr "arrowPadding" value
     /// The sticky behavior on the align axis. "partial" will keep the content in the boundary as long as the trigger is at least partially in the boundary whilst "always" will keep the content in the boundary regardless. Only available when position is set to popper.
     static member inline hideWhenDetached (value: bool) = Feliz.Interop.mkAttr "hideWhenDetached" value
@@ -139,40 +139,29 @@ type content =
 
 module content =
 
-    type position =
-        ///
-        static member inline item-aligned = Feliz.Interop.mkAttr "position" "item-aligned"
-        ///
+    type [<Erase>] position =
+        static member inline itemAligned = Feliz.Interop.mkAttr "position" "item-aligned"
         static member inline popper = Feliz.Interop.mkAttr "position" "popper"
 
-    type side =
-        ///
+    type [<Erase>] side =
         static member inline top = Feliz.Interop.mkAttr "side" "top"
-        ///
         static member inline right = Feliz.Interop.mkAttr "side" "right"
-        ///
         static member inline bottom = Feliz.Interop.mkAttr "side" "bottom"
-        ///
         static member inline left = Feliz.Interop.mkAttr "side" "left"
 
-    type align =
-        ///
+    type [<Erase>] align =
         static member inline start = Feliz.Interop.mkAttr "align" "start"
-        ///
         static member inline center = Feliz.Interop.mkAttr "align" "center"
-        ///
         static member inline end' = Feliz.Interop.mkAttr "align" "end"
 
-    type sticky =
-        ///
+    type [<Erase>] sticky =
         static member inline partial = Feliz.Interop.mkAttr "sticky" "partial"
-        ///
         static member inline always = Feliz.Interop.mkAttr "sticky" "always"
 
 
 
 /// The scrolling viewport that contains all of the items.
-type viewport =
+type [<Erase>] viewport =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
 
@@ -180,7 +169,7 @@ type viewport =
 
 
 /// The component that contains the select items.
-type item =
+type [<Erase>] item =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
     /// The value given as data when submitted with a name.
@@ -194,7 +183,7 @@ type item =
 
 
 /// The textual part of the item. It should only contain the text you want to see in the trigger when that item is selected. It should not be styled to ensure correct positioning.
-type itemText =
+type [<Erase>] itemText =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
 
@@ -202,7 +191,7 @@ type itemText =
 
 
 /// Renders when the item is selected. You can style this element directly, or you can use it as a wrapper to put an icon into, or both.
-type itemIndicator =
+type [<Erase>] itemIndicator =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
 
@@ -210,7 +199,7 @@ type itemIndicator =
 
 
 /// An optional button used as an affordance to show the viewport overflow as well as functionaly enable scrolling upwards.
-type scrollUpButton =
+type [<Erase>] scrollUpButton =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
 
@@ -218,7 +207,7 @@ type scrollUpButton =
 
 
 /// An optional button used as an affordance to show the viewport overflow as well as functionaly enable scrolling downwards.
-type scrollDownButton =
+type [<Erase>] scrollDownButton =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
 
@@ -226,7 +215,7 @@ type scrollDownButton =
 
 
 /// Used to group multiple items. use in conjunction with Select.Label to ensure good accessibility via automatic labelling.
-type group =
+type [<Erase>] group =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
 
@@ -234,7 +223,7 @@ type group =
 
 
 /// Used to render the label of a group. It won't be focusable using arrow keys.
-type label =
+type [<Erase>] label =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
 
@@ -242,7 +231,7 @@ type label =
 
 
 /// Used to visually separate items in the select.
-type separator =
+type [<Erase>] separator =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
 
@@ -250,7 +239,7 @@ type separator =
 
 
 /// An optional arrow element to render alongside the content. This can be used to help visually link the trigger with the Select.Content. Must be rendered inside Select.Content. Only available when position is set to popper.
-type arrow =
+type [<Erase>] arrow =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
     /// The width of the arrow in pixels.

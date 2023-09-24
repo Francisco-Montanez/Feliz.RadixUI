@@ -8,13 +8,13 @@ open Browser.Types
 
 
 /// Visually or semantically separates content.
-type separator =
+type [<Erase>] separator =
     /// The separator.
     static member inline root (props: IReactProperty seq) = createElement (import "Root" "@radix-ui/react-separator") props
 
 
 /// The separator.
-type root =
+type [<Erase>] root =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
     /// The orientation of the separator.
@@ -23,10 +23,8 @@ type root =
 
 module root =
 
-    type orientation =
-        ///
+    type [<Erase>] orientation =
         static member inline horizontal = Feliz.Interop.mkAttr "orientation" "horizontal"
-        ///
         static member inline vertical = Feliz.Interop.mkAttr "orientation" "vertical"
 
 

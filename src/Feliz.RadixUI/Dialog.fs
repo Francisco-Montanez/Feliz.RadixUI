@@ -8,7 +8,7 @@ open Browser.Types
 
 
 /// A window overlaid on either the primary window or another dialog window, rendering the content underneath inert.
-type dialog =
+type [<Erase>] dialog =
     /// Contains all the parts of a dialog.
     static member inline root (props: IReactProperty seq) = createElement (import "Root" "@radix-ui/react-dialog") props
     /// The button that opens the dialog.
@@ -24,7 +24,7 @@ type dialog =
 
 
 /// Contains all the parts of a dialog.
-type root =
+type [<Erase>] root =
     /// The open state of the dialog when it is initially rendered. Use when you do not need to control its open state.
     static member inline defaultOpen (value: bool) = Feliz.Interop.mkAttr "defaultOpen" value
     /// The controlled open state of the dialog. Must be used in conjunction with onOpenChange.
@@ -38,7 +38,7 @@ type root =
 
 
 /// The button that opens the dialog.
-type trigger =
+type [<Erase>] trigger =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
 
@@ -46,7 +46,7 @@ type trigger =
 
 
 /// When used, portals your overlay and content parts into the body.
-type portal =
+type [<Erase>] portal =
     /// Used to force mounting when more control is needed. Useful when controlling animation with React animation libraries. If used on this part, it will be inherited by Dialog.Overlay and Dialog.Content.
     static member inline forceMount (value: bool) = Feliz.Interop.mkAttr "forceMount" value
     /// Specify a container element to portal the content into.
@@ -56,7 +56,7 @@ type portal =
 
 
 /// A layer that covers the inert portion of the view when the dialog is open.
-type overlay =
+type [<Erase>] overlay =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
     /// Used to force mounting when more control is needed. Useful when controlling animation with React animation libraries. It inherits from Dialog.Portal.
@@ -66,7 +66,7 @@ type overlay =
 
 
 /// Contains content to be rendered in the open dialog.
-type content =
+type [<Erase>] content =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
     /// Used to force mounting when more control is needed. Useful when controlling animation with React animation libraries. It inherits from Dialog.Portal.
@@ -90,7 +90,7 @@ type content =
 
 
 /// The button that closes the dialog.
-type close =
+type [<Erase>] close =
     /// Event handler called when an interaction (pointer or focus event) happens outside the bounds of the component. It can be prevented by calling event.preventDefault.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
 

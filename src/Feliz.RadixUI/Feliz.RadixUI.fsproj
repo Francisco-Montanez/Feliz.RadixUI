@@ -40,8 +40,6 @@
   <ItemGroup>
     <PackageReference Include="Fable.Core" Version="4.0.0" />
     <PackageReference Include="Feliz" Version="2.6.0" />
-    <PackageReference Include="AngleSharp" Version="1.0.4" />
-    <PackageReference Include="Selenium.WebDriver" Version="4.11.0" />
   </ItemGroup>
 
   <ItemGroup>

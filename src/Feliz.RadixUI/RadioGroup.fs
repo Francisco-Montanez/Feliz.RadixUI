@@ -8,7 +8,7 @@ open Browser.Types
 
 
 /// A set of checkable buttons—known as radio buttons—where no more than one of the buttons can be checked at a time.
-type radioGroup =
+type [<Erase>] radioGroup =
     /// Contains all the parts of a radio group.
     static member inline root (props: IReactProperty seq) = createElement (import "Root" "@radix-ui/react-radio-group") props
     /// An item in the group that can be checked. An input will also render when used within a form to ensure events propagate correctly.
@@ -18,7 +18,7 @@ type radioGroup =
 
 
 /// Contains all the parts of a radio group.
-type root =
+type [<Erase>] root =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
     /// The value of the radio item that should be checked when initially rendered. Use when you do not need to control the state of the radio items.
@@ -39,24 +39,19 @@ type root =
 
 module root =
 
-    type orientation =
-        ///
+    type [<Erase>] orientation =
         static member inline horizontal = Feliz.Interop.mkAttr "orientation" "horizontal"
-        ///
         static member inline vertical = Feliz.Interop.mkAttr "orientation" "vertical"
-        ///
         static member inline undefined = Feliz.Interop.mkAttr "orientation" "undefined"
 
-    type dir =
-        ///
+    type [<Erase>] dir =
         static member inline ltr = Feliz.Interop.mkAttr "dir" "ltr"
-        ///
         static member inline rtl = Feliz.Interop.mkAttr "dir" "rtl"
 
 
 
 /// An item in the group that can be checked. An input will also render when used within a form to ensure events propagate correctly.
-type item =
+type [<Erase>] item =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
     /// The value given as data when submitted with a name.
@@ -70,7 +65,7 @@ type item =
 
 
 /// Renders when the radio item is in a checked state. You can style this element directly, or you can use it as a wrapper to put an icon into, or both.
-type indicator =
+type [<Erase>] indicator =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
     /// Used to force mounting when more control is needed. Useful when controlling animation with React animation libraries.

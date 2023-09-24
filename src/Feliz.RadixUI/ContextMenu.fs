@@ -8,7 +8,7 @@ open Browser.Types
 
 
 /// Displays a menu located at the pointer, triggered by a right-click or a long-press.
-type contextMenu =
+type [<Erase>] contextMenu =
     /// Contains all the parts of a context menu.
     static member inline root (props: IReactProperty seq) = createElement (import "Root" "@radix-ui/react-context-menu") props
     /// The area that opens the context menu. Wrap it around the target you want the context menu to open from when right-clicking (or using the relevant keyboard shortcuts).
@@ -44,7 +44,7 @@ type contextMenu =
 
 
 /// Contains all the parts of a context menu.
-type root =
+type [<Erase>] root =
     /// The reading direction of submenus when applicable. If omitted, inherits globally from DirectionProvider or assumes LTR (left-to-right) reading mode.
     static member inline onOpenChange (value: (bool -> unit)) = Feliz.Interop.mkAttr "onOpenChange" value
     /// Event handler called when the open state of the context menu changes.
@@ -53,16 +53,14 @@ type root =
 
 module root =
 
-    type dir =
-        ///
+    type [<Erase>] dir =
         static member inline ltr = Feliz.Interop.mkAttr "dir" "ltr"
-        ///
         static member inline rtl = Feliz.Interop.mkAttr "dir" "rtl"
 
 
 
 /// The area that opens the context menu. Wrap it around the target you want the context menu to open from when right-clicking (or using the relevant keyboard shortcuts).
-type trigger =
+type [<Erase>] trigger =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
     /// When true, the context menu won't open when right-clicking. Note that this will also restore the native context menu.
@@ -72,7 +70,7 @@ type trigger =
 
 
 /// When used, portals the content part into the body.
-type portal =
+type [<Erase>] portal =
     /// Used to force mounting when more control is needed. Useful when controlling animation with React animation libraries. If used on this part, it will be inherited by ContextMenu.Content and ContextMenu.SubContent respectively.
     static member inline forceMount (value: bool) = Feliz.Interop.mkAttr "forceMount" value
     /// Specify a container element to portal the content into.
@@ -82,7 +80,7 @@ type portal =
 
 
 /// The component that pops out in an open context menu.
-type content =
+type [<Erase>] content =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
     /// When true, keyboard navigation will loop from last item to first, and vice versa.
@@ -106,27 +104,27 @@ type content =
     /// When true, overrides the side andalign preferences to prevent collisions with boundary edges.
     static member inline avoidCollisions (value: bool) = Feliz.Interop.mkAttr "avoidCollisions" value
     /// The element used as the collision boundary. By default this is the viewport, though you can provide additional element(s) to be included in this check.
-    static member inline collisionBoundary (value: Boundary) = Feliz.Interop.mkAttr "collisionBoundary" value
-    /// The distance in pixels from the boundary edges where collision detection should occur. Accepts a number (same for all sides), or a partial padding object, for example: { top: 20, left: 20 }.
+    static member inline collisionBoundary (value: ReactElement) = Feliz.Interop.mkAttr "collisionBoundary" value
+    /// The element used as the collision boundary. By default this is the viewport, though you can provide additional element(s) to be included in this check.
+    static member inline collisionBoundary (value: ReactElement[]) = Feliz.Interop.mkAttr "collisionBoundary" value
+    /// The element used as the collision boundary. By default this is the viewport, though you can provide additional element(s) to be included in this check.
     static member inline collisionPadding (value: int) = Feliz.Interop.mkAttr "collisionPadding" value
-    /// The distance in pixels from the boundary edges where collision detection should occur. Accepts a number (same for all sides), or a partial padding object, for example: { top: 20, left: 20 }.
-    static member inline collisionPadding (value: Padding) = Feliz.Interop.mkAttr "collisionPadding" value
+    /// The element used as the collision boundary. By default this is the viewport, though you can provide additional element(s) to be included in this check.
+    static member inline collisionPadding (value: 'T) = Feliz.Interop.mkAttr "collisionPadding" value
     /// The sticky behavior on the align axis. "partial" will keep the content in the boundary as long as the trigger is at least partially in the boundary whilst "always" will keep the content in the boundary regardless.
     static member inline hideWhenDetached (value: bool) = Feliz.Interop.mkAttr "hideWhenDetached" value
 
 
 module content =
 
-    type sticky =
-        ///
+    type [<Erase>] sticky =
         static member inline partial = Feliz.Interop.mkAttr "sticky" "partial"
-        ///
         static member inline always = Feliz.Interop.mkAttr "sticky" "always"
 
 
 
 /// An optional arrow element to render alongside a submenu. This can be used to help visually link the trigger item with the ContextMenu.Content. Must be rendered inside ContextMenu.Content.
-type arrow =
+type [<Erase>] arrow =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
     /// The width of the arrow in pixels.
@@ -138,7 +136,7 @@ type arrow =
 
 
 /// The component that contains the context menu items.
-type item =
+type [<Erase>] item =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
     /// When true, prevents the user from interacting with the item.
@@ -152,7 +150,7 @@ type item =
 
 
 /// Used to group multiple ContextMenu.Items.
-type group =
+type [<Erase>] group =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
 
@@ -160,7 +158,7 @@ type group =
 
 
 /// Used to render a label. It won't be focusable using arrow keys.
-type label =
+type [<Erase>] label =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
 
@@ -168,7 +166,7 @@ type label =
 
 
 /// An item that can be controlled and rendered like a checkbox.
-type checkboxItem =
+type [<Erase>] checkboxItem =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
     /// The controlled checked state of the item. Must be used in conjunction with onCheckedChange.
@@ -188,7 +186,7 @@ type checkboxItem =
 
 
 /// Used to group multiple ContextMenu.RadioItems.
-type radioGroup =
+type [<Erase>] radioGroup =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
     /// The value of the selected item in the group.
@@ -200,7 +198,7 @@ type radioGroup =
 
 
 /// An item that can be controlled and rendered like a radio.
-type radioItem =
+type [<Erase>] radioItem =
     /// Event handler called when the value changes.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
     /// The unique value of the item.
@@ -216,7 +214,7 @@ type radioItem =
 
 
 /// Renders when the parent ContextMenu.CheckboxItem or ContextMenu.RadioItem is checked. You can style this element directly, or you can use it as a wrapper to put an icon into, or both.
-type itemIndicator =
+type [<Erase>] itemIndicator =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
     /// Used to force mounting when more control is needed. Useful when controlling animation with React animation libraries.
@@ -226,7 +224,7 @@ type itemIndicator =
 
 
 /// Used to visually separate items in the context menu.
-type separator =
+type [<Erase>] separator =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
 
@@ -234,7 +232,7 @@ type separator =
 
 
 /// Contains all the parts of a submenu.
-type sub =
+type [<Erase>] sub =
     /// The open state of the submenu when it is initially rendered. Use when you do not need to control its open state.
     static member inline defaultOpen (value: bool) = Feliz.Interop.mkAttr "defaultOpen" value
     /// The controlled open state of the submenu. Must be used in conjunction with onOpenChange.
@@ -246,7 +244,7 @@ type sub =
 
 
 /// An item that opens a submenu. Must be rendered inside ContextMenu.Sub.
-type subTrigger =
+type [<Erase>] subTrigger =
     /// Event handler called when the open state of the submenu changes.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
     /// When true, prevents the user from interacting with the item.
@@ -258,7 +256,7 @@ type subTrigger =
 
 
 /// The component that pops out when a submenu is open. Must be rendered inside ContextMenu.Sub.
-type subContent =
+type [<Erase>] subContent =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
     /// When true, keyboard navigation will loop from last item to first, and vice versa.
@@ -282,12 +280,14 @@ type subContent =
     /// When true, overrides the side andalign preferences to prevent collisions with boundary edges.
     static member inline avoidCollisions (value: bool) = Feliz.Interop.mkAttr "avoidCollisions" value
     /// The element used as the collision boundary. By default this is the viewport, though you can provide additional element(s) to be included in this check.
-    static member inline collisionBoundary (value: Boundary) = Feliz.Interop.mkAttr "collisionBoundary" value
-    /// The distance in pixels from the boundary edges where collision detection should occur. Accepts a number (same for all sides), or a partial padding object, for example: { top: 20, left: 20 }.
+    static member inline collisionBoundary (value: ReactElement) = Feliz.Interop.mkAttr "collisionBoundary" value
+    /// The element used as the collision boundary. By default this is the viewport, though you can provide additional element(s) to be included in this check.
+    static member inline collisionBoundary (value: ReactElement[]) = Feliz.Interop.mkAttr "collisionBoundary" value
+    /// The element used as the collision boundary. By default this is the viewport, though you can provide additional element(s) to be included in this check.
     static member inline collisionPadding (value: int) = Feliz.Interop.mkAttr "collisionPadding" value
+    /// The element used as the collision boundary. By default this is the viewport, though you can provide additional element(s) to be included in this check.
+    static member inline collisionPadding (value: 'T) = Feliz.Interop.mkAttr "collisionPadding" value
     /// The distance in pixels from the boundary edges where collision detection should occur. Accepts a number (same for all sides), or a partial padding object, for example: { top: 20, left: 20 }.
-    static member inline collisionPadding (value: Padding) = Feliz.Interop.mkAttr "collisionPadding" value
-    /// The padding between the arrow and the edges of the content. If your content has border-radius, this will prevent it from overflowing the corners.
     static member inline arrowPadding (value: int) = Feliz.Interop.mkAttr "arrowPadding" value
     /// The sticky behavior on the align axis. "partial" will keep the content in the boundary as long as the trigger is at least partially in the boundary whilst "always" will keep the content in the boundary regardless.
     static member inline hideWhenDetached (value: bool) = Feliz.Interop.mkAttr "hideWhenDetached" value
@@ -295,10 +295,8 @@ type subContent =
 
 module subContent =
 
-    type sticky =
-        ///
+    type [<Erase>] sticky =
         static member inline partial = Feliz.Interop.mkAttr "sticky" "partial"
-        ///
         static member inline always = Feliz.Interop.mkAttr "sticky" "always"
 
 

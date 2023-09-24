@@ -8,7 +8,7 @@ open Browser.Types
 
 
 /// A control that allows the user to toggle between checked and not checked.
-type switch =
+type [<Erase>] switch =
     /// Contains all the parts of a switch. An input will also render when used within a form to ensure events propagate correctly.
     static member inline root (props: IReactProperty seq) = createElement (import "Root" "@radix-ui/react-switch") props
     /// The thumb that is used to visually indicate whether the switch is on or off.
@@ -16,7 +16,7 @@ type switch =
 
 
 /// Contains all the parts of a switch. An input will also render when used within a form to ensure events propagate correctly.
-type root =
+type [<Erase>] root =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
     /// The state of the switch when it is initially rendered. Use when you do not need to control its state.
@@ -38,7 +38,7 @@ type root =
 
 
 /// The thumb that is used to visually indicate whether the switch is on or off.
-type thumb =
+type [<Erase>] thumb =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
 

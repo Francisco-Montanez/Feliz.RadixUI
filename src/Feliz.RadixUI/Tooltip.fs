@@ -8,7 +8,7 @@ open Browser.Types
 
 
 /// A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.
-type tooltip =
+type [<Erase>] tooltip =
     /// Wraps your app to provide global functionality to your tooltips.
     static member inline provider (props: IReactProperty seq) = createElement (import "Provider" "@radix-ui/react-tooltip") props
     /// Contains all the parts of a tooltip.
@@ -24,7 +24,7 @@ type tooltip =
 
 
 /// Wraps your app to provide global functionality to your tooltips.
-type provider =
+type [<Erase>] provider =
     /// The duration from when the mouse enters a tooltip trigger until the tooltip opens.
     static member inline delayDuration (value: int) = Feliz.Interop.mkAttr "delayDuration" value
     /// How much time a user has to enter another trigger without incurring a delay again.
@@ -36,7 +36,7 @@ type provider =
 
 
 /// Contains all the parts of a tooltip.
-type root =
+type [<Erase>] root =
     /// The open state of the tooltip when it is initially rendered. Use when you do not need to control its open state.
     static member inline defaultOpen (value: bool) = Feliz.Interop.mkAttr "defaultOpen" value
     /// The controlled open state of the tooltip. Must be used in conjunction with onOpenChange.
@@ -52,7 +52,7 @@ type root =
 
 
 /// The button that toggles the tooltip. By default, the Tooltip.Content will position itself against the trigger.
-type trigger =
+type [<Erase>] trigger =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
 
@@ -60,7 +60,7 @@ type trigger =
 
 
 /// When used, portals the content part into the body.
-type portal =
+type [<Erase>] portal =
     /// Used to force mounting when more control is needed. Useful when controlling animation with React animation libraries. If used on this part, it will be inherited by Tooltip.Content.
     static member inline forceMount (value: bool) = Feliz.Interop.mkAttr "forceMount" value
     /// Specify a container element to portal the content into.
@@ -70,7 +70,7 @@ type portal =
 
 
 /// The component that pops out when the tooltip is open.
-type content =
+type [<Erase>] content =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
     /// By default, screenreaders will announce the content inside the component. If this is not descriptive enough, or you have content that cannot be announced, use aria-label as a more descriptive label.
@@ -88,12 +88,14 @@ type content =
     /// When true, overrides the side andalign preferences to prevent collisions with boundary edges.
     static member inline avoidCollisions (value: bool) = Feliz.Interop.mkAttr "avoidCollisions" value
     /// The element used as the collision boundary. By default this is the viewport, though you can provide additional element(s) to be included in this check.
-    static member inline collisionBoundary (value: Boundary) = Feliz.Interop.mkAttr "collisionBoundary" value
-    /// The distance in pixels from the boundary edges where collision detection should occur. Accepts a number (same for all sides), or a partial padding object, for example: { top: 20, left: 20 }.
+    static member inline collisionBoundary (value: ReactElement) = Feliz.Interop.mkAttr "collisionBoundary" value
+    /// The element used as the collision boundary. By default this is the viewport, though you can provide additional element(s) to be included in this check.
+    static member inline collisionBoundary (value: ReactElement[]) = Feliz.Interop.mkAttr "collisionBoundary" value
+    /// The element used as the collision boundary. By default this is the viewport, though you can provide additional element(s) to be included in this check.
     static member inline collisionPadding (value: int) = Feliz.Interop.mkAttr "collisionPadding" value
+    /// The element used as the collision boundary. By default this is the viewport, though you can provide additional element(s) to be included in this check.
+    static member inline collisionPadding (value: 'T) = Feliz.Interop.mkAttr "collisionPadding" value
     /// The distance in pixels from the boundary edges where collision detection should occur. Accepts a number (same for all sides), or a partial padding object, for example: { top: 20, left: 20 }.
-    static member inline collisionPadding (value: Padding) = Feliz.Interop.mkAttr "collisionPadding" value
-    /// The padding between the arrow and the edges of the content. If your content has border-radius, this will prevent it from overflowing the corners.
     static member inline arrowPadding (value: int) = Feliz.Interop.mkAttr "arrowPadding" value
     /// The sticky behavior on the align axis. "partial" will keep the content in the boundary as long as the trigger is at least partially in the boundary whilst "always" will keep the content in the boundary regardless.
     static member inline hideWhenDetached (value: bool) = Feliz.Interop.mkAttr "hideWhenDetached" value
@@ -101,34 +103,25 @@ type content =
 
 module content =
 
-    type side =
-        ///
+    type [<Erase>] side =
         static member inline top = Feliz.Interop.mkAttr "side" "top"
-        ///
         static member inline right = Feliz.Interop.mkAttr "side" "right"
-        ///
         static member inline bottom = Feliz.Interop.mkAttr "side" "bottom"
-        ///
         static member inline left = Feliz.Interop.mkAttr "side" "left"
 
-    type align =
-        ///
+    type [<Erase>] align =
         static member inline start = Feliz.Interop.mkAttr "align" "start"
-        ///
         static member inline center = Feliz.Interop.mkAttr "align" "center"
-        ///
         static member inline end' = Feliz.Interop.mkAttr "align" "end"
 
-    type sticky =
-        ///
+    type [<Erase>] sticky =
         static member inline partial = Feliz.Interop.mkAttr "sticky" "partial"
-        ///
         static member inline always = Feliz.Interop.mkAttr "sticky" "always"
 
 
 
 /// An optional arrow element to render alongside the tooltip. This can be used to help visually link the trigger with the Tooltip.Content. Must be rendered inside Tooltip.Content.
-type arrow =
+type [<Erase>] arrow =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
     /// The width of the arrow in pixels.

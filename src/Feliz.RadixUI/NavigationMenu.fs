@@ -8,7 +8,7 @@ open Browser.Types
 
 
 /// A collection of links for navigating websites.
-type navigationMenu =
+type [<Erase>] navigationMenu =
     /// Contains all the parts of a navigation menu.
     static member inline root (props: IReactProperty seq) = createElement (import "Root" "@radix-ui/react-navigation-menu") props
     /// Signifies a submenu. Use it in place of the root part when nested to create a submenu.
@@ -30,7 +30,7 @@ type navigationMenu =
 
 
 /// Contains all the parts of a navigation menu.
-type root =
+type [<Erase>] root =
     /// The value of the menu item that should be active when initially rendered. Use when you do not need to control the value state.
     static member inline defaultValue (value: string) = Feliz.Interop.mkAttr "defaultValue" value
     /// The controlled value of the menu item to activate. Should be used in conjunction with onValueChange.
@@ -45,22 +45,18 @@ type root =
 
 module root =
 
-    type dir =
-        ///
+    type [<Erase>] dir =
         static member inline ltr = Feliz.Interop.mkAttr "dir" "ltr"
-        ///
         static member inline rtl = Feliz.Interop.mkAttr "dir" "rtl"
 
-    type orientation =
-        ///
+    type [<Erase>] orientation =
         static member inline horizontal = Feliz.Interop.mkAttr "orientation" "horizontal"
-        ///
         static member inline vertical = Feliz.Interop.mkAttr "orientation" "vertical"
 
 
 
 /// Signifies a submenu. Use it in place of the root part when nested to create a submenu.
-type sub =
+type [<Erase>] sub =
     /// The orientation of the menu.
     static member inline defaultValue (value: string) = Feliz.Interop.mkAttr "defaultValue" value
     /// The controlled value of the sub menu item to activate. Should be used in conjunction with onValueChange.
@@ -71,16 +67,14 @@ type sub =
 
 module sub =
 
-    type orientation =
-        ///
+    type [<Erase>] orientation =
         static member inline horizontal = Feliz.Interop.mkAttr "orientation" "horizontal"
-        ///
         static member inline vertical = Feliz.Interop.mkAttr "orientation" "vertical"
 
 
 
 /// Contains the top level menu items.
-type list' =
+type [<Erase>] list' =
     /// The orientation of the menu.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
 
@@ -88,7 +82,7 @@ type list' =
 
 
 /// A top level menu item, contains a link or trigger with content combination.
-type item =
+type [<Erase>] item =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
     /// A unique value that associates the item with an active value when the navigation menu is controlled. This prop is managed automatically when uncontrolled.
@@ -98,7 +92,7 @@ type item =
 
 
 /// The button that toggles the content.
-type trigger =
+type [<Erase>] trigger =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
 
@@ -106,7 +100,7 @@ type trigger =
 
 
 /// Contains the content associated with each trigger.
-type content =
+type [<Erase>] content =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
     /// When true, hover/focus/click interactions will be disabled on elements outside the bounds of the component. Users will need to click twice on outside elements to interact with them: Once to close the navigation menu, and again to activate the element.
@@ -130,7 +124,7 @@ type content =
 
 
 /// A navigational link.
-type link =
+type [<Erase>] link =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
     /// Used to identify the link as the currently active page.
@@ -142,7 +136,7 @@ type link =
 
 
 /// An optional indicator element that renders below the list, is used to highlight the currently active trigger.
-type indicator =
+type [<Erase>] indicator =
     /// Event handler called when the user selects a link (via mouse or keyboard). Calling event.preventDefault in this handler will prevent the navigation menu from closing when selecting that link.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
     /// Used to force mounting when more control is needed. Useful when controlling animation with React animation libraries.
@@ -152,7 +146,7 @@ type indicator =
 
 
 /// An optional viewport element that is used to render active content outside of the list.
-type viewport =
+type [<Erase>] viewport =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
     /// Used to force mounting when more control is needed. Useful when controlling animation with React animation libraries.
