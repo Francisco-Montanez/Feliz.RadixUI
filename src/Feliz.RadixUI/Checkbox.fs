@@ -8,7 +8,7 @@ open Browser.Types
 
 
 /// A control that allows the user to toggle between checked and not checked.
-type checkbox =
+type [<Erase>] checkbox =
     /// Contains all the parts of a checkbox. An input will also render when used within a form to ensure events propagate correctly.
     static member inline root (props: IReactProperty seq) = createElement (import "Root" "@radix-ui/react-checkbox") props
     /// Renders when the checkbox is in a checked or indeterminate state. You can style this element directly, or you can use it as a wrapper to put an icon into, or both.
@@ -16,7 +16,7 @@ type checkbox =
 
 
 /// Contains all the parts of a checkbox. An input will also render when used within a form to ensure events propagate correctly.
-type root =
+type [<Erase>] root =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
     /// The checked state of the checkbox when it is initially rendered. Use when you do not need to control its checked state.
@@ -40,7 +40,7 @@ type root =
 
 
 /// Renders when the checkbox is in a checked or indeterminate state. You can style this element directly, or you can use it as a wrapper to put an icon into, or both.
-type indicator =
+type [<Erase>] indicator =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
     /// Used to force mounting when more control is needed. Useful when controlling animation with React animation libraries.

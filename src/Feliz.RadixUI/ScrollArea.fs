@@ -8,7 +8,7 @@ open Browser.Types
 
 
 /// Augments native scroll functionality for custom, cross-browser styling.
-type scrollArea =
+type [<Erase>] scrollArea =
     /// Contains all the parts of a scroll area.
     static member inline root (props: IReactProperty seq) = createElement (import "Root" "@radix-ui/react-scroll-area") props
     /// The viewport area of the scroll area.
@@ -22,7 +22,7 @@ type scrollArea =
 
 
 /// Contains all the parts of a scroll area.
-type root =
+type [<Erase>] root =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
     /// Describes the nature of scrollbar visibility, similar to how the scrollbar preferences in MacOS control visibility of native scrollbars.  "auto" means that scrollbars are visible when content is overflowing on the corresponding orientation. "always" means that scrollbars are always visible regardless of whether the content is overflowing. "scroll" means that scrollbars are visible when the user is scrolling along its corresponding orientation. "hover" when the user is scrolling along its corresponding orientation and when the user is hovering over the scroll area.
@@ -31,26 +31,20 @@ type root =
 
 module root =
 
-    type type' =
-        ///
-        static member inline auto = Feliz.Interop.mkAttr "type" "auto"
-        ///
-        static member inline always = Feliz.Interop.mkAttr "type" "always"
-        ///
-        static member inline scroll = Feliz.Interop.mkAttr "type" "scroll"
-        ///
-        static member inline hover = Feliz.Interop.mkAttr "type" "hover"
+    type [<Erase>] type' =
+        static member inline auto = Feliz.Interop.mkAttr "type'" "auto"
+        static member inline always = Feliz.Interop.mkAttr "type'" "always"
+        static member inline scroll = Feliz.Interop.mkAttr "type'" "scroll"
+        static member inline hover = Feliz.Interop.mkAttr "type'" "hover"
 
-    type dir =
-        ///
+    type [<Erase>] dir =
         static member inline ltr = Feliz.Interop.mkAttr "dir" "ltr"
-        ///
         static member inline rtl = Feliz.Interop.mkAttr "dir" "rtl"
 
 
 
 /// The viewport area of the scroll area.
-type viewport =
+type [<Erase>] viewport =
     /// The reading direction of the scroll area. If omitted, inherits globally from DirectionProvider or assumes LTR (left-to-right) reading mode.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
 
@@ -58,7 +52,7 @@ type viewport =
 
 
 /// The vertical scrollbar. Add a second Scrollbar with an orientation prop to enable horizontal scrolling.
-type scrollbar =
+type [<Erase>] scrollbar =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
     /// Used to force mounting when more control is needed. Useful when controlling animation with React animation libraries.
@@ -67,16 +61,14 @@ type scrollbar =
 
 module scrollbar =
 
-    type orientation =
-        ///
+    type [<Erase>] orientation =
         static member inline horizontal = Feliz.Interop.mkAttr "orientation" "horizontal"
-        ///
         static member inline vertical = Feliz.Interop.mkAttr "orientation" "vertical"
 
 
 
 /// The thumb to be used in ScrollArea.Scrollbar.
-type thumb =
+type [<Erase>] thumb =
     /// The orientation of the scrollbar
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
 
@@ -84,7 +76,7 @@ type thumb =
 
 
 /// The corner where both vertical and horizontal scrollbars meet.
-type corner =
+type [<Erase>] corner =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
 

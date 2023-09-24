@@ -8,7 +8,7 @@ open Browser.Types
 
 
 /// An interactive component which expands/collapses a panel.
-type collapsible =
+type [<Erase>] collapsible =
     /// Contains all the parts of a collapsible.
     static member inline root (props: IReactProperty seq) = createElement (import "Root" "@radix-ui/react-collapsible") props
     /// The button that toggles the collapsible.
@@ -18,7 +18,7 @@ type collapsible =
 
 
 /// Contains all the parts of a collapsible.
-type root =
+type [<Erase>] root =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
     /// The open state of the collapsible when it is initially rendered. Use when you do not need to control its open state.
@@ -34,7 +34,7 @@ type root =
 
 
 /// The button that toggles the collapsible.
-type trigger =
+type [<Erase>] trigger =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
 
@@ -42,7 +42,7 @@ type trigger =
 
 
 /// The component that contains the collapsible content.
-type content =
+type [<Erase>] content =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
     /// Used to force mounting when more control is needed. Useful when controlling animation with React animation libraries.

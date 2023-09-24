@@ -8,7 +8,7 @@ open Browser.Types
 
 
 /// A succinct message that is displayed temporarily.
-type toast =
+type [<Erase>] toast =
     /// The provider that wraps your toasts and toast viewport. It usually wraps the application.
     static member inline provider (props: IReactProperty seq) = createElement (import "Provider" "@radix-ui/react-toast") props
     /// The fixed area where toasts appear. Users can jump to the viewport by pressing a hotkey. It is up to you to ensure the discoverability of the hotkey for keyboard users.
@@ -24,7 +24,7 @@ type toast =
 
 
 /// The provider that wraps your toasts and toast viewport. It usually wraps the application.
-type provider =
+type [<Erase>] provider =
     /// The time in milliseconds that should elapse before automatically closing each toast.
     static member inline duration (value: int) = Feliz.Interop.mkAttr "duration" value
     /// An author-localized label for each toast. Used to help screen reader users associate the interruption with a toast.
@@ -35,20 +35,16 @@ type provider =
 
 module provider =
 
-    type swipeDirection =
-        ///
+    type [<Erase>] swipeDirection =
         static member inline right = Feliz.Interop.mkAttr "swipeDirection" "right"
-        ///
         static member inline left = Feliz.Interop.mkAttr "swipeDirection" "left"
-        ///
         static member inline up = Feliz.Interop.mkAttr "swipeDirection" "up"
-        ///
         static member inline down = Feliz.Interop.mkAttr "swipeDirection" "down"
 
 
 
 /// The fixed area where toasts appear. Users can jump to the viewport by pressing a hotkey. It is up to you to ensure the discoverability of the hotkey for keyboard users.
-type viewport =
+type [<Erase>] viewport =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
     /// The keys to use as the keyboard shortcut that will move focus to the toast viewport. Use event.code value for each key from keycode.info. For meta keys, use ctrlKey, shiftKey, altKey and/or metaKey.
@@ -60,7 +56,7 @@ type viewport =
 
 
 /// The toast that automatically closes. It should not be held open to acquire a user response.
-type root =
+type [<Erase>] root =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
     /// Control the sensitivity of the toast for accessibility purposes. For toasts that are the result of a user action, choose foreground. Toasts generated from background tasks should use background.
@@ -89,16 +85,14 @@ type root =
 
 module root =
 
-    type type' =
-        ///
-        static member inline foreground = Feliz.Interop.mkAttr "type" "foreground"
-        ///
-        static member inline background = Feliz.Interop.mkAttr "type" "background"
+    type [<Erase>] type' =
+        static member inline foreground = Feliz.Interop.mkAttr "type'" "foreground"
+        static member inline background = Feliz.Interop.mkAttr "type'" "background"
 
 
 
 /// An optional title for the toast.
-type title =
+type [<Erase>] title =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
 
@@ -106,7 +100,7 @@ type title =
 
 
 /// The toast message.
-type description =
+type [<Erase>] description =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
 
@@ -114,7 +108,7 @@ type description =
 
 
 /// A button that allows users to dismiss the toast before its duration has elapsed.
-type close =
+type [<Erase>] close =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
 

@@ -8,7 +8,7 @@ open Browser.Types
 
 
 /// A set of layered sections of content—known as tab panels—that are displayed one at a time.
-type tabs =
+type [<Erase>] tabs =
     /// Contains all the tabs component parts.
     static member inline root (props: IReactProperty seq) = createElement (import "Root" "@radix-ui/react-tabs") props
     /// Contains the triggers that are aligned along the edge of the active content.
@@ -20,7 +20,7 @@ type tabs =
 
 
 /// Contains all the tabs component parts.
-type root =
+type [<Erase>] root =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
     /// The value of the tab that should be active when initially rendered. Use when you do not need to control the state of the tabs.
@@ -33,30 +33,23 @@ type root =
 
 module root =
 
-    type orientation =
-        ///
+    type [<Erase>] orientation =
         static member inline horizontal = Feliz.Interop.mkAttr "orientation" "horizontal"
-        ///
         static member inline vertical = Feliz.Interop.mkAttr "orientation" "vertical"
-        ///
         static member inline undefined = Feliz.Interop.mkAttr "orientation" "undefined"
 
-    type dir =
-        ///
+    type [<Erase>] dir =
         static member inline ltr = Feliz.Interop.mkAttr "dir" "ltr"
-        ///
         static member inline rtl = Feliz.Interop.mkAttr "dir" "rtl"
 
-    type activationMode =
-        ///
+    type [<Erase>] activationMode =
         static member inline automatic = Feliz.Interop.mkAttr "activationMode" "automatic"
-        ///
         static member inline manual = Feliz.Interop.mkAttr "activationMode" "manual"
 
 
 
 /// Contains the triggers that are aligned along the edge of the active content.
-type list' =
+type [<Erase>] list' =
     /// When automatic, tabs are activated when receiving focus. When manual, tabs are activated when clicked.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
     /// When true, keyboard navigation will loop from last tab to first, and vice versa.
@@ -66,7 +59,7 @@ type list' =
 
 
 /// The button that activates its associated content.
-type trigger =
+type [<Erase>] trigger =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
     /// A unique value that associates the trigger with a content.
@@ -78,7 +71,7 @@ type trigger =
 
 
 /// Contains the content associated with each trigger.
-type content =
+type [<Erase>] content =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
     /// A unique value that associates the content with a trigger.

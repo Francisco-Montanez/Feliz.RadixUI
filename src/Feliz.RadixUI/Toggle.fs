@@ -8,13 +8,13 @@ open Browser.Types
 
 
 /// A two-state button that can be either on or off.
-type toggle =
+type [<Erase>] toggle =
     /// The toggle.
     static member inline root (props: IReactProperty seq) = createElement (import "Root" "@radix-ui/react-toggle") props
 
 
 /// The toggle.
-type root =
+type [<Erase>] root =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
     /// The pressed state of the toggle when it is initially rendered. Use when you do not need to control its pressed state.

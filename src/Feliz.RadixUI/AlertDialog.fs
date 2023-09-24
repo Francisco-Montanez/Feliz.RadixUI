@@ -8,7 +8,7 @@ open Browser.Types
 
 
 /// A modal dialog that interrupts the user with important content and expects a response.
-type alertDialog =
+type [<Erase>] alertDialog =
     /// Contains all the parts of an alert dialog.
     static member inline root (props: IReactProperty seq) = createElement (import "Root" "@radix-ui/react-alert-dialog") props
     /// A button that opens the dialog.
@@ -30,7 +30,7 @@ type alertDialog =
 
 
 /// Contains all the parts of an alert dialog.
-type root =
+type [<Erase>] root =
     /// The open state of the dialog when it is initially rendered. Use when you do not need to control its open state.
     static member inline defaultOpen (value: bool) = Feliz.Interop.mkAttr "defaultOpen" value
     /// The controlled open state of the dialog. Must be used in conjunction with onOpenChange.
@@ -42,7 +42,7 @@ type root =
 
 
 /// A button that opens the dialog.
-type trigger =
+type [<Erase>] trigger =
     /// Event handler called when the open state of the dialog changes.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
 
@@ -50,7 +50,7 @@ type trigger =
 
 
 /// When used, portals your overlay and content parts into the body.
-type portal =
+type [<Erase>] portal =
     /// Used to force mounting when more control is needed. Useful when controlling animation with React animation libraries. If used on this part, it will be inherited by AlertDialog.Overlay and AlertDialog.Content.
     static member inline forceMount (value: bool) = Feliz.Interop.mkAttr "forceMount" value
     /// Specify a container element to portal the content into.
@@ -60,7 +60,7 @@ type portal =
 
 
 /// A layer that covers the inert portion of the view when the dialog is open.
-type overlay =
+type [<Erase>] overlay =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
     /// Used to force mounting when more control is needed. Useful when controlling animation with React animation libraries. It inherits from AlertDialog.Portal.
@@ -70,7 +70,7 @@ type overlay =
 
 
 /// Contains content to be rendered when the dialog is open.
-type content =
+type [<Erase>] content =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
     /// Used to force mounting when more control is needed. Useful when controlling animation with React animation libraries. It inherits from AlertDialog.Portal.
@@ -86,7 +86,7 @@ type content =
 
 
 /// A button that closes the dialog. This button should be distinguished visually from AlertDialog.Action buttons.
-type cancel =
+type [<Erase>] cancel =
     /// Event handler called when the escape key is down. It can be prevented by calling event.preventDefault.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
 
@@ -94,7 +94,7 @@ type cancel =
 
 
 /// A button that closes the dialog. These buttons should be distinguished visually from the AlertDialog.Cancel button.
-type action =
+type [<Erase>] action =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
 
@@ -102,7 +102,7 @@ type action =
 
 
 /// An accessible name to be announced when the dialog is opened. Alternatively, you can provide aria-label or aria-labelledby to AlertDialog.Content and exclude this component.
-type title =
+type [<Erase>] title =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
 
@@ -110,7 +110,7 @@ type title =
 
 
 /// An accessible description to be announced when the dialog is opened. Alternatively, you can provide aria-describedby to AlertDialog.Content and exclude this component.
-type description =
+type [<Erase>] description =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
 

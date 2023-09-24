@@ -8,7 +8,7 @@ open Browser.Types
 
 
 /// A container for grouping a set of controls, such as buttons, toggle groups or dropdown menus.
-type toolbar =
+type [<Erase>] toolbar =
     /// Contains all the toolbar component parts.
     static member inline root (props: IReactProperty seq) = createElement (import "Root" "@radix-ui/react-toolbar") props
     /// A button item.
@@ -24,7 +24,7 @@ type toolbar =
 
 
 /// Contains all the toolbar component parts.
-type root =
+type [<Erase>] root =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
     /// The reading direction of the toolbar. If omitted, inherits globally from DirectionProvider or assumes LTR (left-to-right) reading mode.
@@ -33,24 +33,19 @@ type root =
 
 module root =
 
-    type orientation =
-        ///
+    type [<Erase>] orientation =
         static member inline horizontal = Feliz.Interop.mkAttr "orientation" "horizontal"
-        ///
         static member inline vertical = Feliz.Interop.mkAttr "orientation" "vertical"
-        ///
         static member inline undefined = Feliz.Interop.mkAttr "orientation" "undefined"
 
-    type dir =
-        ///
+    type [<Erase>] dir =
         static member inline ltr = Feliz.Interop.mkAttr "dir" "ltr"
-        ///
         static member inline rtl = Feliz.Interop.mkAttr "dir" "rtl"
 
 
 
 /// A button item.
-type button =
+type [<Erase>] button =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
 
@@ -58,7 +53,7 @@ type button =
 
 
 /// A link item.
-type link =
+type [<Erase>] link =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
 
@@ -66,7 +61,7 @@ type link =
 
 
 /// A set of two-state buttons that can be toggled on or off.
-type toggleGroup =
+type [<Erase>] toggleGroup =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
     /// Determines whether a single or multiple items can be pressed at a time.
@@ -87,16 +82,14 @@ type toggleGroup =
 
 module toggleGroup =
 
-    type type' =
-        ///
-        static member inline single = Feliz.Interop.mkAttr "type" "single"
-        ///
-        static member inline multiple = Feliz.Interop.mkAttr "type" "multiple"
+    type [<Erase>] type' =
+        static member inline single = Feliz.Interop.mkAttr "type'" "single"
+        static member inline multiple = Feliz.Interop.mkAttr "type'" "multiple"
 
 
 
 /// An item in the group.
-type toggleItem =
+type [<Erase>] toggleItem =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
     /// A unique value for the item.
@@ -108,7 +101,7 @@ type toggleItem =
 
 
 /// Used to visually separate items in the toolbar.
-type separator =
+type [<Erase>] separator =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
 

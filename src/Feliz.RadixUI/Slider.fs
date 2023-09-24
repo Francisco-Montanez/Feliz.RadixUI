@@ -8,7 +8,7 @@ open Browser.Types
 
 
 /// An input where the user selects a value from within a given range.
-type slider =
+type [<Erase>] slider =
     /// Contains all the parts of a slider. It will render an input for each thumb when used within a form to ensure events propagate correctly.
     static member inline root (props: IReactProperty seq) = createElement (import "Root" "@radix-ui/react-slider") props
     /// The track that contains the Slider.Range.
@@ -20,7 +20,7 @@ type slider =
 
 
 /// Contains all the parts of a slider. It will render an input for each thumb when used within a form to ensure events propagate correctly.
-type root =
+type [<Erase>] root =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
     /// The value of the slider when initially rendered. Use when you do not need to control the state of the slider.
@@ -49,22 +49,18 @@ type root =
 
 module root =
 
-    type orientation =
-        ///
+    type [<Erase>] orientation =
         static member inline horizontal = Feliz.Interop.mkAttr "orientation" "horizontal"
-        ///
         static member inline vertical = Feliz.Interop.mkAttr "orientation" "vertical"
 
-    type dir =
-        ///
+    type [<Erase>] dir =
         static member inline ltr = Feliz.Interop.mkAttr "dir" "ltr"
-        ///
         static member inline rtl = Feliz.Interop.mkAttr "dir" "rtl"
 
 
 
 /// The track that contains the Slider.Range.
-type track =
+type [<Erase>] track =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
 
@@ -72,7 +68,7 @@ type track =
 
 
 /// The range part. Must live inside Slider.Track.
-type range =
+type [<Erase>] range =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
 
@@ -80,7 +76,7 @@ type range =
 
 
 /// A draggable thumb. You can render multiple thumbs.
-type thumb =
+type [<Erase>] thumb =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
 
