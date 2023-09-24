@@ -1,4 +1,4 @@
-namespace Feliz.RadixUI.DropdownMenu
+namespace rec Feliz.RadixUI.DropdownMenu
 
 open Feliz
 open Fable.Core
@@ -10,37 +10,37 @@ open Browser.Types
 /// Displays a menu to the user—such as a set of actions or functions—triggered by a button.
 type [<Erase>] dropdownMenu =
     /// Contains all the parts of a dropdown menu.
-    static member inline root (props: IReactProperty seq) = createElement (import "Root" "@radix-ui/react-dropdown-menu") props
+    static member inline root (props: IReactProperty seq) = createElement (import "Dropdown Menu" "@radix-ui/react-dropdown-menu") props
     /// The button that toggles the dropdown menu. By default, the DropdownMenu.Content will position itself against the trigger.
-    static member inline trigger (props: IReactProperty seq) = createElement (import "Trigger" "@radix-ui/react-dropdown-menu") props
+    static member inline trigger (props: IReactProperty seq) = createElement (import "Dropdown MenuTrigger" "@radix-ui/react-dropdown-menu") props
     /// When used, portals the content part into the body.
-    static member inline portal (props: IReactProperty seq) = createElement (import "Portal" "@radix-ui/react-dropdown-menu") props
+    static member inline portal (props: IReactProperty seq) = createElement (import "Dropdown MenuPortal" "@radix-ui/react-dropdown-menu") props
     /// The component that pops out when the dropdown menu is open.
-    static member inline content (props: IReactProperty seq) = createElement (import "Content" "@radix-ui/react-dropdown-menu") props
+    static member inline content (props: IReactProperty seq) = createElement (import "Dropdown MenuContent" "@radix-ui/react-dropdown-menu") props
     /// An optional arrow element to render alongside the dropdown menu. This can be used to help visually link the trigger with the DropdownMenu.Content. Must be rendered inside DropdownMenu.Content.
-    static member inline arrow (props: IReactProperty seq) = createElement (import "Arrow" "@radix-ui/react-dropdown-menu") props
+    static member inline arrow (props: IReactProperty seq) = createElement (import "Dropdown MenuArrow" "@radix-ui/react-dropdown-menu") props
     /// The component that contains the dropdown menu items.
-    static member inline item (props: IReactProperty seq) = createElement (import "Item" "@radix-ui/react-dropdown-menu") props
+    static member inline item (props: IReactProperty seq) = createElement (import "Dropdown MenuItem" "@radix-ui/react-dropdown-menu") props
     /// Used to group multiple DropdownMenu.Items.
-    static member inline group (props: IReactProperty seq) = createElement (import "Group" "@radix-ui/react-dropdown-menu") props
+    static member inline group (props: IReactProperty seq) = createElement (import "Dropdown MenuGroup" "@radix-ui/react-dropdown-menu") props
     /// Used to render a label. It won't be focusable using arrow keys.
-    static member inline label (props: IReactProperty seq) = createElement (import "Label" "@radix-ui/react-dropdown-menu") props
+    static member inline label (props: IReactProperty seq) = createElement (import "Dropdown MenuLabel" "@radix-ui/react-dropdown-menu") props
     /// An item that can be controlled and rendered like a checkbox.
-    static member inline checkboxItem (props: IReactProperty seq) = createElement (import "CheckboxItem" "@radix-ui/react-dropdown-menu") props
+    static member inline checkboxItem (props: IReactProperty seq) = createElement (import "Dropdown MenuCheckboxItem" "@radix-ui/react-dropdown-menu") props
     /// Used to group multiple DropdownMenu.RadioItems.
-    static member inline radioGroup (props: IReactProperty seq) = createElement (import "RadioGroup" "@radix-ui/react-dropdown-menu") props
+    static member inline radioGroup (props: IReactProperty seq) = createElement (import "Dropdown MenuRadioGroup" "@radix-ui/react-dropdown-menu") props
     /// An item that can be controlled and rendered like a radio.
-    static member inline radioItem (props: IReactProperty seq) = createElement (import "RadioItem" "@radix-ui/react-dropdown-menu") props
+    static member inline radioItem (props: IReactProperty seq) = createElement (import "Dropdown MenuRadioItem" "@radix-ui/react-dropdown-menu") props
     /// Renders when the parent DropdownMenu.CheckboxItem or DropdownMenu.RadioItem is checked. You can style this element directly, or you can use it as a wrapper to put an icon into, or both.
-    static member inline itemIndicator (props: IReactProperty seq) = createElement (import "ItemIndicator" "@radix-ui/react-dropdown-menu") props
+    static member inline itemIndicator (props: IReactProperty seq) = createElement (import "Dropdown MenuItemIndicator" "@radix-ui/react-dropdown-menu") props
     /// Used to visually separate items in the dropdown menu.
-    static member inline separator (props: IReactProperty seq) = createElement (import "Separator" "@radix-ui/react-dropdown-menu") props
+    static member inline separator (props: IReactProperty seq) = createElement (import "Dropdown MenuSeparator" "@radix-ui/react-dropdown-menu") props
     /// Contains all the parts of a submenu.
-    static member inline sub (props: IReactProperty seq) = createElement (import "Sub" "@radix-ui/react-dropdown-menu") props
+    static member inline sub (props: IReactProperty seq) = createElement (import "Dropdown MenuSub" "@radix-ui/react-dropdown-menu") props
     /// An item that opens a submenu. Must be rendered inside DropdownMenu.Sub.
-    static member inline subTrigger (props: IReactProperty seq) = createElement (import "SubTrigger" "@radix-ui/react-dropdown-menu") props
+    static member inline subTrigger (props: IReactProperty seq) = createElement (import "Dropdown MenuSubTrigger" "@radix-ui/react-dropdown-menu") props
     /// The component that pops out when a submenu is open. Must be rendered inside DropdownMenu.Sub.
-    static member inline subContent (props: IReactProperty seq) = createElement (import "SubContent" "@radix-ui/react-dropdown-menu") props
+    static member inline subContent (props: IReactProperty seq) = createElement (import "Dropdown MenuSubContent" "@radix-ui/react-dropdown-menu") props
 
 
 /// Contains all the parts of a dropdown menu.

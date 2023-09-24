@@ -1,4 +1,4 @@
-namespace Feliz.RadixUI.Tabs
+namespace rec Feliz.RadixUI.Tabs
 
 open Feliz
 open Fable.Core
@@ -10,13 +10,13 @@ open Browser.Types
 /// A set of layered sections of content—known as tab panels—that are displayed one at a time.
 type [<Erase>] tabs =
     /// Contains all the tabs component parts.
-    static member inline root (props: IReactProperty seq) = createElement (import "Root" "@radix-ui/react-tabs") props
+    static member inline root (props: IReactProperty seq) = createElement (import "Tabs" "@radix-ui/react-tabs") props
     /// Contains the triggers that are aligned along the edge of the active content.
-    static member inline list' (props: IReactProperty seq) = createElement (import "List" "@radix-ui/react-tabs") props
+    static member inline list' (props: IReactProperty seq) = createElement (import "TabsList" "@radix-ui/react-tabs") props
     /// The button that activates its associated content.
-    static member inline trigger (props: IReactProperty seq) = createElement (import "Trigger" "@radix-ui/react-tabs") props
+    static member inline trigger (props: IReactProperty seq) = createElement (import "TabsTrigger" "@radix-ui/react-tabs") props
     /// Contains the content associated with each trigger.
-    static member inline content (props: IReactProperty seq) = createElement (import "Content" "@radix-ui/react-tabs") props
+    static member inline content (props: IReactProperty seq) = createElement (import "TabsContent" "@radix-ui/react-tabs") props
 
 
 /// Contains all the tabs component parts.

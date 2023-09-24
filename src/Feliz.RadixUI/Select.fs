@@ -1,4 +1,4 @@
-namespace Feliz.RadixUI.Select
+namespace rec Feliz.RadixUI.Select
 
 open Feliz
 open Fable.Core
@@ -10,37 +10,37 @@ open Browser.Types
 /// Displays a list of options for the user to pick from—triggered by a button.
 type [<Erase>] select =
     /// Contains all the parts of a select.
-    static member inline root (props: IReactProperty seq) = createElement (import "Root" "@radix-ui/react-select") props
+    static member inline root (props: IReactProperty seq) = createElement (import "Select" "@radix-ui/react-select") props
     /// The button that toggles the select. The Select.Content will position itself by aligning over the trigger.
-    static member inline trigger (props: IReactProperty seq) = createElement (import "Trigger" "@radix-ui/react-select") props
+    static member inline trigger (props: IReactProperty seq) = createElement (import "SelectTrigger" "@radix-ui/react-select") props
     /// The part that reflects the selected value. By default the selected item's text will be rendered. if you require more control, you can instead control the select and pass your own children. It should not be styled to ensure correct positioning. An optional placeholder prop is also available for when the select has no value.
-    static member inline value (props: IReactProperty seq) = createElement (import "Value" "@radix-ui/react-select") props
+    static member inline value (props: IReactProperty seq) = createElement (import "SelectValue" "@radix-ui/react-select") props
     /// A small icon often displayed next to the value as a visual affordance for the fact it can be open. By default renders ▼ but you can use your own icon via asChild or use children.
-    static member inline icon (props: IReactProperty seq) = createElement (import "Icon" "@radix-ui/react-select") props
+    static member inline icon (props: IReactProperty seq) = createElement (import "SelectIcon" "@radix-ui/react-select") props
     /// When used, portals the content part into the body.
-    static member inline portal (props: IReactProperty seq) = createElement (import "Portal" "@radix-ui/react-select") props
+    static member inline portal (props: IReactProperty seq) = createElement (import "SelectPortal" "@radix-ui/react-select") props
     /// The component that pops out when the select is open.
-    static member inline content (props: IReactProperty seq) = createElement (import "Content" "@radix-ui/react-select") props
+    static member inline content (props: IReactProperty seq) = createElement (import "SelectContent" "@radix-ui/react-select") props
     /// The scrolling viewport that contains all of the items.
-    static member inline viewport (props: IReactProperty seq) = createElement (import "Viewport" "@radix-ui/react-select") props
+    static member inline viewport (props: IReactProperty seq) = createElement (import "SelectViewport" "@radix-ui/react-select") props
     /// The component that contains the select items.
-    static member inline item (props: IReactProperty seq) = createElement (import "Item" "@radix-ui/react-select") props
+    static member inline item (props: IReactProperty seq) = createElement (import "SelectItem" "@radix-ui/react-select") props
     /// The textual part of the item. It should only contain the text you want to see in the trigger when that item is selected. It should not be styled to ensure correct positioning.
-    static member inline itemText (props: IReactProperty seq) = createElement (import "ItemText" "@radix-ui/react-select") props
+    static member inline itemText (props: IReactProperty seq) = createElement (import "SelectItemText" "@radix-ui/react-select") props
     /// Renders when the item is selected. You can style this element directly, or you can use it as a wrapper to put an icon into, or both.
-    static member inline itemIndicator (props: IReactProperty seq) = createElement (import "ItemIndicator" "@radix-ui/react-select") props
+    static member inline itemIndicator (props: IReactProperty seq) = createElement (import "SelectItemIndicator" "@radix-ui/react-select") props
     /// An optional button used as an affordance to show the viewport overflow as well as functionaly enable scrolling upwards.
-    static member inline scrollUpButton (props: IReactProperty seq) = createElement (import "ScrollUpButton" "@radix-ui/react-select") props
+    static member inline scrollUpButton (props: IReactProperty seq) = createElement (import "SelectScrollUpButton" "@radix-ui/react-select") props
     /// An optional button used as an affordance to show the viewport overflow as well as functionaly enable scrolling downwards.
-    static member inline scrollDownButton (props: IReactProperty seq) = createElement (import "ScrollDownButton" "@radix-ui/react-select") props
+    static member inline scrollDownButton (props: IReactProperty seq) = createElement (import "SelectScrollDownButton" "@radix-ui/react-select") props
     /// Used to group multiple items. use in conjunction with Select.Label to ensure good accessibility via automatic labelling.
-    static member inline group (props: IReactProperty seq) = createElement (import "Group" "@radix-ui/react-select") props
+    static member inline group (props: IReactProperty seq) = createElement (import "SelectGroup" "@radix-ui/react-select") props
     /// Used to render the label of a group. It won't be focusable using arrow keys.
-    static member inline label (props: IReactProperty seq) = createElement (import "Label" "@radix-ui/react-select") props
+    static member inline label (props: IReactProperty seq) = createElement (import "SelectLabel" "@radix-ui/react-select") props
     /// Used to visually separate items in the select.
-    static member inline separator (props: IReactProperty seq) = createElement (import "Separator" "@radix-ui/react-select") props
+    static member inline separator (props: IReactProperty seq) = createElement (import "SelectSeparator" "@radix-ui/react-select") props
     /// An optional arrow element to render alongside the content. This can be used to help visually link the trigger with the Select.Content. Must be rendered inside Select.Content. Only available when position is set to popper.
-    static member inline arrow (props: IReactProperty seq) = createElement (import "Arrow" "@radix-ui/react-select") props
+    static member inline arrow (props: IReactProperty seq) = createElement (import "SelectArrow" "@radix-ui/react-select") props
 
 
 /// Contains all the parts of a select.

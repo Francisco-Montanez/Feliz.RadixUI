@@ -1,4 +1,4 @@
-namespace Feliz.RadixUI.Slider
+namespace rec Feliz.RadixUI.Slider
 
 open Feliz
 open Fable.Core
@@ -10,13 +10,13 @@ open Browser.Types
 /// An input where the user selects a value from within a given range.
 type [<Erase>] slider =
     /// Contains all the parts of a slider. It will render an input for each thumb when used within a form to ensure events propagate correctly.
-    static member inline root (props: IReactProperty seq) = createElement (import "Root" "@radix-ui/react-slider") props
+    static member inline root (props: IReactProperty seq) = createElement (import "Slider" "@radix-ui/react-slider") props
     /// The track that contains the Slider.Range.
-    static member inline track (props: IReactProperty seq) = createElement (import "Track" "@radix-ui/react-slider") props
+    static member inline track (props: IReactProperty seq) = createElement (import "SliderTrack" "@radix-ui/react-slider") props
     /// The range part. Must live inside Slider.Track.
-    static member inline range (props: IReactProperty seq) = createElement (import "Range" "@radix-ui/react-slider") props
+    static member inline range (props: IReactProperty seq) = createElement (import "SliderRange" "@radix-ui/react-slider") props
     /// A draggable thumb. You can render multiple thumbs.
-    static member inline thumb (props: IReactProperty seq) = createElement (import "Thumb" "@radix-ui/react-slider") props
+    static member inline thumb (props: IReactProperty seq) = createElement (import "SliderThumb" "@radix-ui/react-slider") props
 
 
 /// Contains all the parts of a slider. It will render an input for each thumb when used within a form to ensure events propagate correctly.

@@ -1,4 +1,4 @@
-namespace Feliz.RadixUI.Dialog
+namespace rec Feliz.RadixUI.Dialog
 
 open Feliz
 open Fable.Core
@@ -10,17 +10,17 @@ open Browser.Types
 /// A window overlaid on either the primary window or another dialog window, rendering the content underneath inert.
 type [<Erase>] dialog =
     /// Contains all the parts of a dialog.
-    static member inline root (props: IReactProperty seq) = createElement (import "Root" "@radix-ui/react-dialog") props
+    static member inline root (props: IReactProperty seq) = createElement (import "Dialog" "@radix-ui/react-dialog") props
     /// The button that opens the dialog.
-    static member inline trigger (props: IReactProperty seq) = createElement (import "Trigger" "@radix-ui/react-dialog") props
+    static member inline trigger (props: IReactProperty seq) = createElement (import "DialogTrigger" "@radix-ui/react-dialog") props
     /// When used, portals your overlay and content parts into the body.
-    static member inline portal (props: IReactProperty seq) = createElement (import "Portal" "@radix-ui/react-dialog") props
+    static member inline portal (props: IReactProperty seq) = createElement (import "DialogPortal" "@radix-ui/react-dialog") props
     /// A layer that covers the inert portion of the view when the dialog is open.
-    static member inline overlay (props: IReactProperty seq) = createElement (import "Overlay" "@radix-ui/react-dialog") props
+    static member inline overlay (props: IReactProperty seq) = createElement (import "DialogOverlay" "@radix-ui/react-dialog") props
     /// Contains content to be rendered in the open dialog.
-    static member inline content (props: IReactProperty seq) = createElement (import "Content" "@radix-ui/react-dialog") props
+    static member inline content (props: IReactProperty seq) = createElement (import "DialogContent" "@radix-ui/react-dialog") props
     /// The button that closes the dialog.
-    static member inline close (props: IReactProperty seq) = createElement (import "Close" "@radix-ui/react-dialog") props
+    static member inline close (props: IReactProperty seq) = createElement (import "DialogClose" "@radix-ui/react-dialog") props
 
 
 /// Contains all the parts of a dialog.

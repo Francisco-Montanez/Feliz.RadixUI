@@ -1,4 +1,4 @@
-namespace Feliz.RadixUI.Tooltip
+namespace rec Feliz.RadixUI.Tooltip
 
 open Feliz
 open Fable.Core
@@ -10,17 +10,17 @@ open Browser.Types
 /// A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.
 type [<Erase>] tooltip =
     /// Wraps your app to provide global functionality to your tooltips.
-    static member inline provider (props: IReactProperty seq) = createElement (import "Provider" "@radix-ui/react-tooltip") props
+    static member inline provider (props: IReactProperty seq) = createElement (import "TooltipProvider" "@radix-ui/react-tooltip") props
     /// Contains all the parts of a tooltip.
-    static member inline root (props: IReactProperty seq) = createElement (import "Root" "@radix-ui/react-tooltip") props
+    static member inline root (props: IReactProperty seq) = createElement (import "Tooltip" "@radix-ui/react-tooltip") props
     /// The button that toggles the tooltip. By default, the Tooltip.Content will position itself against the trigger.
-    static member inline trigger (props: IReactProperty seq) = createElement (import "Trigger" "@radix-ui/react-tooltip") props
+    static member inline trigger (props: IReactProperty seq) = createElement (import "TooltipTrigger" "@radix-ui/react-tooltip") props
     /// When used, portals the content part into the body.
-    static member inline portal (props: IReactProperty seq) = createElement (import "Portal" "@radix-ui/react-tooltip") props
+    static member inline portal (props: IReactProperty seq) = createElement (import "TooltipPortal" "@radix-ui/react-tooltip") props
     /// The component that pops out when the tooltip is open.
-    static member inline content (props: IReactProperty seq) = createElement (import "Content" "@radix-ui/react-tooltip") props
+    static member inline content (props: IReactProperty seq) = createElement (import "TooltipContent" "@radix-ui/react-tooltip") props
     /// An optional arrow element to render alongside the tooltip. This can be used to help visually link the trigger with the Tooltip.Content. Must be rendered inside Tooltip.Content.
-    static member inline arrow (props: IReactProperty seq) = createElement (import "Arrow" "@radix-ui/react-tooltip") props
+    static member inline arrow (props: IReactProperty seq) = createElement (import "TooltipArrow" "@radix-ui/react-tooltip") props
 
 
 /// Wraps your app to provide global functionality to your tooltips.

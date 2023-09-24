@@ -1,4 +1,4 @@
-namespace Feliz.RadixUI.Accordion
+namespace rec Feliz.RadixUI.Accordion
 
 open Feliz
 open Fable.Core
@@ -10,15 +10,15 @@ open Browser.Types
 /// A vertically stacked set of interactive headings that each reveal an associated section of content.
 type [<Erase>] accordion =
     /// Contains all the parts of an accordion.
-    static member inline root (props: IReactProperty seq) = createElement (import "Root" "@radix-ui/react-accordion") props
+    static member inline root (props: IReactProperty seq) = createElement (import "Accordion" "@radix-ui/react-accordion") props
     /// Contains all the parts of a collapsible section.
-    static member inline item (props: IReactProperty seq) = createElement (import "Item" "@radix-ui/react-accordion") props
+    static member inline item (props: IReactProperty seq) = createElement (import "AccordionItem" "@radix-ui/react-accordion") props
     /// Wraps an Accordion.Trigger. Use the asChild prop to update it to the appropriate heading level for your page.
-    static member inline header (props: IReactProperty seq) = createElement (import "Header" "@radix-ui/react-accordion") props
+    static member inline header (props: IReactProperty seq) = createElement (import "AccordionHeader" "@radix-ui/react-accordion") props
     /// Toggles the collapsed state of its associated item. It should be nested inside of an Accordion.Header.
-    static member inline trigger (props: IReactProperty seq) = createElement (import "Trigger" "@radix-ui/react-accordion") props
+    static member inline trigger (props: IReactProperty seq) = createElement (import "AccordionTrigger" "@radix-ui/react-accordion") props
     /// Contains the collapsible content for an item.
-    static member inline content (props: IReactProperty seq) = createElement (import "Content" "@radix-ui/react-accordion") props
+    static member inline content (props: IReactProperty seq) = createElement (import "AccordionContent" "@radix-ui/react-accordion") props
 
 
 /// Contains all the parts of an accordion.

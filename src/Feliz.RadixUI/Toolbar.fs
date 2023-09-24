@@ -1,4 +1,4 @@
-namespace Feliz.RadixUI.Toolbar
+namespace rec Feliz.RadixUI.Toolbar
 
 open Feliz
 open Fable.Core
@@ -10,17 +10,17 @@ open Browser.Types
 /// A container for grouping a set of controls, such as buttons, toggle groups or dropdown menus.
 type [<Erase>] toolbar =
     /// Contains all the toolbar component parts.
-    static member inline root (props: IReactProperty seq) = createElement (import "Root" "@radix-ui/react-toolbar") props
+    static member inline root (props: IReactProperty seq) = createElement (import "Toolbar" "@radix-ui/react-toolbar") props
     /// A button item.
-    static member inline button (props: IReactProperty seq) = createElement (import "Button" "@radix-ui/react-toolbar") props
+    static member inline button (props: IReactProperty seq) = createElement (import "ToolbarButton" "@radix-ui/react-toolbar") props
     /// A link item.
-    static member inline link (props: IReactProperty seq) = createElement (import "Link" "@radix-ui/react-toolbar") props
+    static member inline link (props: IReactProperty seq) = createElement (import "ToolbarLink" "@radix-ui/react-toolbar") props
     /// A set of two-state buttons that can be toggled on or off.
-    static member inline toggleGroup (props: IReactProperty seq) = createElement (import "ToggleGroup" "@radix-ui/react-toolbar") props
+    static member inline toggleGroup (props: IReactProperty seq) = createElement (import "ToolbarToggleGroup" "@radix-ui/react-toolbar") props
     /// An item in the group.
-    static member inline toggleItem (props: IReactProperty seq) = createElement (import "ToggleItem" "@radix-ui/react-toolbar") props
+    static member inline toggleItem (props: IReactProperty seq) = createElement (import "ToolbarToggleItem" "@radix-ui/react-toolbar") props
     /// Used to visually separate items in the toolbar.
-    static member inline separator (props: IReactProperty seq) = createElement (import "Separator" "@radix-ui/react-toolbar") props
+    static member inline separator (props: IReactProperty seq) = createElement (import "ToolbarSeparator" "@radix-ui/react-toolbar") props
 
 
 /// Contains all the toolbar component parts.
