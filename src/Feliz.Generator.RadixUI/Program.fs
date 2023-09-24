@@ -98,13 +98,14 @@ module Parser =
             ]
         | other -> None
 
-    let (|ParsePrimitive|_|) = function
+    let (|ParseSingleType|_|) = function
         | "number | null" -> Some [ "int" ]
         | "number" -> Some [ "int" ]
         | "number[]" -> Some [ "int[]" ]
         | "ReactNode" -> Some [ "ReactElement" ]
         | "string[]" -> Some [ "string[]" ]
         | "boolean" -> Some [ "bool" ]
+        | "HTMLElement" as s -> Some [ s ]
         | other -> None
 
     let (|ParseEnum|) = function
@@ -155,13 +156,19 @@ module Parser =
             "int"
             "Padding"
             ]
-        | "HTMLElement" 
-        | "Boundary" as s -> Some [ s ]
+        | "Element | null | Array<Element | null>" -> Some [
+            "ReactElement"
+            "ReactElement[]"
+            ]
+        | "number | Partial<Record<Side, number>>" -> Some [
+            "int"
+            "'T"
+            ]
         | other -> None
 
     let getParamOverloads = function
         | ParseFunction s -> s
-        | ParsePrimitive s -> s
+        | ParseSingleType s -> s
         | ParseMultiType s -> s
         | other -> [other]
 
@@ -295,8 +302,7 @@ module RadixComponentScraping =
                 }
             )
 
-    let getSubComponentData driver (processedSubComponents: Collections.Generic.HashSet<string>)  (parts: SubComponentParts)=
-        
+    let getSubComponentData driver (processedSubComponents: Collections.Generic.HashSet<string>)  (parts: SubComponentParts) =
         if processedSubComponents.Contains(parts.Name) then
             printfn "Skipping already processed subcomponent: %s" parts.Name
             None
@@ -308,7 +314,7 @@ module RadixComponentScraping =
 
             let propData = allPropData |> List.filter (fun p -> p.PropType <> "enum")
 
-            let enumData = allPropData |> List.filter (fun p -> p.PropType = "enum")
+            let enumData = allPropData |> List.filter (fun p -> p.PropType = "enum" || (p.PropType = "function" && p.PropTypeValue.Contains "(status:"))
 
             Some {
                 Name = parts.Name
@@ -412,13 +418,15 @@ module Render =
         enumData
         |> List.map (fun e ->
             e.PropTypeValue
-            |> fun enumStr -> 
+            |> fun enumStr ->
+                let cleanEnumStr = if enumStr.Contains "(status:" then enumStr.Replace("(status: ", "").Replace(") => void", "") else enumStr // handle special case
                 let cases =
-                    enumStr.Split('|')
+                    cleanEnumStr.Split('|')
                     |> Array.map (fun str -> str.Trim())
                     |> Array.toList
-                {   Name = e.Name
-                    Cases = cases |> List.map (fun c -> { Name = c; Value = c })
+                let name = if enumStr.Contains("(status:") then "status" else e.Name
+                {   Name = name |> kebabCaseToCamelCase |> appendApostropheToReservedKeywords
+                    Cases = cases |> List.map (fun c -> { Name = c |> kebabCaseToCamelCase |> appendApostropheToReservedKeywords; Value = c })
                 }
             )
 
