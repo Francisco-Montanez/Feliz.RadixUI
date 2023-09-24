@@ -10,23 +10,23 @@ open Browser.Types
 /// A collection of links for navigating websites.
 type [<Erase>] navigationMenu =
     /// Contains all the parts of a navigation menu.
-    static member inline root (props: IReactProperty seq) = createElement (import "Navigation Menu" "@radix-ui/react-navigation-menu") props
+    static member inline root (props: IReactProperty seq) = createElement (import "NavigationMenu" "@radix-ui/react-navigation-menu") props
     /// Signifies a submenu. Use it in place of the root part when nested to create a submenu.
-    static member inline sub (props: IReactProperty seq) = createElement (import "Navigation MenuSub" "@radix-ui/react-navigation-menu") props
+    static member inline sub (props: IReactProperty seq) = createElement (import "NavigationMenuSub" "@radix-ui/react-navigation-menu") props
     /// Contains the top level menu items.
-    static member inline list' (props: IReactProperty seq) = createElement (import "Navigation MenuList" "@radix-ui/react-navigation-menu") props
+    static member inline list' (props: IReactProperty seq) = createElement (import "NavigationMenuList" "@radix-ui/react-navigation-menu") props
     /// A top level menu item, contains a link or trigger with content combination.
-    static member inline item (props: IReactProperty seq) = createElement (import "Navigation MenuItem" "@radix-ui/react-navigation-menu") props
+    static member inline item (props: IReactProperty seq) = createElement (import "NavigationMenuItem" "@radix-ui/react-navigation-menu") props
     /// The button that toggles the content.
-    static member inline trigger (props: IReactProperty seq) = createElement (import "Navigation MenuTrigger" "@radix-ui/react-navigation-menu") props
+    static member inline trigger (props: IReactProperty seq) = createElement (import "NavigationMenuTrigger" "@radix-ui/react-navigation-menu") props
     /// Contains the content associated with each trigger.
-    static member inline content (props: IReactProperty seq) = createElement (import "Navigation MenuContent" "@radix-ui/react-navigation-menu") props
+    static member inline content (props: IReactProperty seq) = createElement (import "NavigationMenuContent" "@radix-ui/react-navigation-menu") props
     /// A navigational link.
-    static member inline link (props: IReactProperty seq) = createElement (import "Navigation MenuLink" "@radix-ui/react-navigation-menu") props
+    static member inline link (props: IReactProperty seq) = createElement (import "NavigationMenuLink" "@radix-ui/react-navigation-menu") props
     /// An optional indicator element that renders below the list, is used to highlight the currently active trigger.
-    static member inline indicator (props: IReactProperty seq) = createElement (import "Navigation MenuIndicator" "@radix-ui/react-navigation-menu") props
+    static member inline indicator (props: IReactProperty seq) = createElement (import "NavigationMenuIndicator" "@radix-ui/react-navigation-menu") props
     /// An optional viewport element that is used to render active content outside of the list.
-    static member inline viewport (props: IReactProperty seq) = createElement (import "Navigation MenuViewport" "@radix-ui/react-navigation-menu") props
+    static member inline viewport (props: IReactProperty seq) = createElement (import "NavigationMenuViewport" "@radix-ui/react-navigation-menu") props
 
 
 /// Contains all the parts of a navigation menu.

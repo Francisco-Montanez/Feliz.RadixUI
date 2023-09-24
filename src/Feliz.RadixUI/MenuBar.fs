@@ -10,39 +10,39 @@ open Browser.Types
 /// A visually persistent menu common in desktop applications that provides quick access to a consistent set of commands.
 type [<Erase>] menuBar =
     /// Contains all the parts of a menubar.
-    static member inline root (props: IReactProperty seq) = createElement (import "Menu Bar" "@radix-ui/react-menubar") props
+    static member inline root (props: IReactProperty seq) = createElement (import "MenuBar" "@radix-ui/react-menubar") props
     /// A top level menu item, contains a trigger with content combination.
-    static member inline menu (props: IReactProperty seq) = createElement (import "Menu BarMenu" "@radix-ui/react-menubar") props
+    static member inline menu (props: IReactProperty seq) = createElement (import "MenuBarMenu" "@radix-ui/react-menubar") props
     /// The button that toggles the content. By default, the Menubar.Content will position itself against the trigger.
-    static member inline trigger (props: IReactProperty seq) = createElement (import "Menu BarTrigger" "@radix-ui/react-menubar") props
+    static member inline trigger (props: IReactProperty seq) = createElement (import "MenuBarTrigger" "@radix-ui/react-menubar") props
     /// When used, portals the content part into the body.
-    static member inline portal (props: IReactProperty seq) = createElement (import "Menu BarPortal" "@radix-ui/react-menubar") props
+    static member inline portal (props: IReactProperty seq) = createElement (import "MenuBarPortal" "@radix-ui/react-menubar") props
     /// The component that pops out when a menu is open.
-    static member inline content (props: IReactProperty seq) = createElement (import "Menu BarContent" "@radix-ui/react-menubar") props
+    static member inline content (props: IReactProperty seq) = createElement (import "MenuBarContent" "@radix-ui/react-menubar") props
     /// An optional arrow element to render alongside a menubar menu. This can be used to help visually link the trigger with the Menubar.Content. Must be rendered inside Menubar.Content.
-    static member inline arrow (props: IReactProperty seq) = createElement (import "Menu BarArrow" "@radix-ui/react-menubar") props
+    static member inline arrow (props: IReactProperty seq) = createElement (import "MenuBarArrow" "@radix-ui/react-menubar") props
     /// The component that contains the menubar items.
-    static member inline item (props: IReactProperty seq) = createElement (import "Menu BarItem" "@radix-ui/react-menubar") props
+    static member inline item (props: IReactProperty seq) = createElement (import "MenuBarItem" "@radix-ui/react-menubar") props
     /// Used to group multiple Menubar.Items.
-    static member inline group (props: IReactProperty seq) = createElement (import "Menu BarGroup" "@radix-ui/react-menubar") props
+    static member inline group (props: IReactProperty seq) = createElement (import "MenuBarGroup" "@radix-ui/react-menubar") props
     /// Used to render a label. It won't be focusable using arrow keys.
-    static member inline label (props: IReactProperty seq) = createElement (import "Menu BarLabel" "@radix-ui/react-menubar") props
+    static member inline label (props: IReactProperty seq) = createElement (import "MenuBarLabel" "@radix-ui/react-menubar") props
     /// An item that can be controlled and rendered like a checkbox.
-    static member inline checkboxItem (props: IReactProperty seq) = createElement (import "Menu BarCheckboxItem" "@radix-ui/react-menubar") props
+    static member inline checkboxItem (props: IReactProperty seq) = createElement (import "MenuBarCheckboxItem" "@radix-ui/react-menubar") props
     /// Used to group multiple Menubar.RadioItems.
-    static member inline radioGroup (props: IReactProperty seq) = createElement (import "Menu BarRadioGroup" "@radix-ui/react-menubar") props
+    static member inline radioGroup (props: IReactProperty seq) = createElement (import "MenuBarRadioGroup" "@radix-ui/react-menubar") props
     /// An item that can be controlled and rendered like a radio.
-    static member inline radioItem (props: IReactProperty seq) = createElement (import "Menu BarRadioItem" "@radix-ui/react-menubar") props
+    static member inline radioItem (props: IReactProperty seq) = createElement (import "MenuBarRadioItem" "@radix-ui/react-menubar") props
     /// Renders when the parent Menubar.CheckboxItem or Menubar.RadioItem is checked. You can style this element directly, or you can use it as a wrapper to put an icon into, or both.
-    static member inline itemIndicator (props: IReactProperty seq) = createElement (import "Menu BarItemIndicator" "@radix-ui/react-menubar") props
+    static member inline itemIndicator (props: IReactProperty seq) = createElement (import "MenuBarItemIndicator" "@radix-ui/react-menubar") props
     /// Used to visually separate items in a menubar menu.
-    static member inline separator (props: IReactProperty seq) = createElement (import "Menu BarSeparator" "@radix-ui/react-menubar") props
+    static member inline separator (props: IReactProperty seq) = createElement (import "MenuBarSeparator" "@radix-ui/react-menubar") props
     /// Contains all the parts of a submenu.
-    static member inline sub (props: IReactProperty seq) = createElement (import "Menu BarSub" "@radix-ui/react-menubar") props
+    static member inline sub (props: IReactProperty seq) = createElement (import "MenuBarSub" "@radix-ui/react-menubar") props
     /// An item that opens a submenu. Must be rendered inside Menubar.Sub.
-    static member inline subTrigger (props: IReactProperty seq) = createElement (import "Menu BarSubTrigger" "@radix-ui/react-menubar") props
+    static member inline subTrigger (props: IReactProperty seq) = createElement (import "MenuBarSubTrigger" "@radix-ui/react-menubar") props
     /// The component that pops out when a submenu is open. Must be rendered inside Menubar.Sub.
-    static member inline subContent (props: IReactProperty seq) = createElement (import "Menu BarSubContent" "@radix-ui/react-menubar") props
+    static member inline subContent (props: IReactProperty seq) = createElement (import "MenuBarSubContent" "@radix-ui/react-menubar") props
 
 
 /// Contains all the parts of a menubar.

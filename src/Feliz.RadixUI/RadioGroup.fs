@@ -10,11 +10,11 @@ open Browser.Types
 /// A set of checkable buttons—known as radio buttons—where no more than one of the buttons can be checked at a time.
 type [<Erase>] radioGroup =
     /// Contains all the parts of a radio group.
-    static member inline root (props: IReactProperty seq) = createElement (import "Radio Group" "@radix-ui/react-radio-group") props
+    static member inline root (props: IReactProperty seq) = createElement (import "RadioGroup" "@radix-ui/react-radio-group") props
     /// An item in the group that can be checked. An input will also render when used within a form to ensure events propagate correctly.
-    static member inline item (props: IReactProperty seq) = createElement (import "Radio GroupItem" "@radix-ui/react-radio-group") props
+    static member inline item (props: IReactProperty seq) = createElement (import "RadioGroupItem" "@radix-ui/react-radio-group") props
     /// Renders when the radio item is in a checked state. You can style this element directly, or you can use it as a wrapper to put an icon into, or both.
-    static member inline indicator (props: IReactProperty seq) = createElement (import "Radio GroupIndicator" "@radix-ui/react-radio-group") props
+    static member inline indicator (props: IReactProperty seq) = createElement (import "RadioGroupIndicator" "@radix-ui/react-radio-group") props
 
 
 /// Contains all the parts of a radio group.

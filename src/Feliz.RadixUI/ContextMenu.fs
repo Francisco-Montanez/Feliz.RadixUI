@@ -10,37 +10,37 @@ open Browser.Types
 /// Displays a menu located at the pointer, triggered by a right-click or a long-press.
 type [<Erase>] contextMenu =
     /// Contains all the parts of a context menu.
-    static member inline root (props: IReactProperty seq) = createElement (import "Context Menu" "@radix-ui/react-context-menu") props
+    static member inline root (props: IReactProperty seq) = createElement (import "ContextMenu" "@radix-ui/react-context-menu") props
     /// The area that opens the context menu. Wrap it around the target you want the context menu to open from when right-clicking (or using the relevant keyboard shortcuts).
-    static member inline trigger (props: IReactProperty seq) = createElement (import "Context MenuTrigger" "@radix-ui/react-context-menu") props
+    static member inline trigger (props: IReactProperty seq) = createElement (import "ContextMenuTrigger" "@radix-ui/react-context-menu") props
     /// When used, portals the content part into the body.
-    static member inline portal (props: IReactProperty seq) = createElement (import "Context MenuPortal" "@radix-ui/react-context-menu") props
+    static member inline portal (props: IReactProperty seq) = createElement (import "ContextMenuPortal" "@radix-ui/react-context-menu") props
     /// The component that pops out in an open context menu.
-    static member inline content (props: IReactProperty seq) = createElement (import "Context MenuContent" "@radix-ui/react-context-menu") props
+    static member inline content (props: IReactProperty seq) = createElement (import "ContextMenuContent" "@radix-ui/react-context-menu") props
     /// An optional arrow element to render alongside a submenu. This can be used to help visually link the trigger item with the ContextMenu.Content. Must be rendered inside ContextMenu.Content.
-    static member inline arrow (props: IReactProperty seq) = createElement (import "Context MenuArrow" "@radix-ui/react-context-menu") props
+    static member inline arrow (props: IReactProperty seq) = createElement (import "ContextMenuArrow" "@radix-ui/react-context-menu") props
     /// The component that contains the context menu items.
-    static member inline item (props: IReactProperty seq) = createElement (import "Context MenuItem" "@radix-ui/react-context-menu") props
+    static member inline item (props: IReactProperty seq) = createElement (import "ContextMenuItem" "@radix-ui/react-context-menu") props
     /// Used to group multiple ContextMenu.Items.
-    static member inline group (props: IReactProperty seq) = createElement (import "Context MenuGroup" "@radix-ui/react-context-menu") props
+    static member inline group (props: IReactProperty seq) = createElement (import "ContextMenuGroup" "@radix-ui/react-context-menu") props
     /// Used to render a label. It won't be focusable using arrow keys.
-    static member inline label (props: IReactProperty seq) = createElement (import "Context MenuLabel" "@radix-ui/react-context-menu") props
+    static member inline label (props: IReactProperty seq) = createElement (import "ContextMenuLabel" "@radix-ui/react-context-menu") props
     /// An item that can be controlled and rendered like a checkbox.
-    static member inline checkboxItem (props: IReactProperty seq) = createElement (import "Context MenuCheckboxItem" "@radix-ui/react-context-menu") props
+    static member inline checkboxItem (props: IReactProperty seq) = createElement (import "ContextMenuCheckboxItem" "@radix-ui/react-context-menu") props
     /// Used to group multiple ContextMenu.RadioItems.
-    static member inline radioGroup (props: IReactProperty seq) = createElement (import "Context MenuRadioGroup" "@radix-ui/react-context-menu") props
+    static member inline radioGroup (props: IReactProperty seq) = createElement (import "ContextMenuRadioGroup" "@radix-ui/react-context-menu") props
     /// An item that can be controlled and rendered like a radio.
-    static member inline radioItem (props: IReactProperty seq) = createElement (import "Context MenuRadioItem" "@radix-ui/react-context-menu") props
+    static member inline radioItem (props: IReactProperty seq) = createElement (import "ContextMenuRadioItem" "@radix-ui/react-context-menu") props
     /// Renders when the parent ContextMenu.CheckboxItem or ContextMenu.RadioItem is checked. You can style this element directly, or you can use it as a wrapper to put an icon into, or both.
-    static member inline itemIndicator (props: IReactProperty seq) = createElement (import "Context MenuItemIndicator" "@radix-ui/react-context-menu") props
+    static member inline itemIndicator (props: IReactProperty seq) = createElement (import "ContextMenuItemIndicator" "@radix-ui/react-context-menu") props
     /// Used to visually separate items in the context menu.
-    static member inline separator (props: IReactProperty seq) = createElement (import "Context MenuSeparator" "@radix-ui/react-context-menu") props
+    static member inline separator (props: IReactProperty seq) = createElement (import "ContextMenuSeparator" "@radix-ui/react-context-menu") props
     /// Contains all the parts of a submenu.
-    static member inline sub (props: IReactProperty seq) = createElement (import "Context MenuSub" "@radix-ui/react-context-menu") props
+    static member inline sub (props: IReactProperty seq) = createElement (import "ContextMenuSub" "@radix-ui/react-context-menu") props
     /// An item that opens a submenu. Must be rendered inside ContextMenu.Sub.
-    static member inline subTrigger (props: IReactProperty seq) = createElement (import "Context MenuSubTrigger" "@radix-ui/react-context-menu") props
+    static member inline subTrigger (props: IReactProperty seq) = createElement (import "ContextMenuSubTrigger" "@radix-ui/react-context-menu") props
     /// The component that pops out when a submenu is open. Must be rendered inside ContextMenu.Sub.
-    static member inline subContent (props: IReactProperty seq) = createElement (import "Context MenuSubContent" "@radix-ui/react-context-menu") props
+    static member inline subContent (props: IReactProperty seq) = createElement (import "ContextMenuSubContent" "@radix-ui/react-context-menu") props
 
 
 /// Contains all the parts of a context menu.
