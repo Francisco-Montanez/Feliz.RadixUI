@@ -2,6 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <Description>Feliz-style Fable bindings for Radix UI.</Description>
+    <Authors>Francisco Montanez</Authors>
   </PropertyGroup>
 
   <ItemGroup>
@@ -42,34 +45,37 @@
     <PackageReference Include="Feliz" Version="2.6.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <NpmPackageVersion Include="@radix-ui/react-accordion" Version="1.0.4" />
-    <NpmPackageVersion Include="@radix-ui/react-alert-dialog" Version="1.0.4" />
-    <NpmPackageVersion Include="@radix-ui/react-aspect-ratio" Version="1.0.4" />
-    <NpmPackageVersion Include="@radix-ui/react-avatar" Version="1.0.4" />
-    <NpmPackageVersion Include="@radix-ui/react-checkbox" Version="1.0.4" />
-    <NpmPackageVersion Include="@radix-ui/react-collapsible" Version="1.0.4" />
-    <NpmPackageVersion Include="@radix-ui/react-context-menu" Version="1.0.4" />
-    <NpmPackageVersion Include="@radix-ui/react-dialog" Version="1.0.4" />
-    <NpmPackageVersion Include="@radix-ui/react-dropdown-menu" Version="1.0.4" />
-    <NpmPackageVersion Include="@radix-ui/react-form" Version="1.0.4" />
-    <NpmPackageVersion Include="@radix-ui/react-hover-card" Version="1.0.4" />
-    <NpmPackageVersion Include="@radix-ui/react-label" Version="1.0.4" />
-    <NpmPackageVersion Include="@radix-ui/react-menu-bar" Version="1.0.4" />
-    <NpmPackageVersion Include="@radix-ui/react-navigation-menu" Version="1.0.4" />
-    <NpmPackageVersion Include="@radix-ui/react-popover" Version="1.0.4" />
-    <NpmPackageVersion Include="@radix-ui/react-progress" Version="1.0.4" />
-    <NpmPackageVersion Include="@radix-ui/react-radio-group" Version="1.0.4" />
-    <NpmPackageVersion Include="@radix-ui/react-scroll-area" Version="1.0.4" />
-    <NpmPackageVersion Include="@radix-ui/react-select" Version="1.0.4" />
-    <NpmPackageVersion Include="@radix-ui/react-separator" Version="1.0.4" />
-    <NpmPackageVersion Include="@radix-ui/react-slider" Version="1.0.4" />
-    <NpmPackageVersion Include="@radix-ui/react-switch" Version="1.0.4" />
-    <NpmPackageVersion Include="@radix-ui/react-tabs" Version="1.0.4" />
-    <NpmPackageVersion Include="@radix-ui/react-toast" Version="1.0.4" />
-    <NpmPackageVersion Include="@radix-ui/react-toggle" Version="1.0.4" />
-    <NpmPackageVersion Include="@radix-ui/react-toggle-group" Version="1.0.4" />
-    <NpmPackageVersion Include="@radix-ui/react-toolbar" Version="1.0.4" />
-    <NpmPackageVersion Include="@radix-ui/react-tooltip" Version="1.0.4" />
-  </ItemGroup>
+  <PropertyGroup>
+    <NpmDependencies>
+      <NpmPackage Name="@radix-ui/react-accordion" Version="gte 1 lt 2" ResolutionStrategy="max"  />
+      <NpmPackage Name="@radix-ui/react-alert-dialog" Version="gte 1 lt 2" ResolutionStrategy="max"  />
+      <NpmPackage Name="@radix-ui/react-aspect-ratio" Version="gte 1 lt 2" ResolutionStrategy="max"  />
+      <NpmPackage Name="@radix-ui/react-avatar" Version="gte 1 lt 2" ResolutionStrategy="max"  />
+      <NpmPackage Name="@radix-ui/react-checkbox" Version="gte 1 lt 2" ResolutionStrategy="max"  />
+      <NpmPackage Name="@radix-ui/react-collapsible" Version="gte 1 lt 2" ResolutionStrategy="max"  />
+      <NpmPackage Name="@radix-ui/react-context-menu" Version="gte 1 lt 2" ResolutionStrategy="max"  />
+      <NpmPackage Name="@radix-ui/react-dialog" Version="gte 1 lt 2" ResolutionStrategy="max"  />
+      <NpmPackage Name="@radix-ui/react-dropdown-menu" Version="gte 1 lt 2" ResolutionStrategy="max"  />
+      <NpmPackage Name="@radix-ui/react-form" Version="gte 1 lt 2" ResolutionStrategy="max"  />
+      <NpmPackage Name="@radix-ui/react-hover-card" Version="gte 1 lt 2" ResolutionStrategy="max"  />
+      <NpmPackage Name="@radix-ui/react-label" Version="gte 1 lt 2" ResolutionStrategy="max"  />
+      <NpmPackage Name="@radix-ui/react-menu-bar" Version="gte 1 lt 2" ResolutionStrategy="max"  />
+      <NpmPackage Name="@radix-ui/react-navigation-menu" Version="gte 1 lt 2" ResolutionStrategy="max"  />
+      <NpmPackage Name="@radix-ui/react-popover" Version="gte 1 lt 2" ResolutionStrategy="max"  />
+      <NpmPackage Name="@radix-ui/react-progress" Version="gte 1 lt 2" ResolutionStrategy="max"  />
+      <NpmPackage Name="@radix-ui/react-radio-group" Version="gte 1 lt 2" ResolutionStrategy="max"  />
+      <NpmPackage Name="@radix-ui/react-scroll-area" Version="gte 1 lt 2" ResolutionStrategy="max"  />
+      <NpmPackage Name="@radix-ui/react-select" Version="gte 1 lt 2" ResolutionStrategy="max"  />
+      <NpmPackage Name="@radix-ui/react-separator" Version="gte 1 lt 2" ResolutionStrategy="max"  />
+      <NpmPackage Name="@radix-ui/react-slider" Version="gte 1 lt 2" ResolutionStrategy="max"  />
+      <NpmPackage Name="@radix-ui/react-switch" Version="gte 1 lt 2" ResolutionStrategy="max"  />
+      <NpmPackage Name="@radix-ui/react-tabs" Version="gte 1 lt 2" ResolutionStrategy="max"  />
+      <NpmPackage Name="@radix-ui/react-toast" Version="gte 1 lt 2" ResolutionStrategy="max"  />
+      <NpmPackage Name="@radix-ui/react-toggle" Version="gte 1 lt 2" ResolutionStrategy="max"  />
+      <NpmPackage Name="@radix-ui/react-toggle-group" Version="gte 1 lt 2" ResolutionStrategy="max"  />
+      <NpmPackage Name="@radix-ui/react-toolbar" Version="gte 1 lt 2" ResolutionStrategy="max"  />
+      <NpmPackage Name="@radix-ui/react-tooltip" Version="gte 1 lt 2" ResolutionStrategy="max"  />
+    </NpmDependencies>
+  </PropertyGroup>
+
 </Project>
