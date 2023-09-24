@@ -84,7 +84,7 @@ module Parser =
         | "(pressed: boolean) => void" -> Some [ "(bool -> unit)" ]
         | """(status: "idle" | "loading" | "loaded" | "error") => void""" -> Some [
             "(string -> unit)"
-            "(status -> unit)"
+            "(image.status -> unit)"
             ]
         | "(validity: ValidityState | undefined) => React.ReactNode" -> Some [ "(ValidityState -> ReactElement)" ]
         | "(value: number, max: number) => string" -> Some [ "(int -> int -> string)" ]
@@ -462,8 +462,9 @@ module Render =
             $"/// {radixComponent.Description}"
             $"type [<Erase>] {radixComponent.Name |> removeSpaces |> lowerFirst |> appendApostropheToReservedKeywords} ="
             for subComponent in radixComponent.SubComponents do
+                let importName = if subComponent.Name = "Root" then radixComponent.Name else radixComponent.Name+subComponent.Name
                 $"/// {subComponent.Description}" |> indent4
-                $"static member inline {subComponent.Name |> lowerFirst |> appendApostropheToReservedKeywords} (props: IReactProperty seq) = createElement (import \"{subComponent.Name}\" \"{radixComponent.NpmPackage}\") props" |> indent4
+                $"static member inline {subComponent.Name |> lowerFirst |> appendApostropheToReservedKeywords} (props: IReactProperty seq) = createElement (import \"{importName}\" \"{radixComponent.NpmPackage}\") props" |> indent4
             ""
             ""
         ]
@@ -496,7 +497,7 @@ module Render =
     let renderComponentPage radixComponent =
         System.IO.File.WriteAllText($"../Feliz.RadixUI/{radixComponent.Name |> removeSpaces}.fs",
             [
-                $"namespace Feliz.RadixUI.{radixComponent.Name |> removeSpaces}"
+                $"namespace rec Feliz.RadixUI.{radixComponent.Name |> removeSpaces}"
                 ""
                 "open Feliz"
                 "open Fable.Core"

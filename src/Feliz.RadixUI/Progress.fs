@@ -1,4 +1,4 @@
-namespace Feliz.RadixUI.Progress
+namespace rec Feliz.RadixUI.Progress
 
 open Feliz
 open Fable.Core
@@ -10,9 +10,9 @@ open Browser.Types
 /// Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.
 type [<Erase>] progress =
     /// Contains all of the progress parts.
-    static member inline root (props: IReactProperty seq) = createElement (import "Root" "@radix-ui/react-progress") props
+    static member inline root (props: IReactProperty seq) = createElement (import "Progress" "@radix-ui/react-progress") props
     /// Used to show the progress visually. It also makes progress accessible to assistive technologies.
-    static member inline indicator (props: IReactProperty seq) = createElement (import "Indicator" "@radix-ui/react-progress") props
+    static member inline indicator (props: IReactProperty seq) = createElement (import "ProgressIndicator" "@radix-ui/react-progress") props
 
 
 /// Contains all of the progress parts.

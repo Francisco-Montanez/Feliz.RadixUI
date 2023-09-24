@@ -1,4 +1,4 @@
-namespace Feliz.RadixUI.ToggleGroup
+namespace rec Feliz.RadixUI.ToggleGroup
 
 open Feliz
 open Fable.Core
@@ -10,9 +10,9 @@ open Browser.Types
 /// A set of two-state buttons that can be toggled on or off.
 type [<Erase>] toggleGroup =
     /// Contains all the parts of a toggle group.
-    static member inline root (props: IReactProperty seq) = createElement (import "Root" "@radix-ui/react-toggle-group") props
+    static member inline root (props: IReactProperty seq) = createElement (import "Toggle Group" "@radix-ui/react-toggle-group") props
     /// An item in the group.
-    static member inline item (props: IReactProperty seq) = createElement (import "Item" "@radix-ui/react-toggle-group") props
+    static member inline item (props: IReactProperty seq) = createElement (import "Toggle GroupItem" "@radix-ui/react-toggle-group") props
 
 
 /// Contains all the parts of a toggle group.

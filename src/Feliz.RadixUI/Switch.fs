@@ -1,4 +1,4 @@
-namespace Feliz.RadixUI.Switch
+namespace rec Feliz.RadixUI.Switch
 
 open Feliz
 open Fable.Core
@@ -10,9 +10,9 @@ open Browser.Types
 /// A control that allows the user to toggle between checked and not checked.
 type [<Erase>] switch =
     /// Contains all the parts of a switch. An input will also render when used within a form to ensure events propagate correctly.
-    static member inline root (props: IReactProperty seq) = createElement (import "Root" "@radix-ui/react-switch") props
+    static member inline root (props: IReactProperty seq) = createElement (import "Switch" "@radix-ui/react-switch") props
     /// The thumb that is used to visually indicate whether the switch is on or off.
-    static member inline thumb (props: IReactProperty seq) = createElement (import "Thumb" "@radix-ui/react-switch") props
+    static member inline thumb (props: IReactProperty seq) = createElement (import "SwitchThumb" "@radix-ui/react-switch") props
 
 
 /// Contains all the parts of a switch. An input will also render when used within a form to ensure events propagate correctly.

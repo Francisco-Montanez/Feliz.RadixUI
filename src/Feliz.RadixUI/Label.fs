@@ -1,4 +1,4 @@
-namespace Feliz.RadixUI.Label
+namespace rec Feliz.RadixUI.Label
 
 open Feliz
 open Fable.Core
@@ -10,7 +10,7 @@ open Browser.Types
 /// Renders an accessible label associated with controls.
 type [<Erase>] label =
     /// Contains the content for the label.
-    static member inline root (props: IReactProperty seq) = createElement (import "Root" "@radix-ui/react-label") props
+    static member inline root (props: IReactProperty seq) = createElement (import "Label" "@radix-ui/react-label") props
 
 
 /// Contains the content for the label.

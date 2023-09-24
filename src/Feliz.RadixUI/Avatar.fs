@@ -10,11 +10,11 @@ open Browser.Types
 /// An image element with a fallback for representing the user.
 type [<Erase>] avatar =
     /// Contains all the parts of an avatar.
-    static member inline root (props: IReactProperty seq) = createElement (import "Root" "@radix-ui/react-avatar") props
+    static member inline root (props: IReactProperty seq) = createElement (import "Avatar" "@radix-ui/react-avatar") props
     /// The image to render. By default it will only render when it has loaded. You can use the onLoadingStatusChange handler if you need more control.
-    static member inline image (props: IReactProperty seq) = createElement (import "Image" "@radix-ui/react-avatar") props
+    static member inline image (props: IReactProperty seq) = createElement (import "AvatarImage" "@radix-ui/react-avatar") props
     /// An element that renders when the image hasn't loaded. This means whilst it's loading, or if there was an error. If you notice a flash during loading, you can provide a delayMs prop to delay its rendering so it only renders for those with slower connections. For more control, use the onLoadingStatusChange handler on Avatar.Image.
-    static member inline fallback (props: IReactProperty seq) = createElement (import "Fallback" "@radix-ui/react-avatar") props
+    static member inline fallback (props: IReactProperty seq) = createElement (import "AvatarFallback" "@radix-ui/react-avatar") props
 
 
 /// Contains all the parts of an avatar.

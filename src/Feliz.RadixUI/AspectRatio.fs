@@ -1,4 +1,4 @@
-namespace Feliz.RadixUI.AspectRatio
+namespace rec Feliz.RadixUI.AspectRatio
 
 open Feliz
 open Fable.Core
@@ -10,7 +10,7 @@ open Browser.Types
 /// Displays content within a desired ratio.
 type [<Erase>] aspectRatio =
     /// Contains the content you want to constrain to a given ratio.
-    static member inline root (props: IReactProperty seq) = createElement (import "Root" "@radix-ui/react-aspect-ratio") props
+    static member inline root (props: IReactProperty seq) = createElement (import "Aspect Ratio" "@radix-ui/react-aspect-ratio") props
 
 
 /// Contains the content you want to constrain to a given ratio.

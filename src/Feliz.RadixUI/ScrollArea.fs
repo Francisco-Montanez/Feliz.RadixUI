@@ -1,4 +1,4 @@
-namespace Feliz.RadixUI.ScrollArea
+namespace rec Feliz.RadixUI.ScrollArea
 
 open Feliz
 open Fable.Core
@@ -10,15 +10,15 @@ open Browser.Types
 /// Augments native scroll functionality for custom, cross-browser styling.
 type [<Erase>] scrollArea =
     /// Contains all the parts of a scroll area.
-    static member inline root (props: IReactProperty seq) = createElement (import "Root" "@radix-ui/react-scroll-area") props
+    static member inline root (props: IReactProperty seq) = createElement (import "Scroll Area" "@radix-ui/react-scroll-area") props
     /// The viewport area of the scroll area.
-    static member inline viewport (props: IReactProperty seq) = createElement (import "Viewport" "@radix-ui/react-scroll-area") props
+    static member inline viewport (props: IReactProperty seq) = createElement (import "Scroll AreaViewport" "@radix-ui/react-scroll-area") props
     /// The vertical scrollbar. Add a second Scrollbar with an orientation prop to enable horizontal scrolling.
-    static member inline scrollbar (props: IReactProperty seq) = createElement (import "Scrollbar" "@radix-ui/react-scroll-area") props
+    static member inline scrollbar (props: IReactProperty seq) = createElement (import "Scroll AreaScrollbar" "@radix-ui/react-scroll-area") props
     /// The thumb to be used in ScrollArea.Scrollbar.
-    static member inline thumb (props: IReactProperty seq) = createElement (import "Thumb" "@radix-ui/react-scroll-area") props
+    static member inline thumb (props: IReactProperty seq) = createElement (import "Scroll AreaThumb" "@radix-ui/react-scroll-area") props
     /// The corner where both vertical and horizontal scrollbars meet.
-    static member inline corner (props: IReactProperty seq) = createElement (import "Corner" "@radix-ui/react-scroll-area") props
+    static member inline corner (props: IReactProperty seq) = createElement (import "Scroll AreaCorner" "@radix-ui/react-scroll-area") props
 
 
 /// Contains all the parts of a scroll area.

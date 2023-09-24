@@ -1,4 +1,4 @@
-namespace Feliz.RadixUI.Checkbox
+namespace rec Feliz.RadixUI.Checkbox
 
 open Feliz
 open Fable.Core
@@ -10,9 +10,9 @@ open Browser.Types
 /// A control that allows the user to toggle between checked and not checked.
 type [<Erase>] checkbox =
     /// Contains all the parts of a checkbox. An input will also render when used within a form to ensure events propagate correctly.
-    static member inline root (props: IReactProperty seq) = createElement (import "Root" "@radix-ui/react-checkbox") props
+    static member inline root (props: IReactProperty seq) = createElement (import "Checkbox" "@radix-ui/react-checkbox") props
     /// Renders when the checkbox is in a checked or indeterminate state. You can style this element directly, or you can use it as a wrapper to put an icon into, or both.
-    static member inline indicator (props: IReactProperty seq) = createElement (import "Indicator" "@radix-ui/react-checkbox") props
+    static member inline indicator (props: IReactProperty seq) = createElement (import "CheckboxIndicator" "@radix-ui/react-checkbox") props
 
 
 /// Contains all the parts of a checkbox. An input will also render when used within a form to ensure events propagate correctly.

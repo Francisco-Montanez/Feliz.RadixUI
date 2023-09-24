@@ -1,4 +1,4 @@
-namespace Feliz.RadixUI.Toggle
+namespace rec Feliz.RadixUI.Toggle
 
 open Feliz
 open Fable.Core
@@ -10,7 +10,7 @@ open Browser.Types
 /// A two-state button that can be either on or off.
 type [<Erase>] toggle =
     /// The toggle.
-    static member inline root (props: IReactProperty seq) = createElement (import "Root" "@radix-ui/react-toggle") props
+    static member inline root (props: IReactProperty seq) = createElement (import "Toggle" "@radix-ui/react-toggle") props
 
 
 /// The toggle.

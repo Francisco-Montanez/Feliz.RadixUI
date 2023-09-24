@@ -1,4 +1,4 @@
-namespace Feliz.RadixUI.Collapsible
+namespace rec Feliz.RadixUI.Collapsible
 
 open Feliz
 open Fable.Core
@@ -10,11 +10,11 @@ open Browser.Types
 /// An interactive component which expands/collapses a panel.
 type [<Erase>] collapsible =
     /// Contains all the parts of a collapsible.
-    static member inline root (props: IReactProperty seq) = createElement (import "Root" "@radix-ui/react-collapsible") props
+    static member inline root (props: IReactProperty seq) = createElement (import "Collapsible" "@radix-ui/react-collapsible") props
     /// The button that toggles the collapsible.
-    static member inline trigger (props: IReactProperty seq) = createElement (import "Trigger" "@radix-ui/react-collapsible") props
+    static member inline trigger (props: IReactProperty seq) = createElement (import "CollapsibleTrigger" "@radix-ui/react-collapsible") props
     /// The component that contains the collapsible content.
-    static member inline content (props: IReactProperty seq) = createElement (import "Content" "@radix-ui/react-collapsible") props
+    static member inline content (props: IReactProperty seq) = createElement (import "CollapsibleContent" "@radix-ui/react-collapsible") props
 
 
 /// Contains all the parts of a collapsible.

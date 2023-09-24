@@ -1,4 +1,4 @@
-namespace Feliz.RadixUI.Form
+namespace rec Feliz.RadixUI.Form
 
 open Feliz
 open Fable.Core
@@ -10,17 +10,17 @@ open Browser.Types
 /// Collect information from your users using validation rules.
 type [<Erase>] form =
     /// Contains all the parts of a form.
-    static member inline root (props: IReactProperty seq) = createElement (import "Root" "@radix-ui/react-form") props
+    static member inline root (props: IReactProperty seq) = createElement (import "Form" "@radix-ui/react-form") props
     /// The wrapper for a field. It handles id/name and label accessibility automatically.
-    static member inline field (props: IReactProperty seq) = createElement (import "Field" "@radix-ui/react-form") props
+    static member inline field (props: IReactProperty seq) = createElement (import "FormField" "@radix-ui/react-form") props
     /// A label element which is automatically wired when nested inside a Field part.
-    static member inline label (props: IReactProperty seq) = createElement (import "Label" "@radix-ui/react-form") props
+    static member inline label (props: IReactProperty seq) = createElement (import "FormLabel" "@radix-ui/react-form") props
     /// A control element (by default an input) which is automatically wired when nested inside a Field part.
-    static member inline control (props: IReactProperty seq) = createElement (import "Control" "@radix-ui/react-form") props
+    static member inline control (props: IReactProperty seq) = createElement (import "FormControl" "@radix-ui/react-form") props
     /// Use this render-prop component to access a given field’s validity state in render (see ValidityState on MDN). A field's validity is available automatically when nested inside a Field part, otherwise you must pass a name prop to associate it.
-    static member inline validityState (props: IReactProperty seq) = createElement (import "ValidityState" "@radix-ui/react-form") props
+    static member inline validityState (props: IReactProperty seq) = createElement (import "FormValidityState" "@radix-ui/react-form") props
     /// The submit button.
-    static member inline submit (props: IReactProperty seq) = createElement (import "Submit" "@radix-ui/react-form") props
+    static member inline submit (props: IReactProperty seq) = createElement (import "FormSubmit" "@radix-ui/react-form") props
 
 
 /// Contains all the parts of a form.

@@ -1,4 +1,4 @@
-namespace Feliz.RadixUI.Toast
+namespace rec Feliz.RadixUI.Toast
 
 open Feliz
 open Fable.Core
@@ -10,17 +10,17 @@ open Browser.Types
 /// A succinct message that is displayed temporarily.
 type [<Erase>] toast =
     /// The provider that wraps your toasts and toast viewport. It usually wraps the application.
-    static member inline provider (props: IReactProperty seq) = createElement (import "Provider" "@radix-ui/react-toast") props
+    static member inline provider (props: IReactProperty seq) = createElement (import "ToastProvider" "@radix-ui/react-toast") props
     /// The fixed area where toasts appear. Users can jump to the viewport by pressing a hotkey. It is up to you to ensure the discoverability of the hotkey for keyboard users.
-    static member inline viewport (props: IReactProperty seq) = createElement (import "Viewport" "@radix-ui/react-toast") props
+    static member inline viewport (props: IReactProperty seq) = createElement (import "ToastViewport" "@radix-ui/react-toast") props
     /// The toast that automatically closes. It should not be held open to acquire a user response.
-    static member inline root (props: IReactProperty seq) = createElement (import "Root" "@radix-ui/react-toast") props
+    static member inline root (props: IReactProperty seq) = createElement (import "Toast" "@radix-ui/react-toast") props
     /// An optional title for the toast.
-    static member inline title (props: IReactProperty seq) = createElement (import "Title" "@radix-ui/react-toast") props
+    static member inline title (props: IReactProperty seq) = createElement (import "ToastTitle" "@radix-ui/react-toast") props
     /// The toast message.
-    static member inline description (props: IReactProperty seq) = createElement (import "Description" "@radix-ui/react-toast") props
+    static member inline description (props: IReactProperty seq) = createElement (import "ToastDescription" "@radix-ui/react-toast") props
     /// A button that allows users to dismiss the toast before its duration has elapsed.
-    static member inline close (props: IReactProperty seq) = createElement (import "Close" "@radix-ui/react-toast") props
+    static member inline close (props: IReactProperty seq) = createElement (import "ToastClose" "@radix-ui/react-toast") props
 
 
 /// The provider that wraps your toasts and toast viewport. It usually wraps the application.

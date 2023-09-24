@@ -1,4 +1,4 @@
-namespace Feliz.RadixUI.Popover
+namespace rec Feliz.RadixUI.Popover
 
 open Feliz
 open Fable.Core
@@ -10,19 +10,19 @@ open Browser.Types
 /// Displays rich content in a portal, triggered by a button.
 type [<Erase>] popover =
     /// Contains all the parts of a popover.
-    static member inline root (props: IReactProperty seq) = createElement (import "Root" "@radix-ui/react-popover") props
+    static member inline root (props: IReactProperty seq) = createElement (import "Popover" "@radix-ui/react-popover") props
     /// The button that toggles the popover. By default, the Popover.Content will position itself against the trigger.
-    static member inline trigger (props: IReactProperty seq) = createElement (import "Trigger" "@radix-ui/react-popover") props
+    static member inline trigger (props: IReactProperty seq) = createElement (import "PopoverTrigger" "@radix-ui/react-popover") props
     /// An optional element to position the Popover.Content against. If this part is not used, the content will position alongside the Popover.Trigger.
-    static member inline anchor (props: IReactProperty seq) = createElement (import "Anchor" "@radix-ui/react-popover") props
+    static member inline anchor (props: IReactProperty seq) = createElement (import "PopoverAnchor" "@radix-ui/react-popover") props
     /// When used, portals the content part into the body.
-    static member inline portal (props: IReactProperty seq) = createElement (import "Portal" "@radix-ui/react-popover") props
+    static member inline portal (props: IReactProperty seq) = createElement (import "PopoverPortal" "@radix-ui/react-popover") props
     /// The component that pops out when the popover is open.
-    static member inline content (props: IReactProperty seq) = createElement (import "Content" "@radix-ui/react-popover") props
+    static member inline content (props: IReactProperty seq) = createElement (import "PopoverContent" "@radix-ui/react-popover") props
     /// An optional arrow element to render alongside the popover. This can be used to help visually link the anchor with the Popover.Content. Must be rendered inside Popover.Content.
-    static member inline arrow (props: IReactProperty seq) = createElement (import "Arrow" "@radix-ui/react-popover") props
+    static member inline arrow (props: IReactProperty seq) = createElement (import "PopoverArrow" "@radix-ui/react-popover") props
     /// The button that closes an open popover.
-    static member inline close (props: IReactProperty seq) = createElement (import "Close" "@radix-ui/react-popover") props
+    static member inline close (props: IReactProperty seq) = createElement (import "PopoverClose" "@radix-ui/react-popover") props
 
 
 /// Contains all the parts of a popover.

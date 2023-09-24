@@ -1,4 +1,4 @@
-namespace Feliz.RadixUI.Separator
+namespace rec Feliz.RadixUI.Separator
 
 open Feliz
 open Fable.Core
@@ -10,7 +10,7 @@ open Browser.Types
 /// Visually or semantically separates content.
 type [<Erase>] separator =
     /// The separator.
-    static member inline root (props: IReactProperty seq) = createElement (import "Root" "@radix-ui/react-separator") props
+    static member inline root (props: IReactProperty seq) = createElement (import "Separator" "@radix-ui/react-separator") props
 
 
 /// The separator.
