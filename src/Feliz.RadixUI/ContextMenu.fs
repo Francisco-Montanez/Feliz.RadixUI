@@ -170,9 +170,9 @@ type [<Erase>] checkboxItem =
     /// Change the default rendered element for the one passed as a child, merging their props and behavior.  Read our Composition guide for more details.
     static member inline asChild (value: bool) = Feliz.Interop.mkAttr "asChild" value
     /// The controlled checked state of the item. Must be used in conjunction with onCheckedChange.
-    static member inline checked' (value: bool) = Feliz.Interop.mkAttr "checked'" value
+    static member inline checked' (value: bool) = Feliz.Interop.mkAttr "checked" value
     /// The controlled checked state of the item. Must be used in conjunction with onCheckedChange.
-    static member inline checked' (value: string) = Feliz.Interop.mkAttr "checked'" value
+    static member inline checked' (value: string) = Feliz.Interop.mkAttr "checked" value
     /// Event handler called when the checked state changes.
     static member inline onCheckedChange (value: (bool -> unit)) = Feliz.Interop.mkAttr "onCheckedChange" value
     /// Event handler called when the checked state changes.
@@ -236,7 +236,7 @@ type [<Erase>] sub =
     /// The open state of the submenu when it is initially rendered. Use when you do not need to control its open state.
     static member inline defaultOpen (value: bool) = Feliz.Interop.mkAttr "defaultOpen" value
     /// The controlled open state of the submenu. Must be used in conjunction with onOpenChange.
-    static member inline open' (value: bool) = Feliz.Interop.mkAttr "open'" value
+    static member inline open' (value: bool) = Feliz.Interop.mkAttr "open" value
     /// Event handler called when the open state of the submenu changes.
     static member inline onOpenChange (value: (bool -> unit)) = Feliz.Interop.mkAttr "onOpenChange" value
 

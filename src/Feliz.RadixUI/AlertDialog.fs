@@ -34,7 +34,7 @@ type [<Erase>] root =
     /// The open state of the dialog when it is initially rendered. Use when you do not need to control its open state.
     static member inline defaultOpen (value: bool) = Feliz.Interop.mkAttr "defaultOpen" value
     /// The controlled open state of the dialog. Must be used in conjunction with onOpenChange.
-    static member inline open' (value: bool) = Feliz.Interop.mkAttr "open'" value
+    static member inline open' (value: bool) = Feliz.Interop.mkAttr "open" value
     /// Event handler called when the open state of the dialog changes.
     static member inline onOpenChange (value: (bool -> unit)) = Feliz.Interop.mkAttr "onOpenChange" value
 

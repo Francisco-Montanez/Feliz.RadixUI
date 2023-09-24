@@ -22,7 +22,7 @@ type [<Erase>] root =
     /// The state of the switch when it is initially rendered. Use when you do not need to control its state.
     static member inline defaultChecked (value: bool) = Feliz.Interop.mkAttr "defaultChecked" value
     /// The controlled state of the switch. Must be used in conjunction with onCheckedChange.
-    static member inline checked' (value: bool) = Feliz.Interop.mkAttr "checked'" value
+    static member inline checked' (value: bool) = Feliz.Interop.mkAttr "checked" value
     /// Event handler called when the state of the switch changes.
     static member inline onCheckedChange (value: (bool -> unit)) = Feliz.Interop.mkAttr "onCheckedChange" value
     /// Event handler called when the state of the switch changes.

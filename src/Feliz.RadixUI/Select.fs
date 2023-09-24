@@ -54,7 +54,7 @@ type [<Erase>] root =
     /// Event handler called when the value changes.
     static member inline defaultOpen (value: bool) = Feliz.Interop.mkAttr "defaultOpen" value
     /// The controlled open state of the select. Must be used in conjunction with onOpenChange.
-    static member inline open' (value: bool) = Feliz.Interop.mkAttr "open'" value
+    static member inline open' (value: bool) = Feliz.Interop.mkAttr "open" value
     /// Event handler called when the open state of the select changes.
     static member inline onOpenChange (value: (bool -> unit)) = Feliz.Interop.mkAttr "onOpenChange" value
     /// The reading direction of the select when applicable. If omitted, inherits globally from DirectionProvider or assumes LTR (left-to-right) reading mode.
