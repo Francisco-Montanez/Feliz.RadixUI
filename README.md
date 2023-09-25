@@ -32,3 +32,9 @@ let my_accordion =
         ]
     ]
 ```
+
+## Install
+
+```
+dotnet add package Feliz.RadixUI
+```
