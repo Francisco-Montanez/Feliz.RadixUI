@@ -1,5 +1,5 @@
 # Feliz.RadixUI
-Feliz-style Fable bindings for Radix-UI.
+[Feliz-style](https://github.com/Zaid-Ajaj/Feliz) Fable bindings for [Radix-UI](https://www.radix-ui.com/primitives/docs/overview/introduction).
 
 Here is how it looks like:
 
@@ -18,25 +18,17 @@ let my_accordion =
             accordion.item [
                 prop.value "item-1"
                 prop.children [
-                    accordion.trigger [
-                        prop.text "is it accessible?"
-                    ]
-                    accordion.content [
-                        prop.text "yes"
-                    ]
+                    accordion.trigger [ prop.text "is it accessible?" ]
+                    accordion.content [ prop.text "yes" ]
                 ]
             ]
             accordion.item [
                 prop.value "item-2"
                 prop.children [
-                    accordion.trigger [
-                        prop.text "is it responsive?"
-                    ]
-                    accordion.content [
-                        prop.text "yes"
-                    ]
-                    ]
+                    accordion.trigger [ prop.text "is it responsive?" ]
+                    accordion.content [ prop.text "yes" ]
                 ]
             ]
         ]
+    ]
 ```
