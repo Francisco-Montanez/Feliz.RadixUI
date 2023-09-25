@@ -1,15 +1,21 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <PackageId>Radix.Feliz</PackageId>
+    <PackageId>Feliz.RadixUI</PackageId>
     <TargetFramework>netstandard2.0</TargetFramework>
     <OutputType>Library</OutputType>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Description>Feliz-style Fable bindings for Radix UI.</Description>
     <Authors>Francisco Montanez</Authors>
     <Version>0.0.1</Version>
     <RepositoryUrl>https://github.com/Francisco-Montanez/Feliz.RadixUI</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
+    <ReleaseNotes>https://github.com/Francisco-Montanez/Feliz.RadixUI/blob/main/RELEASE_NOTES.md</ReleaseNotes>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageTags>fable;fable-binding;fable-javascript;feliz;radix-ui;radix;ui</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
